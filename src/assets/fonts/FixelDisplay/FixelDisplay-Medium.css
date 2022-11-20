@@ -1,0 +1,9 @@
+/* Webfont: FixelDisplay-Medium */@font-face {
+    font-family: 'FixelDisplay-Medium';
+    src: url('FixelDisplay-Medium.woff2') format('woff2'), /* Modern Browsers */
+         url('FixelDisplay-Medium.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

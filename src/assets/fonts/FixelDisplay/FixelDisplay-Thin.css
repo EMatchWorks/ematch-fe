@@ -1,0 +1,9 @@
+/* Webfont: FixelDisplay-Thin */@font-face {
+    font-family: 'FixelDisplay-Thin';
+    src: url('FixelDisplay-Thin.woff2') format('woff2'), /* Modern Browsers */
+         url('FixelDisplay-Thin.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

@@ -1,0 +1,9 @@
+/* Webfont: FixelDisplay-SemiBold */@font-face {
+    font-family: 'FixelDisplay-SemiBold';
+    src: url('FixelDisplay-SemiBold.woff2') format('woff2'), /* Modern Browsers */
+         url('FixelDisplay-SemiBold.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
