@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
 
 import MainLayout from '../layouts/MainLayout';
 import Anticheat from '../pages/Anticheat/Anticheat';
@@ -13,7 +13,7 @@ import Users from '../pages/Users/Users';
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path='/' element={<MainLayout />}>
+      <Route path="/" element={<MainLayout />}>
         <Route index element={<Play />} />
         <Route path="news" element={<News />} />
         <Route path="users" element={<Users />} />
@@ -23,7 +23,7 @@ const AppRouter = () => {
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
-  )
-}
+  );
+};
 
-export default AppRouter
+export default AppRouter;
