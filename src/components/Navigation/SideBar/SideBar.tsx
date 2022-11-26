@@ -4,20 +4,40 @@ import News from '../../../assets/icons/Sidebar/News/News';
 import Tournaments from '../../../assets/icons/Sidebar/Cup/Cup';
 import Anticheat from '../../../assets/icons/Sidebar/Anticheat/Anticheat';
 import styles from './SideBar.module.scss';
+import { useState } from 'react';
 
 const SideBar = () => {
+  const [active, setActive] = useState('none');
+
+  const activeChange = (link: string) => {
+    setActive(link);
+  };
+
   return (
     <div className={styles.sideBar}>
-      <NavLink to="." end>
-        <Play />
+      <NavLink
+        className={({ isActive }) => {
+          isActive && activeChange('play');
+          return '';
+        }}
+        to="."
+        end
+      >
+        <Play active={active} />
       </NavLink>
-      <NavLink to="news" end>
-        <News />
+      <NavLink
+        className={({ isActive }) => {
+          isActive && activeChange('news');
+          return '';
+        }}
+        to="news"
+      >
+        <News active={active} />
       </NavLink>
-      <NavLink to="tournaments" end>
+      <NavLink to="tournaments">
         <Tournaments />
       </NavLink>
-      <NavLink to="anticheat" end>
+      <NavLink to="anticheat">
         <Anticheat />
       </NavLink>
     </div>
