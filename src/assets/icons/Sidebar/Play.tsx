@@ -26,38 +26,33 @@ const Play = (props: { blueBG: string; darkBG: string }) => {
     // </svg>
 
     <svg
-      width="60"
-      height="60"
-      viewBox="0 0 60 60"
+      width="65"
+      height="65"
+      viewBox="0 0 65 65"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M9 46.7635V13.2356C9 11.0056 11.3466 9.55515 13.3413 10.5522L46.8692 27.3111C49.0805 28.4164 49.0808 31.5718 46.8698 32.6776L13.342 49.4466C11.3472 50.4443 9 48.9938 9 46.7635Z"
+        d="M17.6553 57.3119L48.1359 41.1505C50.2621 40.0231 50.2621 36.9769 48.1359 35.8495L17.6553 19.6881C15.6573 18.6287 13.25 20.077 13.25 22.3386L13.25 54.6614C13.25 56.9229 15.6573 58.3713 17.6553 57.3119Z"
         stroke="#66FCF1"
         stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
         className={props.blueBG}
       />
-
       <path
         filter="url(#filter1_i_302_4)"
-        d="M16 35.7635V24.2356C16 22.0056 18.3466 20.5551 20.3413 21.5522L31.8692 27.3144C34.0805 28.4197 34.0809 31.5751 31.8698 32.6809L20.342 38.4466C18.3472 39.4443 16 37.9938 16 35.7635Z"
+        d="M25.3614 44.7241L32.5989 41.3053C34.8904 40.2229 34.8904 36.9626 32.5989 35.8801L25.3614 32.4613C23.3713 31.5212 21.08 32.9729 21.08 35.1739V42.0116C21.08 44.2125 23.3713 45.6642 25.3614 44.7241Z"
         stroke="#66FCF1"
         stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
         className={props.darkBG}
       />
 
       <defs>
         <filter
           id="filter1_i_302_4"
-          x="15"
-          y="20.2305"
-          width="19.5279"
-          height="19.5382"
+          x="20.08"
+          y="31.1691"
+          width="15.2375"
+          height="14.8474"
           filterUnits="userSpaceOnUse"
           color-interpolation-filters="sRGB"
         >
