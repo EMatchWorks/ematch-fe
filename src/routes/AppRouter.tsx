@@ -8,7 +8,7 @@ import NotFound from '../pages/NotFound/NotFound';
 import Play from '../pages/Play/Play';
 import Teams from '../pages/Teams/Teams';
 import Tournaments from '../pages/Tournaments/Tournaments';
-import Users from '../pages/Users/Users';
+import User from '../pages/User/User';
 
 const AppRouter = () => {
   return (
@@ -16,7 +16,7 @@ const AppRouter = () => {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Play />} />
         <Route path="news" element={<News />} />
-        <Route path="users" element={<Users />} />
+        <Route path="user" element={<User />} />
         <Route path="teams" element={<Teams />} />
         <Route path="tournaments" element={<Tournaments />} />
         <Route path="anticheat" element={<Anticheat />} />

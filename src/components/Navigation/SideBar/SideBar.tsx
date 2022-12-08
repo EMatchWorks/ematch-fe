@@ -1,44 +1,34 @@
 import { NavLink } from 'react-router-dom';
-import Play from '../../../assets/icons/Sidebar/Play/Play';
-import News from '../../../assets/icons/Sidebar/News/News';
-import Tournaments from '../../../assets/icons/Sidebar/Cup/Cup';
-import Anticheat from '../../../assets/icons/Sidebar/Anticheat/Anticheat';
+import Play from '../../../assets/icons/Sidebar/Play';
+import News from '../../../assets/icons/Sidebar/News';
+import Tournaments from '../../../assets/icons/Sidebar/Cup';
+import Anticheat from '../../../assets/icons/Sidebar/Anticheat';
 import styles from './SideBar.module.scss';
-import { useState } from 'react';
 
 const SideBar = () => {
-  const [active, setActive] = useState('none');
-
-  const activeChange = (link: string) => {
-    setActive(link);
+  const activeClass = (isActive: boolean) => {
+    return isActive ? styles.active : styles.disable;
   };
 
   return (
-    <div className={styles.sideBar}>
-      <NavLink
-        className={({ isActive }) => {
-          isActive && activeChange('play');
-          return '';
-        }}
-        to="."
-        end
-      >
-        <Play active={active} />
+    <div className={styles.Container}>
+      <NavLink className={({ isActive }) => activeClass(isActive)} to="." end>
+        <Play blueBG={styles.blueBG} darkBG={styles.darkBG} />
+      </NavLink>
+      <NavLink className={({ isActive }) => activeClass(isActive)} to="news">
+        <News news={styles.news} />
       </NavLink>
       <NavLink
-        className={({ isActive }) => {
-          isActive && activeChange('news');
-          return '';
-        }}
-        to="news"
+        className={({ isActive }) => activeClass(isActive)}
+        to="tournaments"
       >
-        <News active={active} />
+        <Tournaments blueBG={styles.blueBG} />
       </NavLink>
-      <NavLink to="tournaments">
-        <Tournaments />
-      </NavLink>
-      <NavLink to="anticheat">
-        <Anticheat />
+      <NavLink
+        className={({ isActive }) => activeClass(isActive)}
+        to="anticheat"
+      >
+        <Anticheat blueBG={styles.blueBG} />
       </NavLink>
     </div>
   );

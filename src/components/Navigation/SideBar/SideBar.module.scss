@@ -1,4 +1,4 @@
-.sideBar {
+.Container {
   width: 76px;
   background-color: #0b0c10;
   display: flex;
@@ -12,20 +12,60 @@
   top: 50%;
   left: 10px;
   transform: translateY(-50%);
-
-  & a {
+  a {
     display: inline-block;
     margin: 0 auto;
-
-    & svg {
+    svg {
       transition: all 0.1s linear 0s;
-
-      &:active {
-        transform: scale(1);
-      }
-
-      & path {
+      path {
         transition: all 0.1s linear 0s;
+      }
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+  .disable {
+    &:hover {
+      path {
+        filter: drop-shadow(0 0 2px #84fcf4);
+      }
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+  .active {
+    path {
+      filter: drop-shadow(0 0 4px #84fcf4);
+    }
+    .darkBG {
+      fill: #0b0c10;
+      stroke-width: 1;
+      filter: url(#filter1_i_302_4);
+    }
+    .blueBG {
+      fill: #84fcf4;
+      stroke-width: 0;
+    }
+    .news path {
+      fill: #0b0c10;
+      stroke-width: 1;
+      &:nth-child(1) {
+        fill: #84fcf4;
+        stroke-width: 0;
+      }
+      &:nth-child(2) {
+        filter: url(#filter0_i_302_34);
+      }
+      &:nth-child(3) {
+        filter: url(#filter1_i_302_34);
+      }
+      &:nth-child(4) {
+        filter: url(#filter2_i_302_34);
+      }
+      &:nth-child(5) {
+        filter: url(#filter3_i_302_34);
       }
     }
   }
