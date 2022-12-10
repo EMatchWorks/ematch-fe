@@ -2,6 +2,8 @@
 @use 'scss/fonts';
 
 body {
+  background-image: url('./assets/background/Bg.svg');
   background-color: #1f2833;
+  background-attachment: fixed;
   color: #66fcf1;
 }

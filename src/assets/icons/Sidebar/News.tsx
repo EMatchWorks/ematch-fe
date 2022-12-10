@@ -1,4 +1,4 @@
-const News = (props: { news: string }) => {
+const News = () => {
   return (
     // <svg
     //   width="44"
@@ -50,185 +50,14 @@ const News = (props: { news: string }) => {
       viewBox="0 0 65 65"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={props.news}
     >
       <path
-        d="M48.3511 9.54401H16.649C13.9649 9.54401 11.9836 11.9519 11.9836 14.6676V50.3324C11.9836 53.0481 13.9649 55.456 16.649 55.456H48.3511C51.0352 55.456 53.0165 53.0481 53.0165 50.3324V14.6676C53.0165 11.9519 51.0352 9.54401 48.3511 9.54401Z"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M48.756 10.545H16.244C14.168 10.545 12.485 12.3911 12.485 14.6683V50.3316C12.485 52.6089 14.168 54.455 16.244 54.455H48.756C50.832 54.455 52.515 52.6089 52.515 50.3316V14.6683C52.515 12.3911 50.832 10.545 48.756 10.545ZM26.2725 16.545H17.6975C17.0278 16.545 16.485 17.2513 16.485 18.1226V23.9674C16.485 24.8387 17.0278 25.545 17.6975 25.545H26.2725C26.9421 25.545 27.485 24.8387 27.485 23.9674V18.1226C27.485 17.2513 26.9421 16.545 26.2725 16.545ZM34.485 19.545H45.485C47.1418 19.545 48.485 20.8881 48.485 22.545C48.485 24.2018 47.1418 25.545 45.485 25.545H34.485C32.8281 25.545 31.485 24.2018 31.485 22.545C31.485 20.8881 32.8281 19.545 34.485 19.545ZM45.485 30.545H19.485C17.8281 30.545 16.485 31.8881 16.485 33.545C16.485 35.2018 17.8281 36.545 19.485 36.545H45.485C47.1418 36.545 48.485 35.2018 48.485 33.545C48.485 31.8881 47.1418 30.545 45.485 30.545ZM19.485 41.545H45.485C47.1418 41.545 48.485 42.8881 48.485 44.545C48.485 46.2018 47.1418 47.545 45.485 47.545H19.485C17.8281 47.545 16.485 46.2018 16.485 44.545C16.485 42.8881 17.8281 41.545 19.485 41.545Z"
         stroke="#66FCF1"
         stroke-width="2"
-        stroke-miterlimit="10"
-        stroke-linejoin="bevel"
       />
-
-      <path
-        d="M26.2875 16H17.7125C17.0428 16 16.5 16.7063 16.5 17.5776V23.4224C16.5 24.2937 17.0428 25 17.7125 25H26.2875C26.9572 25 27.5 24.2937 27.5 23.4224V17.5776C27.5 16.7063 26.9572 16 26.2875 16Z"
-        stroke="#66FCF1"
-        stroke-width="2"
-        stroke-linejoin="bevel"
-      />
-
-      <path
-        d="M45.5 19H34.5C32.8431 19 31.5 20.3431 31.5 22C31.5 23.6569 32.8431 25 34.5 25H45.5C47.1569 25 48.5 23.6569 48.5 22C48.5 20.3431 47.1569 19 45.5 19Z"
-        stroke="#66FCF1"
-        stroke-width="2"
-        stroke-linejoin="bevel"
-      />
-
-      <path
-        d="M45.5 30H19.5C17.8431 30 16.5 31.3431 16.5 33C16.5 34.6569 17.8431 36 19.5 36H45.5C47.1569 36 48.5 34.6569 48.5 33C48.5 31.3431 47.1569 30 45.5 30Z"
-        stroke="#66FCF1"
-        stroke-width="2"
-        stroke-linejoin="bevel"
-      />
-
-      <path
-        d="M45.5 41H19.5C17.8431 41 16.5 42.3431 16.5 44C16.5 45.6569 17.8431 47 19.5 47H45.5C47.1569 47 48.5 45.6569 48.5 44C48.5 42.3431 47.1569 41 45.5 41Z"
-        stroke="#66FCF1"
-        stroke-width="2"
-        stroke-linejoin="bevel"
-      />
-      <defs>
-        <filter
-          id="filter0_i_302_34"
-          x="15.5"
-          y="15"
-          width="13"
-          height="11"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-        >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            result="hardAlpha"
-          />
-          <feOffset />
-          <feGaussianBlur stdDeviation="5" />
-          <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0.4 0 0 0 0 0.988235 0 0 0 0 0.945098 0 0 0 1 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_302_34"
-          />
-        </filter>
-        <filter
-          id="filter1_i_302_34"
-          x="30.5"
-          y="18"
-          width="19"
-          height="8"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-        >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            result="hardAlpha"
-          />
-          <feOffset />
-          <feGaussianBlur stdDeviation="5" />
-          <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0.4 0 0 0 0 0.988235 0 0 0 0 0.945098 0 0 0 1 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_302_34"
-          />
-        </filter>
-        <filter
-          id="filter2_i_302_34"
-          x="15.5"
-          y="29"
-          width="34"
-          height="8"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-        >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            result="hardAlpha"
-          />
-          <feOffset />
-          <feGaussianBlur stdDeviation="5" />
-          <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0.4 0 0 0 0 0.988235 0 0 0 0 0.945098 0 0 0 1 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_302_34"
-          />
-        </filter>
-        <filter
-          id="filter3_i_302_34"
-          x="15.5"
-          y="40"
-          width="34"
-          height="8"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-        >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            result="hardAlpha"
-          />
-          <feOffset />
-          <feGaussianBlur stdDeviation="5" />
-          <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0.4 0 0 0 0 0.988235 0 0 0 0 0.945098 0 0 0 1 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_302_34"
-          />
-        </filter>
-      </defs>
     </svg>
   );
 };

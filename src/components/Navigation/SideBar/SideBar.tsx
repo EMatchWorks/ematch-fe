@@ -13,22 +13,22 @@ const SideBar = () => {
   return (
     <div className={styles.Container}>
       <NavLink className={({ isActive }) => activeClass(isActive)} to="." end>
-        <Play blueBG={styles.blueBG} darkBG={styles.darkBG} />
+        <Play />
       </NavLink>
       <NavLink className={({ isActive }) => activeClass(isActive)} to="news">
-        <News news={styles.news} />
+        <News />
       </NavLink>
       <NavLink
         className={({ isActive }) => activeClass(isActive)}
         to="tournaments"
       >
-        <Tournaments blueBG={styles.blueBG} />
+        <Tournaments />
       </NavLink>
       <NavLink
         className={({ isActive }) => activeClass(isActive)}
         to="anticheat"
       >
-        <Anticheat blueBG={styles.blueBG} />
+        <Anticheat />
       </NavLink>
     </div>
   );

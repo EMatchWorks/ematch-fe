@@ -1,4 +1,4 @@
-const Play = (props: { blueBG: string; darkBG: string }) => {
+const Play = () => {
   return (
     // <svg
     //   width="42"
@@ -25,6 +25,22 @@ const Play = (props: { blueBG: string; darkBG: string }) => {
     //   />
     // </svg>
 
+    // <svg
+    //   width="65"
+    //   height="65"
+    //   viewBox="0 0 65 65"
+    //   fill="none"
+    //   xmlns="http://www.w3.org/2000/svg"
+    // >
+    //   <path
+    //     fill-rule="evenodd"
+    //     clip-rule="evenodd"
+    //     d="M50.6772 38.267C52.0946 37.5154 52.0946 35.4846 50.6772 34.733L17.1966 16.981C15.8646 16.2747 14.2597 17.2403 14.2597 18.748V54.2521C14.2597 55.7598 15.8645 56.7253 17.1966 56.0191L50.6772 38.267ZM36.2673 39.411C38.5588 38.3285 38.5588 35.0683 36.2673 33.9858L25.6211 28.9568C23.631 28.0167 21.3397 29.4684 21.3397 31.6693V41.7274C21.3397 43.9284 23.631 45.3801 25.6211 44.44L36.2673 39.411Z"
+    //     className={props.blueBG}
+    //     stroke="#66FCF1"
+    //     stroke-width="2"
+    //   />
+    // </svg>
     <svg
       width="65"
       height="65"
@@ -33,56 +49,12 @@ const Play = (props: { blueBG: string; darkBG: string }) => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M17.6553 57.3119L48.1359 41.1505C50.2621 40.0231 50.2621 36.9769 48.1359 35.8495L17.6553 19.6881C15.6573 18.6287 13.25 20.077 13.25 22.3386L13.25 54.6614C13.25 56.9229 15.6573 58.3713 17.6553 57.3119Z"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M53.7633 38.2732C55.1964 37.5254 55.1965 35.4746 53.7633 34.7268L14.087 14.0261C12.7555 13.3314 11.1619 14.2975 11.1619 15.7993V57.2007C11.1619 58.7025 12.7555 59.6686 14.087 58.9738L53.7633 38.2732ZM37.0014 38.3297C38.4346 37.5819 38.4346 35.5311 37.0014 34.7833L22.3252 27.1261C20.9936 26.4314 19.4 27.3974 19.4 28.8993V44.2137C19.4 45.7156 20.9936 46.6816 22.3252 45.9869L37.0014 38.3297Z"
         stroke="#66FCF1"
         stroke-width="2"
-        className={props.blueBG}
       />
-      <path
-        filter="url(#filter1_i_302_4)"
-        d="M25.3614 44.7241L32.5989 41.3053C34.8904 40.2229 34.8904 36.9626 32.5989 35.8801L25.3614 32.4613C23.3713 31.5212 21.08 32.9729 21.08 35.1739V42.0116C21.08 44.2125 23.3713 45.6642 25.3614 44.7241Z"
-        stroke="#66FCF1"
-        stroke-width="2"
-        className={props.darkBG}
-      />
-
-      <defs>
-        <filter
-          id="filter1_i_302_4"
-          x="20.08"
-          y="31.1691"
-          width="15.2375"
-          height="14.8474"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-        >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            result="hardAlpha"
-          />
-          <feOffset />
-          <feGaussianBlur stdDeviation="5" />
-          <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0.4 0 0 0 0 0.988235 0 0 0 0 0.945098 0 0 0 1 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_302_4"
-          />
-        </filter>
-      </defs>
     </svg>
   );
 };

@@ -38,35 +38,8 @@
   .active {
     path {
       filter: drop-shadow(0 0 4px #84fcf4);
-    }
-    .darkBG {
-      fill: #0b0c10;
-      stroke-width: 1;
-      filter: url(#filter1_i_302_4);
-    }
-    .blueBG {
       fill: #84fcf4;
-      stroke-width: 0;
-    }
-    .news path {
-      fill: #0b0c10;
       stroke-width: 1;
-      &:nth-child(1) {
-        fill: #84fcf4;
-        stroke-width: 0;
-      }
-      &:nth-child(2) {
-        filter: url(#filter0_i_302_34);
-      }
-      &:nth-child(3) {
-        filter: url(#filter1_i_302_34);
-      }
-      &:nth-child(4) {
-        filter: url(#filter2_i_302_34);
-      }
-      &:nth-child(5) {
-        filter: url(#filter3_i_302_34);
-      }
     }
   }
 }

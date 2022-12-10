@@ -1,4 +1,4 @@
-const Anticheat = (props: { blueBG: string }) => {
+const Anticheat = () => {
   return (
     // <svg
     //   width="60"
@@ -27,7 +27,6 @@ const Anticheat = (props: { blueBG: string }) => {
         stroke="#66FCF1"
         stroke-width="2"
         stroke-miterlimit="10"
-        className={props.blueBG}
       />
     </svg>
   );
