@@ -1,17 +1,13 @@
-import React from 'react';
-import news from '../../data/news';
-import Paragraph from '../../components/Paragraph/Paragraph';
-import styles from './News.module.scss';
+import React from "react";
+import news from "../../data/news";
+import NewsPost from "../../components/NewsPost/NewsPost";
+import styles from "./News.module.scss";
 
 const News = () => {
   return (
     <div className={styles.container}>
-      {news.map((paragraph: { title: string; text: string; id: number }) => (
-        <Paragraph
-          title={paragraph.title}
-          text={paragraph.text}
-          key={paragraph.id}
-        />
+      {news.map((post) => (
+        <NewsPost title={post.title} text={post.text} key={post.id} />
       ))}
     </div>
   );
