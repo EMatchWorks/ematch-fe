@@ -1,11 +1,11 @@
 import React, { ReactNode } from "react";
 import styles from "./MainContainer.module.scss";
 
-interface Props {
+type MainContainerProps = {
   children?: ReactNode;
-}
+};
 
-const MainContainer = ({ children }: Props) => {
+const MainContainer = ({ children }: MainContainerProps) => {
   return <div className={styles.container}>{children}</div>;
 };
 
