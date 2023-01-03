@@ -12,7 +12,7 @@ const SideBar = () => {
 
   return (
     <div className={styles.Container}>
-      <NavLink className={({ isActive }) => activeClass(isActive)} to="." end>
+      <NavLink className={({ isActive }) => activeClass(isActive)} to="./play">
         <Play />
       </NavLink>
       <NavLink className={({ isActive }) => activeClass(isActive)} to="news">
