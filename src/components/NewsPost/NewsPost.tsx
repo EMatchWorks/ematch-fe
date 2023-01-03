@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./NewsPost.module.scss";
 
-interface Props {
+type NewsPostProps = {
   title: string;
   text: string;
-}
+};
 
-const NewsPost = ({ title, text }: Props) => {
+const NewsPost = ({ title, text }: NewsPostProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>{title}</div>
