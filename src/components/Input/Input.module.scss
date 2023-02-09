@@ -1,0 +1,32 @@
+.container {
+  position: relative;
+  font-size: 1.8rem;
+  span {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(0, -50%);
+    transition: all 0.1s linear 0s;
+    &.focus {
+      top: 30%;
+      left: 2.5%;
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+  }
+  input {
+    background-color: #0b0c10;
+    padding: 30px 10px 10px;
+    color: #66fcf1;
+    font-size: 2rem;
+    border-radius: 10px;
+    transition: all 0.1s linear 0s;
+    margin: 10px 0;
+    &.focus {
+      outline: 3px solid #66fcf268;
+    }
+    &:hover {
+      outline: 3px solid #66fcf168;
+    }
+  }
+}

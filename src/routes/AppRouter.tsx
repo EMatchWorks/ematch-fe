@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
 import Anticheat from '../pages/Anticheat/Anticheat';
 import Home from '../pages/Home/Home';
+import Login from '../pages/Login/Login';
 import News from '../pages/News/News';
 import NotFound from '../pages/NotFound/NotFound';
 import Play from '../pages/Play/Play';
@@ -22,6 +23,7 @@ const AppRouter = () => {
         <Route path="teams" element={<Teams />} />
         <Route path="tournaments" element={<Tournaments />} />
         <Route path="anticheat" element={<Anticheat />} />
+        <Route path="login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

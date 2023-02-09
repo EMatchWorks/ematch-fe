@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  button {
+    margin-top: 20px;
+    color: #66fcf1;
+    background-color: #0b0c10;
+    width: 80%;
+    padding: 10px 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.1s linear 0s;
+    &:hover {
+      outline: 3px solid #66fcf168;
+    }
+    &:active {
+      transform: translate(0, 2px);
+    }
+  }
+}
