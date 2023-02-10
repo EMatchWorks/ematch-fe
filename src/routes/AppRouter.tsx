@@ -8,6 +8,7 @@ import Login from '../pages/Login/Login';
 import News from '../pages/News/News';
 import NotFound from '../pages/NotFound/NotFound';
 import Play from '../pages/Play/Play';
+import Registration from '../pages/Registration/Registration';
 import Teams from '../pages/Teams/Teams';
 import Tournaments from '../pages/Tournaments/Tournaments';
 import User from '../pages/User/User';
@@ -24,6 +25,7 @@ const AppRouter = () => {
         <Route path="tournaments" element={<Tournaments />} />
         <Route path="anticheat" element={<Anticheat />} />
         <Route path="login" element={<Login />} />
+        <Route path="reg" element={<Registration />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
