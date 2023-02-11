@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styles from './Input.module.scss';
-
 type InputProps = {
   type: string;
   value: string;
@@ -19,8 +18,12 @@ const Input = (props: InputProps) => {
       <span className={focus.span}>{props.children}</span>
       <input
         className={focus.input}
-        type={props.type}
-        value={props.value}
+        type="text"
+        value={
+          props.type === 'password'
+            ? ''.padEnd(props.value.length, '*')
+            : props.value
+        }
         name={props.name}
         onChange={(e) => props.setInput(e.target.value)}
         onFocus={() =>

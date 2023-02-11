@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   span {
     position: absolute;
     top: 50%;
@@ -9,16 +9,17 @@
     transition: all 0.1s linear 0s;
     &.focus {
       top: 30%;
-      left: 2.5%;
-      font-size: 1.2rem;
+      left: 4%;
+      font-size: 1rem;
       opacity: 0.8;
     }
   }
+
   input {
     background-color: #0b0c10;
-    padding: 30px 10px 10px;
+    padding: 30px 12px 10px;
     color: #66fcf1;
-    font-size: 2rem;
+    font-size: 1.6rem;
     border-radius: 10px;
     transition: all 0.1s linear 0s;
     margin: 10px 0;
