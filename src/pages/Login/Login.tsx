@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { Context } from '../..';
 import Input from '../../components/Input/Input';
 import styles from './Login.module.scss';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const { store } = useContext(Context);
   function handlerFornSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
+    store.login(username, password);
   }
   return (
     <div className={styles.container}>
@@ -17,7 +20,7 @@ const Login = () => {
           value={username}
           setInput={setUsername}
         >
-          Username
+          Email\Username
         </Input>
         <Input
           name="password"
@@ -27,7 +30,7 @@ const Login = () => {
         >
           Password
         </Input>
-        <button>Login</button>
+        <button type="submit">Login</button>
       </form>
     </div>
   );

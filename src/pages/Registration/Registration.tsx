@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { Context } from '../..';
 import Input from '../../components/Input/Input';
 import styles from './Registration.module.scss';
 
@@ -6,8 +7,10 @@ const Registration = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  function handlerFornSubmit(event: React.SyntheticEvent) {
+  const { store } = useContext(Context);
+  async function handlerFornSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
+    await store.registration(username, email, password);
   }
   return (
     <div className={styles.container}>
