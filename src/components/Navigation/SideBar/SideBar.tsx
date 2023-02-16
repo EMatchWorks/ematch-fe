@@ -5,13 +5,17 @@ import Tournaments from '../../../assets/icons/Sidebar/Cup';
 import Anticheat from '../../../assets/icons/Sidebar/Anticheat';
 import styles from './SideBar.module.scss';
 
-const SideBar = () => {
+interface Props {
+  className: string;
+}
+
+const SideBar = (props: Props) => {
   const activeClass = (isActive: boolean) => {
     return isActive ? styles.active : styles.disable;
   };
 
   return (
-    <div className={styles.Container}>
+    <div className={props.className + ' ' + styles.Container}>
       <NavLink className={({ isActive }) => activeClass(isActive)} to="./play">
         <Play />
       </NavLink>

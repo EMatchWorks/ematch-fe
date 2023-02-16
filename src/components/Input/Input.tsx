@@ -18,12 +18,8 @@ const Input = (props: InputProps) => {
       <span className={focus.span}>{props.children}</span>
       <input
         className={focus.input}
-        type="text"
-        value={
-          props.type === 'password'
-            ? ''.padEnd(props.value.length, '*')
-            : props.value
-        }
+        type={props.type}
+        value={props.value}
         name={props.name}
         onChange={(e) => props.setInput(e.target.value)}
         onFocus={() =>

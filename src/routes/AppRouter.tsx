@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import MainLayout from '../layouts/MainLayout';
+import MainLayout from '../layouts/MainLayout/MainLayout';
 import Anticheat from '../pages/Anticheat/Anticheat';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
