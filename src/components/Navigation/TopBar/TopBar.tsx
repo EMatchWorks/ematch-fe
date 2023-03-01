@@ -12,12 +12,17 @@ const TopBar = (props: Props) => {
   const { store } = useContext(Context);
   return (
     <div className={props.className + ' ' + styles.container}>
-      {store.isAuth ? (
+      {store.isAuth && !store.isLoading ? (
         store.user.Username
       ) : (
         <div className={styles.link}>
-          <Link to="./login">Sign in</Link>
-          <Link to="./reg">Sign up</Link>
+          <Link role={'button'} to="./login">
+            Sign in
+          </Link>
+
+          <Link role={'button'} to="./reg">
+            Sign up
+          </Link>
         </div>
       )}
     </div>

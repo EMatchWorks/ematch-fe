@@ -8,9 +8,11 @@ interface Props {
 
 const Logo = (props: Props) => {
   return (
-    <NavLink to="." end className={props.className + ' ' + styles.container}>
-      <LogoSVG />
-    </NavLink>
+    <div className={props.className + ' ' + styles.container}>
+      <NavLink to="." end className={styles.logo}>
+        <LogoSVG />
+      </NavLink>
+    </div>
   );
 };
 

@@ -5,6 +5,7 @@ import MainLayout from '../layouts/MainLayout/MainLayout';
 import Anticheat from '../pages/Anticheat/Anticheat';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
+import Match from '../pages/Match/Match';
 import News from '../pages/News/News';
 import NotFound from '../pages/NotFound/NotFound';
 import Play from '../pages/Play/Play';
@@ -18,7 +19,10 @@ const AppRouter = () => {
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
-        <Route path="play" element={<Play />} />
+        <Route path="play">
+          <Route index element={<Play />} />
+          <Route path=":match_id" element={<Match />} />
+        </Route>
         <Route path="news" element={<News />} />
         <Route path="user" element={<User />} />
         <Route path="teams" element={<Teams />} />

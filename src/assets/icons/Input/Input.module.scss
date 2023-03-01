@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 35px;
+
+  svg {
+    transition: all 0.2s ease-in 0s;
+    rect,
+    circle {
+      transition: all 0.2s ease-in 0s;
+    }
+    &:hover {
+      rect,
+      circle {
+        filter: drop-shadow(0 0 2px #84fcf4);
+      }
+    }
+  }
+  .close {
+    rect {
+      height: 125px;
+    }
+    circle {
+      stroke-width: 0;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@-webkit-keyframes animate-svg-stroke-1 {
+  0% {
+    stroke-dashoffset: 146.40103149414062px;
+    stroke-dasharray: 146.40103149414062px;
+  }
+
+  100% {
+    stroke-dashoffset: 292.80206298828125px;
+    stroke-dasharray: 146.40103149414062px;
+  }
+}
+
+@keyframes animate-svg-stroke-1 {
+  0% {
+    stroke-dashoffset: 146.40103149414062px;
+    stroke-dasharray: 146.40103149414062px;
+  }
+
+  100% {
+    stroke-dashoffset: 292.80206298828125px;
+    stroke-dasharray: 146.40103149414062px;
+  }
+}
+
+.svgElem1 {
+  -webkit-animation: animate-svg-stroke-1 0.8s ease-in-out 0s both;
+  animation: animate-svg-stroke-1 0.8s ease-in-out 0s both;
+}

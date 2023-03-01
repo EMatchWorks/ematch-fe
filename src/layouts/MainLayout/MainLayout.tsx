@@ -17,7 +17,7 @@ const MainLayout = () => {
       <MainContainer className={styles.gridItem}>
         <Outlet />
       </MainContainer>
-      <UserSideBar className={styles.gridItem} />
+      {/* <UserSideBar className={styles.gridItem} /> */}
     </div>
   );
 };

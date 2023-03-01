@@ -7,6 +7,7 @@ import axios from 'axios';
 export default class Store {
   user = {} as IUser;
   isAuth = false;
+  isLoading = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -20,15 +21,22 @@ export default class Store {
     this.user = user;
   }
 
+  setIsLoading(bool: boolean) {
+    this.isLoading = bool;
+  }
+
   async login(UsernameOrEmail: string, Password: string) {
+    this.setIsLoading(true);
     try {
       const response = await AuthService.login(UsernameOrEmail, Password);
       localStorage.setItem('token', response.data.AccessToken);
       this.setAuth(true);
-      this.setUser(response.data.User);
+      this.setUser(response.data.UserData);
       console.log(response);
     } catch (e: any) {
       console.log(e.response?.data?.message);
+    } finally {
+      this.setIsLoading(false);
     }
   }
 
@@ -41,7 +49,7 @@ export default class Store {
       );
       localStorage.setItem('token', response.data.AccessToken);
       this.setAuth(true);
-      this.setUser(response.data.User);
+      this.setUser(response.data.UserData);
       console.log(response);
     } catch (e: any) {
       console.log(e.response?.data?.message);
@@ -66,7 +74,7 @@ export default class Store {
       });
       localStorage.setItem('token', response.data.AccessToken);
       this.setAuth(true);
-      this.setUser(response.data.User);
+      this.setUser(response.data.UserData);
     } catch (e: any) {
       console.log(e.response?.data?.message);
     }

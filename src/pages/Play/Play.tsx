@@ -1,9 +1,19 @@
-import React from 'react'
+import React from 'react';
+import CreateMatch from '../../components/CreateMatch/CreateMatch';
+import MatchesList from '../../components/MatchesList/MatchesList';
+import styles from './Play.module.scss';
 
 const Play = () => {
   return (
-    <div>Play</div>
-  )
-}
+    <div className={styles.container}>
+      <div className={styles.matchesList}>
+        <MatchesList />
+      </div>
+      <div className={styles.createMatch}>
+        <CreateMatch />
+      </div>
+    </div>
+  );
+};
 
-export default Play
+export default Play;
