@@ -7,18 +7,10 @@
     height: 100%;
     transition: all 0.8s ease-in-out 0s;
     .itemContainer {
-      margin-top: 2%;
-      height: 98%;
+      margin-top: 1.7%;
+      height: 96%;
       text-align: center;
-      &:nth-child(1) {
-        margin-top: 1.5%;
-      }
-      &:nth-child(2) {
-        margin-top: 2.5%;
-      }
-      &:nth-child(3) {
-        margin-top: 2.3%;
-      }
+
       .itemGrid {
         background: url('../../assets/background/HomePageBg.svg') 50% 0 / 100%
           100% no-repeat;

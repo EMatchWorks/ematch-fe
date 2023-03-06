@@ -5,6 +5,8 @@ type InputProps = {
   value: string;
   name: string;
   setInput: Function;
+  error: Boolean;
+  errorText?: string;
   children?: string;
 };
 
@@ -15,9 +17,11 @@ const Input = (props: InputProps) => {
   });
   return (
     <div className={styles.container}>
-      <span className={focus.span}>{props.children}</span>
+      <span className={focus.span + ' ' + (props.error ? styles.error : '')}>
+        {props.children}
+      </span>
       <input
-        className={focus.input}
+        className={focus.input + ' ' + (props.error ? styles.error : '')}
         type={props.type}
         value={props.value}
         name={props.name}
@@ -40,6 +44,15 @@ const Input = (props: InputProps) => {
               })
         }
       />
+      {props.errorText ? (
+        <span
+          className={styles.errorText + ' ' + (props.error ? styles.error : '')}
+        >
+          {props.errorText}
+        </span>
+      ) : (
+        ''
+      )}
     </div>
   );
 };

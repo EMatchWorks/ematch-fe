@@ -13,7 +13,7 @@ const TopBar = (props: Props) => {
   return (
     <div className={props.className + ' ' + styles.container}>
       {store.isAuth && !store.isLoading ? (
-        store.user.Username
+        store.user.Username.toString()
       ) : (
         <div className={styles.link}>
           <Link role={'button'} to="./login">

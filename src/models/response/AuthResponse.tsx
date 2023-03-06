@@ -3,5 +3,5 @@ import { IUser } from '../IUser';
 export interface AuthResponse {
   AccessToken: string;
   RefreshToken: string;
-  UserData: IUser;
+  User: IUser;
 }

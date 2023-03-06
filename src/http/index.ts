@@ -20,11 +20,11 @@ $api.interceptors.response.use(
   },
   async (error) => {
     const originRequest = error.config;
-   
-      if (error.response.status == 401) {
-        try {
+
+    if (error.response.status == 401) {
+      try {
         const response = await axios.get<AuthResponse>(
-          `${API_URL}auth/refresh`,
+          `${API_URL}api/auth/refresh`,
           { withCredentials: true }
         );
         localStorage.setItem('token', response.data.AccessToken);
@@ -32,7 +32,7 @@ $api.interceptors.response.use(
       } catch (e) {
         console.log('NO AUTHORIZED');
       }
-      }
+    }
   }
 );
 
