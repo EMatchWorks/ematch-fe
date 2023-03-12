@@ -13,7 +13,9 @@ const TopBar = (props: Props) => {
   return (
     <div className={props.className + ' ' + styles.container}>
       {store.isAuth && !store.isLoading ? (
-        store.user.Username.toString()
+        <div className={styles.avatar}>
+          <span>{store.user.Username.toString()[0].toLocaleUpperCase()}</span>
+        </div>
       ) : (
         <div className={styles.link}>
           <Link role={'button'} to="./login">

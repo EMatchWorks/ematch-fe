@@ -20,10 +20,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Context.Provider value={{ store }}>
-    <React.StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Context.Provider>
 );
