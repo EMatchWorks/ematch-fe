@@ -3,6 +3,8 @@
   height: 100%;
   background-color: #0b0c109b;
   text-align: end;
+  display: flex;
+  flex-direction: column;
   .link {
     margin-top: 5vh;
     a {
@@ -42,4 +44,11 @@
       height: 100%;
     }
   }
+}
+
+.preloader {
+  align-self: flex-end;
+  width: 50px;
+  height: 50px;
+  margin-right: 50px;
 }

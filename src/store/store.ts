@@ -68,6 +68,7 @@ export default class Store {
   }
 
   async checkAuth() {
+    this.setIsLoading(true);
     try {
       const response = await axios.get<AuthResponse>(
         `${API_URL}api/auth/refresh`,
@@ -80,6 +81,8 @@ export default class Store {
       this.setUser(response.data.User);
     } catch (e: any) {
       console.log(e.response?.data?.message);
+    } finally {
+      this.setIsLoading(false);
     }
     console.log(this);
   }

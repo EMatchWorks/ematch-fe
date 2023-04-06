@@ -1,0 +1,50 @@
+.tournament {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.rounds {
+  display: flex;
+  gap: 1rem;
+}
+
+.round {
+  display: flex;
+  flex-direction: column;
+}
+
+.matchWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.match {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid #ccc;
+  margin: 0 20px;
+  padding: 1rem;
+  width: 250px;
+  // height: 60px;
+  border-radius: 0.5rem;
+  &Up {
+    margin-top: 20px;
+  }
+  &Down {
+    margin-top: 10px;
+  }
+}
+
+.team {
+  font-weight: bold;
+}
+
+.winner {
+  color: green;
+}
