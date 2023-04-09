@@ -202,6 +202,7 @@ h6 {
 /* полоса прокрутки (скроллбар) */
 ::-webkit-scrollbar {
   width: 7px; /* высота для горизонтального скролла */
+  height: 7px;
   background-color: none;
 }
 
