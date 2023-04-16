@@ -1,5 +1,3 @@
-import { type } from 'os';
-import { useState } from 'react';
 import styles from './Input.module.scss';
 type InputProps = {
   isOpen: Boolean;
@@ -41,7 +39,7 @@ const Input = ({ isOpen, clikFunc }: InputProps) => {
           r="31"
           transform="rotate(45 36.5001 36.5002)"
           stroke="#66FCF1"
-          stroke-width="11"
+          strokeWidth="11"
         />
       </svg>
     </div>

@@ -25,10 +25,10 @@ const MatchesList = () => {
             match.id.toString() === inputValue) &&
           (mapFilter.length === 0 ||
             mapFilter.includes(match.map.toString())) ? (
-            <MatchLink match={match} />
+            <MatchLink match={match} key={match.id} />
           ) : (
             ''
-          )
+          ),
         )}{' '}
       </div>
     </div>

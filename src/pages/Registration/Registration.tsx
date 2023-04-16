@@ -29,7 +29,6 @@ const Registration = () => {
       validateErrors.password ||
       validateErrors.email
     ) {
-      console.log(validateErrors);
       setErrors({ ...validateErrors });
     } else {
       await store.registration(username, email, password);

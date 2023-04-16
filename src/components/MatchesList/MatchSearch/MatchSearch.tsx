@@ -1,4 +1,3 @@
-import { type } from 'os';
 import { useState } from 'react';
 import Input from '../../../assets/icons/Input/Input';
 import styles from './MatchSearch.module.scss';

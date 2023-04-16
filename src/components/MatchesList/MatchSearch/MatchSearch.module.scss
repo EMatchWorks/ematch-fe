@@ -10,7 +10,7 @@
   border-radius: 35px;
   z-index: 2;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   transition: all 0.2s ease-in 0s;
   transform-origin: 50% 50% 0;
   &:hover {

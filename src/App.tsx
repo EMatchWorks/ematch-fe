@@ -9,7 +9,7 @@ function App() {
     if (localStorage.getItem('token')) {
       store.checkAuth();
     }
-  }, []);
+  }, [store]);
 
   return <AppRouter />;
 }

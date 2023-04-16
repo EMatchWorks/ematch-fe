@@ -41,11 +41,12 @@ const MatchMapFilter = ({ mapFilter, setMapFilter }: MatchMapFilterProps) => {
   return (
     <div className={styles.filter + ' ' + (isOpen ? styles.open : '')}>
       <div className={styles.filterMap}>
-        {mapList.map((el) => (
+        {mapList.map((el, index) => (
           <MapName
             mapName={el}
             isAuth={mapFilter.includes(el)}
             clikFunc={mapFilterHandler}
+            key={index}
           />
         ))}
       </div>

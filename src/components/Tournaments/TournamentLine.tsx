@@ -22,7 +22,7 @@ const heightFunc = (height: number, marginY: number, index: number) => {
   return res;
 };
 
-const ToutnamentLine = (props: Props) => {
+const TournamentLine = (props: Props) => {
   const params: LineParams = {
     width: props.marginX * 2,
     height: heightFunc(props.height, props.marginY, props.roundIndex),
@@ -53,10 +53,10 @@ const ToutnamentLine = (props: Props) => {
               } H ${params.width}`
         }
         stroke="white"
-        stroke-width="5"
+        strokeWidth="5"
       />
     </svg>
   );
 };
 
-export default ToutnamentLine;
+export default TournamentLine;

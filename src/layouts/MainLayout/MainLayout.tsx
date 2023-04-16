@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Logo from '../../components/Navigation/Logo/Logo';
 import SideBar from '../../components/Navigation/SideBar/SideBar';
 import TopBar from '../../components/Navigation/TopBar/TopBar';
-import UserSideBar from '../../components/Navigation/UserSideBar/UserSideBar';
+// import UserSideBar from '../../components/Navigation/UserSideBar/UserSideBar';
 import MainContainer from '../MainContainer/MainContainer';
 import styles from './MainLayout.module.scss';
 

@@ -15,7 +15,7 @@ const contentArr = [
             similique voluptates sint officiis exercitationem?
           </div>
           <div className={styles.itemImg}>
-            <img src={CTPLayerIMG} />
+            <img src={CTPLayerIMG} alt={'CT'} />
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@ const contentArr = [
             similique voluptates sint officiis exercitationem?
           </div>
           <div className={styles.itemImg}>
-            <img src={CTPLayerIMG} />
+            <img src={CTPLayerIMG} alt={'CT'} />
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@ const contentArr = [
             similique voluptates sint officiis exercitationem?
           </div>
           <div className={styles.itemImg}>
-            <img src={CTPLayerIMG} />
+            <img src={CTPLayerIMG} alt={'CT'} />
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@ const contentArr = [
             similique voluptates sint officiis exercitationem?
           </div>
           <div className={styles.itemImg}>
-            <img src={CTPLayerIMG} />
+            <img src={CTPLayerIMG} alt={'CT'} />
           </div>
         </div>
       </div>
@@ -79,11 +79,10 @@ const contentArr = [
 
 const Home = () => {
   const [itemIndex, setItemIndex] = useState(0);
-  console.log(itemIndex);
   const scrollProcentHandler = (event: React.WheelEvent<HTMLDivElement>) => {
-    if (event.deltaY > 0 && itemIndex != contentArr.length - 1) {
+    if (event.deltaY > 0 && itemIndex !== contentArr.length - 1) {
       setItemIndex(itemIndex + 1);
-    } else if (event.deltaY < 0 && itemIndex != 0) {
+    } else if (event.deltaY < 0 && itemIndex !== 0) {
       setItemIndex(itemIndex - 1);
     }
   };

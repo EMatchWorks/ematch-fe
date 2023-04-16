@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Anticheat = () => {
-  return (
-    <div>Anticheat</div>
-  )
-}
+  return <div>Anticheat</div>;
+};
 
-export default Anticheat
+export default Anticheat;

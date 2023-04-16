@@ -43,7 +43,11 @@ const MatchLink = ({ match }: any) => {
   return (
     <div>
       <Link className={styles.link} to={'' + match.id}>
-        <img className={styles.imgMap} src={mapBGHandler(match.map)} />
+        <img
+          className={styles.imgMap}
+          src={mapBGHandler(match.map)}
+          alt={match.map}
+        />
         <div className={styles.matchInfo}>
           <div className={styles.matchInfoItem}>{match.User.userName}</div>
           <div className={styles.matchInfoItem}>

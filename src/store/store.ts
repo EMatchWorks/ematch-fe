@@ -32,9 +32,8 @@ export default class Store {
       localStorage.setItem('token', response.data.AccessToken);
       this.setAuth(true);
       this.setUser(response.data.User);
-      console.log(response);
     } catch (e: any) {
-      console.log(e.response?.data?.message);
+      console.error(e.response?.data?.message);
     } finally {
       this.setIsLoading(false);
     }
@@ -45,25 +44,24 @@ export default class Store {
       const response = await AuthService.registration(
         Username,
         Email,
-        Password
+        Password,
       );
       localStorage.setItem('token', response.data.AccessToken);
       this.setAuth(true);
       this.setUser(response.data.User);
-      console.log(response);
     } catch (e: any) {
-      console.log(e.response?.data?.message);
+      console.error(e.response?.data?.message);
     }
   }
 
   async logout() {
     try {
-      const response = await AuthService.logout();
+      await AuthService.logout();
       localStorage.removeItem('token');
       this.setAuth(false);
       this.setUser({} as IUser);
     } catch (e: any) {
-      console.log(e.response?.data?.message);
+      console.error(e.response?.data?.message);
     }
   }
 
@@ -74,16 +72,15 @@ export default class Store {
         `${API_URL}api/auth/refresh`,
         {
           withCredentials: true,
-        }
+        },
       );
       localStorage.setItem('token', response.data.AccessToken);
       this.setAuth(true);
       this.setUser(response.data.User);
     } catch (e: any) {
-      console.log(e.response?.data?.message);
+      console.error(e.response?.data?.message);
     } finally {
       this.setIsLoading(false);
     }
-    console.log(this);
   }
 }

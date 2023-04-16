@@ -22,7 +22,6 @@ const Login = () => {
       password: !passwordRegex.test(password),
     };
     if (validateErrors.login || validateErrors.password) {
-      console.log(validateErrors);
       setErrors({ ...validateErrors });
     } else {
       store.login(username, password);

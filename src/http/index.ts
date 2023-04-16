@@ -1,6 +1,5 @@
 import { AuthResponse } from './../models/response/AuthResponse';
 import axios from 'axios';
-import { config } from 'process';
 
 export const API_URL = 'http://localhost:9000/';
 
@@ -21,19 +20,19 @@ $api.interceptors.response.use(
   async (error) => {
     const originRequest = error.config;
 
-    if (error.response.status == 401) {
+    if (error.response.status === 401) {
       try {
         const response = await axios.get<AuthResponse>(
           `${API_URL}api/auth/refresh`,
-          { withCredentials: true }
+          { withCredentials: true },
         );
         localStorage.setItem('token', response.data.AccessToken);
         return $api.request(originRequest);
       } catch (e) {
-        console.log('NO AUTHORIZED');
+        console.error('NOT AUTHORIZED');
       }
     }
-  }
+  },
 );
 
 export default $api;

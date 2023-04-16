@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import styles from './Tournaments.module.scss';
 import tournamentData, { Round } from './tournamentData';
-import ToutnamentLine from '../../assets/Tournaments/ToutnamentLine';
+import TournamentLine from '../../components/Tournaments/TournamentLine';
 
 const height = 80;
 const marginY = 20;
@@ -63,12 +63,12 @@ const Tournaments = () => {
                 }}
               >
                 {round.round.length > 1 ? (
-                  <ToutnamentLine
+                  <TournamentLine
                     height={height}
                     marginX={marginX}
                     marginY={marginY}
                     roundIndex={roundIndex}
-                    matchIndex = {matchIndex}
+                    matchIndex={matchIndex}
                   />
                 ) : (
                   ' '

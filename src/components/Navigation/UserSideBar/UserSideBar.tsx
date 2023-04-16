@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styles from './UserSideBar.module.scss';
-import User from '../../../assets/icons/UserSidBar/User';
-import Teams from '../../../assets/icons/UserSidBar/Teams';
+import User from '../../../assets/icons/UserSideBar/User';
+import Teams from '../../../assets/icons/UserSideBar/Teams';
 
 interface Props {
   className: string;

@@ -1,7 +1,7 @@
-import React from "react";
-import news from "../../data/news";
-import NewsPost from "../../components/NewsPost/NewsPost";
-import styles from "./News.module.scss";
+import React from 'react';
+import news from '../../data/news';
+import NewsPost from '../../components/NewsPost/NewsPost';
+import styles from './News.module.scss';
 
 const News = () => {
   return (

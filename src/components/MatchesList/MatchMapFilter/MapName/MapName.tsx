@@ -26,7 +26,7 @@ const MapName = (props: FilterMapProps) => {
           <path
             d="M3.5 31.5L26.8787 54.8787C28.0503 56.0503 29.9497 56.0503 31.1213 54.8787L82.5 3.5"
             stroke="#66FCF1"
-            stroke-width="15"
+            strokeWidth="15"
             className={
               (props.isAuth ? styles.active : '') + ' ' + styles.svgElem1
             }
