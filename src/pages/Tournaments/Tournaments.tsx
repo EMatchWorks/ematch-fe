@@ -1,21 +1,7 @@
 import React, { useRef } from 'react';
 import styles from './Tournaments.module.scss';
-import tournamentData, { Round } from './tournamentData';
-import TournamentLine from '../../components/Tournaments/TournamentLine';
-
-const height = 80;
-const marginY = 20;
-const marginX = 40;
-
-const step = (count: number) => {
-  let res = 0;
-  let coef = height - (height / 2 - marginY);
-  for (let i = 0; i < count; i++) {
-    res += coef;
-    coef *= 2;
-  }
-  return res;
-};
+import tournamentData, { Round } from '../../data/tournamentData';
+import TournamentRound from '../../components/TournamentRound/TournamentRound';
 
 const Tournaments = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -51,52 +37,7 @@ const Tournaments = () => {
     >
       <div className={styles.rounds}>
         {tournamentData.rounds.map((round: Round, roundIndex: number) => (
-          <div key={`round-${roundIndex}`} className={styles.round}>
-            {round.round.map((match, matchIndex) => (
-              <div
-                key={`match-${matchIndex}`}
-                className={styles.match}
-                style={{
-                  position: 'relative',
-                  height: `${height}px`,
-                  margin: `${marginY + step(roundIndex)}px ${marginX}px`,
-                }}
-              >
-                {round.round.length > 1 ? (
-                  <TournamentLine
-                    height={height}
-                    marginX={marginX}
-                    marginY={marginY}
-                    roundIndex={roundIndex}
-                    matchIndex={matchIndex}
-                  />
-                ) : (
-                  ' '
-                )}
-
-                <div
-                  className={
-                    styles.team +
-                    ' ' +
-                    (match.winner === match.team1 ? styles.winner : '')
-                  }
-                  style={{ height: `${height / 2}px` }}
-                >
-                  {match.team1}
-                </div>
-                <div
-                  className={
-                    styles.team +
-                    ' ' +
-                    (match.winner === match.team2 ? styles.winner : '')
-                  }
-                  style={{ height: `${height / 2}px` }}
-                >
-                  {match.team2}
-                </div>
-              </div>
-            ))}
-          </div>
+          <TournamentRound roundIndex={roundIndex} round={round} />
         ))}
       </div>
     </div>

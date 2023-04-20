@@ -40,6 +40,7 @@ const TournamentLine = (props: Props) => {
         position: 'absolute',
         [params.direction ? 'top' : 'bottom']: '0',
         right: `-${params.width}px`,
+        zIndex: '-1',
       }}
     >
       <path
@@ -52,8 +53,8 @@ const TournamentLine = (props: Props) => {
                 0 + props.height / 2
               } H ${params.width}`
         }
-        stroke="white"
-        strokeWidth="5"
+        stroke="#559d98"
+        strokeWidth="3"
       />
     </svg>
   );

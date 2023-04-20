@@ -1,0 +1,12 @@
+.round {
+  display: flex;
+  flex-direction: column;
+}
+.match {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 200px;
+  border-radius: 0.5rem;
+  background-color: #0b0c105e;
+}

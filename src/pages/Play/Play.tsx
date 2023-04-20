@@ -1,4 +1,3 @@
-import React from 'react';
 import CreateMatch from '../../components/CreateMatch/CreateMatch';
 import MatchesList from '../../components/MatchesList/MatchesList';
 import styles from './Play.module.scss';
@@ -8,9 +7,6 @@ const Play = () => {
     <div className={styles.container}>
       <div className={styles.matchesList}>
         <MatchesList />
-      </div>
-      <div className={styles.createMatch}>
-        <CreateMatch />
       </div>
     </div>
   );

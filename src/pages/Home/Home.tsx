@@ -97,6 +97,7 @@ const Home = () => {
           if (index === itemIndex) {
             return (
               <div
+                key={index}
                 onWheel={scrollProcentHandler}
                 style={{ width: '100%', height: '100%' }}
               >
@@ -104,7 +105,7 @@ const Home = () => {
               </div>
             );
           } else {
-            return el.content;
+            return <span key={index}>{el.content}</span>;
           }
         })}
       </div>
