@@ -37,7 +37,11 @@ const Tournaments = () => {
     >
       <div className={styles.rounds}>
         {tournamentData.rounds.map((round: Round, roundIndex: number) => (
-          <TournamentRound roundIndex={roundIndex} round={round} />
+          <TournamentRound
+            roundIndex={roundIndex}
+            round={round}
+            key={roundIndex}
+          />
         ))}
       </div>
     </div>
