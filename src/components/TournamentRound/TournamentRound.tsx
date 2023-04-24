@@ -7,7 +7,7 @@ type TournamentRoundProps = {
   roundIndex: number;
   round: Round;
 };
-const height = 80;
+const height = 200;
 const marginY = 20;
 const marginX = 40;
 
@@ -27,7 +27,7 @@ const TournamentRound = (props: TournamentRoundProps) => {
     <div>
       {' '}
       <div key={`round-${props.roundIndex}`} className={styles.round}>
-        {props.round.round.map((match, matchIndex) => (
+        {props.round.matches.map((match, matchIndex) => (
           <div
             key={`match-${matchIndex}`}
             className={styles.match}
@@ -37,7 +37,7 @@ const TournamentRound = (props: TournamentRoundProps) => {
               margin: `${marginY + step(props.roundIndex)}px ${marginX}px`,
             }}
           >
-            {props.round.round.length > 1 ? (
+            {props.round.matches.length > 1 ? (
               <TournamentLine
                 height={height}
                 marginX={marginX}

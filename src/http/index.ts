@@ -26,7 +26,7 @@ $api.interceptors.response.use(
           `${API_URL}api/auth/refresh`,
           { withCredentials: true },
         );
-        localStorage.setItem('token', response.data.AccessToken);
+        localStorage.setItem('token', response.data.accessToken);
         return $api.request(originRequest);
       } catch (e) {
         console.error('NOT AUTHORIZED');

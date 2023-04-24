@@ -25,13 +25,13 @@ export default class Store {
     this.isLoading = bool;
   }
 
-  async login(UsernameOrEmail: string, Password: string) {
+  async login(usernameOrEmail: string, password: string) {
     this.setIsLoading(true);
     try {
-      const response = await AuthService.login(UsernameOrEmail, Password);
-      localStorage.setItem('token', response.data.AccessToken);
+      const response = await AuthService.login(usernameOrEmail, password);
+      localStorage.setItem('token', response.data.accessToken);
       this.setAuth(true);
-      this.setUser(response.data.User);
+      this.setUser(response.data.userData);
     } catch (e: any) {
       console.error(e.response?.data?.message);
     } finally {
@@ -39,16 +39,16 @@ export default class Store {
     }
   }
 
-  async registration(Username: string, Email: string, Password: string) {
+  async registration(username: string, email: string, password: string) {
     try {
       const response = await AuthService.registration(
-        Username,
-        Email,
-        Password,
+        username,
+        email,
+        password,
       );
-      localStorage.setItem('token', response.data.AccessToken);
+      localStorage.setItem('token', response.data.accessToken);
       this.setAuth(true);
-      this.setUser(response.data.User);
+      this.setUser(response.data.userData);
     } catch (e: any) {
       console.error(e.response?.data?.message);
     }
@@ -74,9 +74,9 @@ export default class Store {
           withCredentials: true,
         },
       );
-      localStorage.setItem('token', response.data.AccessToken);
+      localStorage.setItem('token', response.data.accessToken);
       this.setAuth(true);
-      this.setUser(response.data.User);
+      this.setUser(response.data.userData);
     } catch (e: any) {
       console.error(e.response?.data?.message);
     } finally {

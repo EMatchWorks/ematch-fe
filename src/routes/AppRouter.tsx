@@ -26,7 +26,10 @@ const AppRouter = () => {
         <Route path="news" element={<News />} />
         <Route path="user" element={<User />} />
         <Route path="teams" element={<Teams />} />
-        <Route path="tournaments" element={<Tournaments />} />
+        <Route path="tournaments">
+          <Route index element={<Tournaments />} />
+          <Route path=":match_id" element={<Match />} />
+        </Route>
         <Route path="anticheat" element={<Anticheat />} />
         <Route path="login" element={<Login />} />
         <Route path="reg" element={<Registration />} />

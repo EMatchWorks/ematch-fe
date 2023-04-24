@@ -22,7 +22,7 @@ const TopBar = (props: Props) => {
           {store.isAuth && !store.isLoading ? (
             <div className={styles.avatar}>
               <span>
-                {store.user.Username.toString()[0].toLocaleUpperCase()}
+                {store.user.username.toString()[0].toLocaleUpperCase()}
               </span>
             </div>
           ) : (
