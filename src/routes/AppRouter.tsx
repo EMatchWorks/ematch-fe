@@ -11,25 +11,44 @@ import NotFound from '../pages/NotFound/NotFound';
 import Play from '../pages/Play/Play';
 import Registration from '../pages/Registration/Registration';
 import Teams from '../pages/Teams/Teams';
-import Tournaments from '../pages/Tournaments/Tournaments';
-import User from '../pages/User/User';
+import TournamentsList from '../pages/TournamentsList/TournamentsList';
+import UserProfile from '../pages/UserProfile/UserProfile';
+import UserLayout from '../layouts/UserLayout/UserLayout';
+import UserTeams from '../pages/UserTeams/UserTeams';
+import UserFriends from '../pages/UserFriends/UserFriends';
+import Tournament from '../components/Tournament/Tournament';
+import CreateTournament from '../pages/CreateTournament/CreateTournament';
 
 const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
+
         <Route path="play">
           <Route index element={<Play />} />
           <Route path=":match_id" element={<Match />} />
         </Route>
+
         <Route path="news" element={<News />} />
-        <Route path="user" element={<User />} />
         <Route path="teams" element={<Teams />} />
+
         <Route path="tournaments">
-          <Route index element={<Tournaments />} />
-          <Route path=":match_id" element={<Match />} />
+          <Route index element={<TournamentsList />} />
+          <Route path="createTournament" element={<CreateTournament />} />
+
+          <Route path=":tournament_id">
+            <Route index element={<Tournament />} />
+            <Route path=":match_id" element={<Match />} />
+          </Route>
         </Route>
+
+        <Route path=":user_id" element={<UserLayout />}>
+          <Route index element={<UserProfile />} />
+          <Route path="friends" element={<UserFriends />} />
+          <Route path="teams" element={<UserTeams />} />
+        </Route>
+
         <Route path="anticheat" element={<Anticheat />} />
         <Route path="login" element={<Login />} />
         <Route path="reg" element={<Registration />} />

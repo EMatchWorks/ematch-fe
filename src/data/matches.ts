@@ -1,193 +1,130 @@
 type Matches = {
   id: Number;
-  map: String;
+  mapId: number;
   countOfPlayers: Number;
-  User: {
-    userName: String;
-    id: Number;
-  };
+  userId: number;
 };
 
 const matches: Matches[] = [
   {
     id: 1,
-    map: 'de_mirage',
+    mapId: 0,
     countOfPlayers: 7,
-    User: {
-      id: 1,
-      userName: 'Alex',
-    },
+    userId: 1,
   },
   {
     id: 2,
-    map: 'de_overpass',
+    mapId: 1,
     countOfPlayers: 6,
-    User: {
-      id: 2,
-      userName: 'Bob',
-    },
+    userId: 2,
   },
   {
     id: 3,
-    map: 'de_dust2',
+    mapId: 2,
     countOfPlayers: 8,
-    User: {
-      id: 3,
-      userName: 'Test',
-    },
+    userId: 3,
   },
   {
     id: 4,
-    map: 'de_cbble',
+    mapId: 3,
     countOfPlayers: 7,
-    User: {
-      id: 4,
-      userName: 'Reg',
-    },
+    userId: 4,
   },
   {
     id: 5,
-    map: 'de_nuke',
+    mapId: 4,
     countOfPlayers: 2,
-    User: {
-      id: 5,
-      userName: 'Sof',
-    },
+    userId: 5,
   },
   {
     id: 6,
-    map: 'de_inferno',
+    mapId: 5,
     countOfPlayers: 10,
-    User: {
-      id: 1,
-      userName: 'Alex',
-    },
+    userId: 1,
   },
   {
     id: 7,
-    map: 'de_ancient',
+    mapId: 6,
     countOfPlayers: 2,
-    User: {
-      id: 2,
-      userName: 'Bob',
-    },
+    userId: 2,
   },
   {
     id: 8,
-    map: 'de_train',
+    mapId: 7,
     countOfPlayers: 9,
-    User: {
-      id: 3,
-      userName: 'Test',
-    },
+    userId: 3,
   },
   {
     id: 9,
-    map: 'de_vertigo',
+    mapId: 8,
     countOfPlayers: 4,
-    User: {
-      id: 4,
-      userName: 'Reg',
-    },
+    userId: 4,
   },
   {
     id: 10,
-    map: 'de_anubis',
+    mapId: 9,
     countOfPlayers: 2,
-    User: {
-      id: 5,
-      userName: 'Sof',
-    },
+    userId: 5,
   },
   {
     id: 11,
-    map: 'de_mirage',
+    mapId: 0,
     countOfPlayers: 7,
-    User: {
-      id: 1,
-      userName: 'Alex',
-    },
+    userId: 1,
   },
   {
     id: 12,
-    map: 'de_overpass',
+    mapId: 1,
     countOfPlayers: 6,
-    User: {
-      id: 2,
-      userName: 'Bob',
-    },
+    userId: 2,
   },
   {
     id: 13,
-    map: 'de_dust2',
+    mapId: 2,
     countOfPlayers: 8,
-    User: {
-      id: 3,
-      userName: 'Test',
-    },
+    userId: 3,
   },
   {
     id: 14,
-    map: 'de_cbble',
+    mapId: 3,
     countOfPlayers: 3,
-    User: {
-      id: 4,
-      userName: 'Reg',
-    },
+    userId: 4,
   },
   {
     id: 15,
-    map: 'de_nuke',
+    mapId: 4,
     countOfPlayers: 10,
-    User: {
-      id: 5,
-      userName: 'Sof',
-    },
+    userId: 5,
   },
   {
     id: 16,
-    map: 'de_inferno',
+    mapId: 5,
     countOfPlayers: 8,
-    User: {
-      id: 1,
-      userName: 'Alex',
-    },
+    userId: 1,
   },
   {
     id: 17,
-    map: 'de_ancient',
+    mapId: 6,
     countOfPlayers: 1,
-    User: {
-      id: 2,
-      userName: 'Bob',
-    },
+    userId: 2,
   },
   {
     id: 18,
-    map: 'de_train',
+    mapId: 7,
     countOfPlayers: 9,
-    User: {
-      id: 3,
-      userName: 'Test',
-    },
+    userId: 3,
   },
   {
     id: 19,
-    map: 'de_vertigo',
+    mapId: 8,
     countOfPlayers: 4,
-    User: {
-      id: 4,
-      userName: 'Reg',
-    },
+    userId: 4,
   },
   {
     id: 20,
-    map: 'de_anubis',
+    mapId: 9,
     countOfPlayers: 2,
-    User: {
-      id: 5,
-      userName: 'Sof',
-    },
+    userId: 5,
   },
 ];
 

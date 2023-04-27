@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
-import styles from './Tournaments.module.scss';
+import styles from './Tournament.module.scss';
 import tournamentData, { Round } from '../../data/tournamentData';
 import TournamentRound from '../../components/TournamentRound/TournamentRound';
 
-const Tournaments = () => {
+const Tournament = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   let startX = 0;
   let startY = 0;
@@ -48,4 +48,4 @@ const Tournaments = () => {
   );
 };
 
-export default Tournaments;
+export default Tournament;

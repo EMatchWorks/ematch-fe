@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Context } from '../../..';
 import Preloader from '../../../assets/preloader/Preloader';
 import styles from './TopBar.module.scss';
+import Avatar from '../../Avatar/Avatar';
 
 interface Props {
   className: string;
@@ -21,9 +22,9 @@ const TopBar = (props: Props) => {
         <div>
           {store.isAuth && !store.isLoading ? (
             <div className={styles.avatar}>
-              <span>
-                {store.user.username.toString()[0].toLocaleUpperCase()}
-              </span>
+              <Link to={`/${store.user.id.toString()}`}>
+                <Avatar id={store.user.id} />
+              </Link>
             </div>
           ) : (
             <div className={styles.link}>

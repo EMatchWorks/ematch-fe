@@ -12,10 +12,12 @@ import anchientBG from '../../../assets/background/Maps/de_ancient.jpg';
 import trainBG from '../../../assets/background/Maps/de_train.jpg';
 import vertigoBG from '../../../assets/background/Maps/de_vertigo.jpg';
 import anubisBG from '../../../assets/background/Maps/de_anubis.jpg';
+import users from '../../../data/user';
+import maps from '../../../data/map';
 
 const MatchLink = ({ match }: any) => {
-  const mapBGHandler = (mapName: String) => {
-    switch (mapName) {
+  const mapBGHandler = (id: number) => {
+    switch (maps.find((map) => map.id === id)?.name) {
       case 'de_mirage':
         return mirageBG;
       case 'de_overpass':
@@ -40,16 +42,21 @@ const MatchLink = ({ match }: any) => {
         break;
     }
   };
+  const findUserName = (id: number): string => {
+    return users.find((user) => user.id === id)?.userName || '';
+  };
   return (
     <div>
       <Link className={styles.link} to={'' + match.id}>
         <img
           className={styles.imgMap}
-          src={mapBGHandler(match.map)}
+          src={mapBGHandler(match.mapId)}
           alt={match.map}
         />
         <div className={styles.matchInfo}>
-          <div className={styles.matchInfoItem}>{match.User.userName}</div>
+          <div className={styles.matchInfoItem}>
+            {findUserName(match.userId)}
+          </div>
           <div className={styles.matchInfoItem}>
             {match.countOfPlayers + '/10'}
           </div>

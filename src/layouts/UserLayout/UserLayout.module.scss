@@ -1,0 +1,45 @@
+.layoutUser {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  padding-top: 50px;
+  padding-left: 20px;
+  .userDataContainer {
+    display: flex;
+    .userAvatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 5px;
+      overflow: hidden;
+      background-color: #0b0c10aa;
+      box-shadow: 4px 4px 10px #0b0c10aa;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .userName {
+      margin-left: 20px;
+      font-size: 46px;
+      font-weight: 600;
+      align-self: flex-end;
+    }
+  }
+  .userProfileNav {
+    margin-top: 30px;
+    font-size: 28px;
+    a {
+      margin-right: 25px;
+      color: #43a9a2;
+      transition: all 0.1s linear 0s;
+    }
+    .activeLink {
+      color: #66fcf1;
+      text-shadow: 0px 0px 5px #66fcf1;
+      text-decoration: underline;
+    }
+  }
+  .outlet {
+    margin-top: 50px;
+  }
+}

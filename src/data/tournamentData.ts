@@ -10,9 +10,11 @@ export interface Round {
 }
 
 export interface TournamentData {
+  id:number
   rounds: Round[];
 }
 const tournamentData: TournamentData = {
+  id: 0,
   rounds: [
     // Раунд 1
     {

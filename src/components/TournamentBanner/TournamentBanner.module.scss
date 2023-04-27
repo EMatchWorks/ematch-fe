@@ -1,0 +1,16 @@
+.bannerContainer {
+  display: block;
+  color: #66fcf1;
+  width: 90%;
+  height: 200px;
+  font-size: 56px;
+  font-weight: 600;
+  margin: 20px auto;
+  border-radius: 10px;
+  background: url('../../assets/background/HomePageBg.svg') 50% 0 / 100% auto
+    repeat;
+  box-shadow: 4px 4px 10px #0b0c10aa;
+  background-color: rgba(11, 12, 16, 0.61);
+  padding-top: 30px;
+  padding-left: 20px;
+}
