@@ -4,6 +4,10 @@ import { AxiosResponse } from 'axios';
 
 export default class UserService {
   static fetchUsers(): Promise<AxiosResponse<IUser[]>> {
-    return $api.get<IUser[]>('/users');
+    return $api.get<IUser[]>('/user');
+  }
+
+  static fetchUser(id: string): Promise<AxiosResponse<IUser>> {
+    return $api.get<IUser>(`/user/${id}`);
   }
 }

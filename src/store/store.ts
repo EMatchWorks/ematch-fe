@@ -69,7 +69,7 @@ export default class Store {
     this.setIsLoading(true);
     try {
       const response = await axios.get<AuthResponse>(
-        `${API_URL}api/auth/refresh`,
+        `${API_URL}/auth/refresh`,
         {
           withCredentials: true,
         },

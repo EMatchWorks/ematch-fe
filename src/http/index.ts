@@ -1,7 +1,7 @@
 import { AuthResponse } from './../models/response/AuthResponse';
 import axios from 'axios';
 
-export const API_URL = 'http://localhost:9000/';
+export const API_URL = 'http://localhost:9000/api';
 
 const $api = axios.create({
   withCredentials: true,
@@ -23,7 +23,7 @@ $api.interceptors.response.use(
     if (error.response.status === 401) {
       try {
         const response = await axios.get<AuthResponse>(
-          `${API_URL}api/auth/refresh`,
+          `${API_URL}/auth/refresh`,
           { withCredentials: true },
         );
         localStorage.setItem('token', response.data.accessToken);

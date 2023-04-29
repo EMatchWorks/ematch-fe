@@ -27,7 +27,7 @@ const Avatar = (props: AvatarProps) => {
         setIsLoading(false);
       }, 3000);
     })();
-  }, []);
+  }, [props.id]);
 
   if (isLoading) {
     return (
@@ -36,7 +36,7 @@ const Avatar = (props: AvatarProps) => {
       </div>
     );
   } else {
-    return <img src={avatar} />;
+    return <img src={avatar} alt="Avatar" />;
   }
 };
 

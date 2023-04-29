@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, Outlet, useParams } from 'react-router-dom';
-import users from '../../data/user';
 import NotFound from '../../pages/NotFound/NotFound';
 import styles from './UserLayout.module.scss';
 import Avatar from '../../components/Avatar/Avatar';
-import { link } from 'fs';
+import UserService from '../../services/UserService';
+import { IUser } from '../../models/IUser';
 
 const UserLayout = () => {
+  const [user, setUser] = useState<IUser>();
+  const params = useParams();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        if (!params.user_id) {
+          return;
+        }
+        let response = await UserService.fetchUser(params.user_id);
+        setUser(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, [params.user_id]);
+
   const activeLinkHandler = (isActive: boolean) => {
     return isActive ? styles.activeLink : styles.link;
   };
-  const params = useParams();
-  const user = users.find((user) => user.id.toString() === params.user_id);
   if (!user) {
     return <NotFound />;
   }
@@ -22,7 +37,7 @@ const UserLayout = () => {
         <div className={styles.userAvatar}>
           <Avatar id={user.id} />
         </div>
-        <div className={styles.userName}>{'' + user.userName}</div>
+        <div className={styles.userName}>{'' + user.username}</div>
       </div>
       <div className={styles.userProfileNav}>
         <NavLink
