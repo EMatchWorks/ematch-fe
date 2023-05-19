@@ -30,7 +30,7 @@ const AppRouter = () => {
           <Route path=":match_id" element={<Match />} />
         </Route>
 
-        <Route path="news" element={<News />} />
+        <Route path="news" element={<News />}></Route>
         <Route path="teams" element={<Teams />} />
 
         <Route path="tournaments">
