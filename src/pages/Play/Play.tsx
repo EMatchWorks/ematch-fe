@@ -8,6 +8,9 @@ const Play = () => {
       <div className={styles.matchesList}>
         <MatchesList />
       </div>
+      <div className={styles.createMatch}>
+        <CreateMatch />
+      </div>
     </div>
   );
 };
