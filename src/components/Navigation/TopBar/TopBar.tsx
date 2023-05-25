@@ -11,19 +11,19 @@ interface Props {
 }
 
 const TopBar = (props: Props) => {
-  const { store } = useContext(Context);
+  const { userStore } = useContext(Context);
   return (
     <div className={props.className + ' ' + styles.container}>
-      {store.isLoading ? (
+      {userStore.isLoading ? (
         <div className={styles.preloader}>
           <Preloader />
         </div>
       ) : (
         <div>
-          {store.isAuth && !store.isLoading ? (
+          {userStore.isAuth && !userStore.isLoading ? (
             <div className={styles.avatar}>
-              <Link to={`/${store.user.id.toString()}`}>
-                <Avatar id={store.user.id} />
+              <Link to={`/${userStore.user.id.toString()}`}>
+                <Avatar id={userStore.user.id} />
               </Link>
             </div>
           ) : (

@@ -3,23 +3,27 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.scss';
-import Store from './store/store';
+import UserStore from './store/userStore';
+import NewsStore from './store/newsStore';
 
 interface State {
-  store: Store;
+  userStore: UserStore;
+  newsStore: NewsStore;
 }
 
-const store = new Store();
+const userStore = new UserStore();
+const newsStore = new NewsStore();
 
 export const Context = createContext<State>({
-  store,
+  userStore,
+  newsStore,
 });
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 root.render(
-  <Context.Provider value={{ store }}>
+  <Context.Provider value={{ userStore, newsStore }}>
     <BrowserRouter>
       <App />
     </BrowserRouter>

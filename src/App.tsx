@@ -4,12 +4,12 @@ import { Context } from './index';
 import AppRouter from './routes/AppRouter';
 
 function App() {
-  const { store } = useContext(Context);
+  const { userStore } = useContext(Context);
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      store.checkAuth();
+      userStore.checkAuth();
     }
-  }, [store]);
+  }, [userStore]);
 
   return <AppRouter />;
 }

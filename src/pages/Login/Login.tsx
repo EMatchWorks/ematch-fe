@@ -14,7 +14,7 @@ const Login = () => {
   });
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const { store } = useContext(Context);
+  const { userStore } = useContext(Context);
   function handlerFornSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
     const validateErrors = {
@@ -24,7 +24,7 @@ const Login = () => {
     if (validateErrors.login || validateErrors.password) {
       setErrors({ ...validateErrors });
     } else {
-      store.login(username, password);
+      userStore.login(username, password);
       setErrors({ ...validateErrors });
     }
   }

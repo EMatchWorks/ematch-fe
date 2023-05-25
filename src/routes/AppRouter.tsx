@@ -18,6 +18,7 @@ import UserTeams from '../pages/UserTeams/UserTeams';
 import UserFriends from '../pages/UserFriends/UserFriends';
 import Tournament from '../components/Tournament/Tournament';
 import CreateTournament from '../pages/CreateTournament/CreateTournament';
+import CreateNews from '../pages/CreateNews/CreateNews';
 
 const AppRouter = () => {
   return (
@@ -30,7 +31,10 @@ const AppRouter = () => {
           <Route path=":match_id" element={<Match />} />
         </Route>
 
-        <Route path="news" element={<News />}></Route>
+        <Route path="news">
+          <Route index element={<News />} />
+          <Route path="add_news" element={<CreateNews />} />
+        </Route>
         <Route path="teams" element={<Teams />} />
 
         <Route path="tournaments">

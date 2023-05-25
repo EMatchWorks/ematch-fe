@@ -1,10 +1,10 @@
-import { API_URL } from './../http/index';
-import { AuthResponse } from './../models/response/AuthResponse';
+import { API_URL } from '../http/index';
+import { AuthResponse } from '../models/response/AuthResponse';
 import { makeAutoObservable } from 'mobx';
 import AuthService from '../services/AuthService';
-import { IUser } from './../models/IUser';
+import { IUser } from '../models/IUser';
 import axios from 'axios';
-export default class Store {
+export default class UserStore {
   user = {} as IUser;
   isAuth = false;
   isLoading = false;

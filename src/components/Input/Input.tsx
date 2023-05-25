@@ -5,7 +5,7 @@ type InputProps = {
   value: string;
   name: string;
   setInput: Function;
-  error: Boolean;
+  error?: Boolean;
   errorText?: string;
   children?: string;
 };

@@ -4,16 +4,16 @@
   span {
     pointer-events: none;
     position: absolute;
-    top: 50%;
-    left: 5%;
+    top: 50px;
+    left: 40px;
     transform: translate(0, -50%);
     transition: all 0.1s linear 0s;
     &.error {
       color: #ff0000c9;
     }
     &.focus {
-      top: 32%;
-      left: 2%;
+      top: 35px;
+      left: 20px;
       font-size: 1rem;
       opacity: 0.9;
     }
@@ -35,7 +35,7 @@
 
   input {
     background-color: #0b0c10;
-    padding: 20px 2% 5px;
+    padding: 20px 20px 5px;
     height: 60px;
     width: 30vw;
     color: #66fcf1;

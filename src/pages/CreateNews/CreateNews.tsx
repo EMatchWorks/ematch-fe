@@ -1,7 +1,32 @@
-import React from 'react';
+import styles from './CreateNews.module.scss';
+
+import { useState, useContext } from 'react';
+import { Context } from '../..';
+import Input from '../../components/Input/Input';
+import Textarea from '../../components/Textarea/Textarea';
 
 const CreateNews = () => {
-  return <div>CreateNews</div>;
+  const [title, setTitle] = useState<string>('');
+  const [content, setContent] = useState<string>('');
+  const { newsStore } = useContext(Context);
+
+  async function handlerFormSubmit(event: React.SyntheticEvent) {
+    event.preventDefault();
+    newsStore.createNews(title, content);
+  }
+  return (
+    <div className={styles.container}>
+      <form onSubmit={handlerFormSubmit}>
+        <Input name="title" type="text" value={title} setInput={setTitle}>
+          Title
+        </Input>
+        <Textarea name="content" value={content} setInput={setContent}>
+          Content
+        </Textarea>
+        <button>Create article</button>
+      </form>
+    </div>
+  );
 };
 
 export default CreateNews;

@@ -16,7 +16,7 @@ const Registration = () => {
     email: false,
     password: false,
   });
-  const { store } = useContext(Context);
+  const { userStore } = useContext(Context);
   async function handlerFormSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
     const validateErrors = {
@@ -31,7 +31,7 @@ const Registration = () => {
     ) {
       setErrors({ ...validateErrors });
     } else {
-      await store.registration(username, email, password);
+      await userStore.registration(username, email, password);
       setErrors({ ...validateErrors });
     }
   }
