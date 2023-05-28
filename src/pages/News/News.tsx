@@ -16,7 +16,9 @@ const News = () => {
   return (
     <div className={styles.container}>
       {newsStore.isLoading ? (
-        <Preloader />
+        <div className={styles.preloader}>
+          <Preloader />
+        </div>
       ) : (
         <div>
           {newsStore.news.map((post, index) => (

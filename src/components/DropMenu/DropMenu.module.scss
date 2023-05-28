@@ -1,0 +1,44 @@
+.inputField {
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 600;
+  width: 100%;
+  position: relative;
+  margin-top: 10px;
+  z-index: 0;
+  .inputChoosen {
+    cursor: pointer;
+    padding: 12px 12px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.1s ease-in 0s;
+    border: 2px solid #66fcf1;
+    border-radius: 20px;
+    &:hover {
+      background-color: #1e4c49;
+    }
+  }
+  .inputParams {
+    cursor: pointer;
+    position: absolute;
+    overflow-y: scroll;
+    border: 2px solid #66fcf1;
+    border-radius: 20px;
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    width: 100%;
+    transition: all 0.1s ease-in 0s;
+    font-size: 1.5rem;
+    z-index: 1;
+    div {
+      padding: 12px 12px;
+      cursor: pointer;
+      transition: all 0.1s ease-in 0s;
+      &:hover {
+        background-color: #1e4c49;
+      }
+    }
+  }
+}
