@@ -1,8 +1,29 @@
 .container {
+  position: relative;
   padding: 0 5px;
   background-color: rgba(11, 12, 16, 0.822);
   height: 100%;
-  border-bottom-left-radius: 35px;
+  border-bottom-left-radius: 20px;
   display: flex;
   flex-direction: column;
+  .fieldsContainer {
+    height: 90%;
+    overflow-y: scroll;
+  }
+  .button {
+    user-select: none;
+    padding: 27px;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: 2px solid #66fcf1;
+    border-radius: 20px;
+    transition: all 0.1s ease-in 0s;
+    &:hover {
+      background-color: #1e4c49;
+    }
+    &:active {
+      transform: translate(0, 5px);
+    }
+  }
 }

@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import styles from './DropMenu.module.scss';
+import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 type DropMenuProps = {
   name: string;
   paramsList: Array<string>;
   choosenParam: string;
   setChoosenParam: React.Dispatch<React.SetStateAction<string>>;
+  isDisable?: boolean;
 };
 
 const DropMenu = (props: DropMenuProps) => {
@@ -36,6 +38,15 @@ const DropMenu = (props: DropMenuProps) => {
   return (
     <div className={styles.inputField}>
       <div
+        style={
+          props.isDisable
+            ? {
+                pointerEvents: 'none',
+                color: '#89a09e',
+                border: '2px solid #89a09e',
+              }
+            : {}
+        }
         className={styles.inputChoosen}
         onClick={setInputParamsStylesHandler}
       >

@@ -2,24 +2,29 @@
   cursor: pointer;
   font-size: 2rem;
   font-weight: 600;
-  width: 100%;
-  position: relative;
-  margin-top: 10px;
-  z-index: 0;
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 20px;
+  background-color: rgba(11, 12, 16, 0.822);
   .inputChoosen {
+    position: relative;
     cursor: pointer;
-    padding: 12px 12px;
+    padding: 12px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     transition: all 0.1s ease-in 0s;
     border: 2px solid #66fcf1;
     border-radius: 20px;
+    z-index: 0;
+    user-select: none;
     &:hover {
       background-color: #1e4c49;
     }
   }
   .inputParams {
+    user-select: none;
     cursor: pointer;
     position: absolute;
     overflow-y: scroll;
@@ -28,12 +33,15 @@
     border-top: none;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    width: 100%;
+    width: 90%;
+    left: 5%;
     transition: all 0.1s ease-in 0s;
     font-size: 1.5rem;
-    z-index: 1;
+    z-index: 10;
+    background-color: rgb(11, 12, 16);
     div {
-      padding: 12px 12px;
+      user-select: none;
+      padding: 12px;
       cursor: pointer;
       transition: all 0.1s ease-in 0s;
       &:hover {
