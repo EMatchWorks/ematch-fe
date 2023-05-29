@@ -4,11 +4,10 @@ import { AxiosResponse } from 'axios';
 
 export default class CreateMatchService {
   static async create(
-    userid: number,
     mode: string,
     selectType: string,
     map: string,
   ): Promise<AxiosResponse<AuthResponse>> {
-    return $api.post('api/match', { userid, mode, selectType, map });
+    return $api.post('api/match', { mode, selectType, map });
   }
 }

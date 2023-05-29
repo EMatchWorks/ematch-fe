@@ -20,15 +20,9 @@ const CreateMatch = () => {
   const [modeVarc, setModeVarc] = useState(mode[0]);
   const [selectTypeVarc, setSelectTypeVarc] = useState(selectType[0]);
   const [mapVarc, setMapVarc] = useState(maps[0]);
-  const { userStore } = useContext(Context);
 
   const createMatchHandler = () => {
-    CreateMatchService.create(
-      userStore.user.id,
-      modeVarc,
-      selectTypeVarc,
-      mapVarc,
-    );
+    CreateMatchService.create(modeVarc, selectTypeVarc, mapVarc);
   };
 
   return (
