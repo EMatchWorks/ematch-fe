@@ -16,8 +16,8 @@ import users from '../../../data/user';
 import maps from '../../../data/map';
 
 const MatchLink = ({ match }: any) => {
-  const mapBGHandler = (id: number) => {
-    switch (maps.find((map) => map.id === id)?.name) {
+  const mapBGHandler = (name: string) => {
+    switch (maps.find((map) => map.name === name)?.name) {
       case 'de_mirage':
         return mirageBG;
       case 'de_overpass':
@@ -50,19 +50,14 @@ const MatchLink = ({ match }: any) => {
       <Link className={styles.link} to={'' + match.id}>
         <img
           className={styles.imgMap}
-          src={mapBGHandler(match.mapId)}
+          src={mapBGHandler(match.map)}
           alt={match.map}
         />
         <div className={styles.matchInfo}>
-          <div className={styles.matchInfoItem}>
-            {findUserName(match.userId)}
-          </div>
-          <div className={styles.matchInfoItem}>
-            {match.countOfPlayers + '/10'}
-          </div>
+          <div className={styles.matchInfoItem}>{match.type}</div>
+          <div className={styles.matchInfoItem}>{match.status}</div>
           <div className={styles.matchInfoItem}>
             <div>{match.map}</div>
-            <div>{'#' + match.id}</div>
           </div>
           <div className={styles.matchInfoItem}>
             <BsPlayCircle />

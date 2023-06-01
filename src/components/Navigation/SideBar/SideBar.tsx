@@ -32,12 +32,12 @@ const SideBar = (props: Props) => {
         >
           <Tournaments />
         </NavLink>
-        <NavLink
+        {/* <NavLink
           className={({ isActive }) => activeClass(isActive)}
           to="anticheat"
         >
           <Anticheat />
-        </NavLink>
+        </NavLink> */}
       </div>
     </div>
   );

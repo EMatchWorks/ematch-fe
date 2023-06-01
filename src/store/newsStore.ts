@@ -1,7 +1,7 @@
 import { makeAutoObservable, observable } from 'mobx';
 
 import NewsService from '../services/NewsService';
-import { INews } from '../models/INews';
+import { INews } from '../models/News/INews';
 export default class NewsStore {
   news = [] as INews[];
   isLoading = false;

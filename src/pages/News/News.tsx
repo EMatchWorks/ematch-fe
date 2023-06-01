@@ -11,7 +11,7 @@ const News = () => {
 
   useEffect(() => {
     newsStore.loadNews();
-  }, [newsStore]);
+  }, []);
 
   return (
     <div className={styles.container}>

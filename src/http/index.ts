@@ -1,4 +1,4 @@
-import { AuthResponse } from './../models/response/AuthResponse';
+import { IAuthResponse } from './../models/response/AuthResponse';
 import axios from 'axios';
 
 export const API_URL = 'http://localhost:9000/api';
@@ -22,7 +22,7 @@ $api.interceptors.response.use(
 
     if (error.response.status === 401) {
       try {
-        const response = await axios.get<AuthResponse>(
+        const response = await axios.get<IAuthResponse>(
           `${API_URL}/auth/refresh`,
           { withCredentials: true },
         );
@@ -31,6 +31,8 @@ $api.interceptors.response.use(
       } catch (e) {
         console.error('NOT AUTHORIZED');
       }
+    } else {
+      throw error;
     }
   },
 );

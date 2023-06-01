@@ -7,9 +7,9 @@ type TournamentRoundProps = {
   roundIndex: number;
   round: Round;
 };
-const height = 200;
+const height = 170;
 const marginY = 20;
-const marginX = 40;
+const marginX = 60;
 
 const step = (count: number) => {
   let res = 0;

@@ -1,10 +1,12 @@
 import { useContext, useState } from 'react';
 import styles from './CreateMatch.module.scss';
 import DropMenu from '../DropMenu/DropMenu';
-import CreateMatchService from '../../services/CreateMatchService';
+import MatchService from '../../services/MatchService';
 import { Context } from '../..';
+import MatchStore from '../../store/matchStore';
+import { useNavigate } from 'react-router-dom';
 
-const mode = ['2v2', '5v5'];
+const mode = ['1v1', '2v2', '5v5'];
 const selectType = ['preset', 'pick/ban'];
 const maps = [
   'de_mirage',
@@ -17,12 +19,20 @@ const maps = [
 ];
 
 const CreateMatch = () => {
+  const { matchStore } = useContext(Context);
+  const navigate = useNavigate();
+
   const [modeVarc, setModeVarc] = useState(mode[0]);
   const [selectTypeVarc, setSelectTypeVarc] = useState(selectType[0]);
   const [mapVarc, setMapVarc] = useState(maps[0]);
 
-  const createMatchHandler = () => {
-    CreateMatchService.create(modeVarc, selectTypeVarc, mapVarc);
+  const createMatchHandler = async () => {
+    const newMatchID = await matchStore.createMatch(
+      modeVarc,
+      selectTypeVarc,
+      mapVarc,
+    );
+    navigate(`./${newMatchID}`);
   };
 
   return (

@@ -4,7 +4,7 @@ import NotFound from '../../pages/NotFound/NotFound';
 import styles from './UserLayout.module.scss';
 import Avatar from '../../components/Avatar/Avatar';
 import UserService from '../../services/UserService';
-import { IUser } from '../../models/IUser';
+import { IUser } from '../../models/User/IUser';
 
 const UserLayout = () => {
   const [user, setUser] = useState<IUser>();

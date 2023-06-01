@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './TournamentTeam.module.scss';
+import Avatar from '../Avatar/Avatar';
 
 type TournamentTeamProps = {
   team: string;
-  isWinner: boolean;
+  isWinner?: boolean;
 };
 
 const TournamentTeam = (props: TournamentTeamProps) => {
@@ -14,7 +15,10 @@ const TournamentTeam = (props: TournamentTeamProps) => {
         className={styles.team + ' ' + (props.isWinner ? styles.winner : '')}
         //   style={{ height: `${height / 2}px` }}
       >
-        {props.team}
+        <div className={styles.avatar}>
+          <Avatar id={0} />
+        </div>
+        <div className={styles.teamName}>{props.team}</div>
       </div>
     </div>
   );

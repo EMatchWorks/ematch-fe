@@ -1,8 +1,29 @@
 .team {
+  display: flex;
+  align-content: flex-end;
   font-weight: bold;
   font-size: 18px;
-  text-align: center;
   margin: 10px;
+  background-color: #0b0c105e;
+  height: 64px;
+
+  border-radius: 5px;
+  .avatar {
+    margin: 0 20px;
+    width: 44px;
+    height: 44px;
+    align-self: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+    }
+  }
+  .teamName {
+    align-self: flex-end;
+    margin-bottom: 10px;
+  }
 }
 
 .winner {

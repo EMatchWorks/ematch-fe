@@ -1,9 +1,9 @@
 import $api from '../http';
 import { AxiosResponse } from 'axios';
-import { UserAvatar } from '../models/UserAvatar';
+import { IUserAvatar } from '../models/User/IUserAvatar';
 
 export default class UserAvatarService {
-  static fetchUserAvatar(userId: number): Promise<AxiosResponse<UserAvatar>> {
-    return $api.get<UserAvatar>(`/profile/avatar/${userId}`);
+  static fetchUserAvatar(userId: number): Promise<AxiosResponse<IUserAvatar>> {
+    return $api.get<IUserAvatar>(`/profile/avatar/${userId}`);
   }
 }

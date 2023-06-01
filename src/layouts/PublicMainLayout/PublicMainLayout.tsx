@@ -5,21 +5,20 @@ import SideBar from '../../components/Navigation/SideBar/SideBar';
 import TopBar from '../../components/Navigation/TopBar/TopBar';
 // import UserSideBar from '../../components/Navigation/UserSideBar/UserSideBar';
 import MainContainer from '../MainContainer/MainContainer';
-import styles from './MainLayout.module.scss';
+import styles from './PublicMainLayout.module.scss';
 
-const MainLayout = () => {
+const PublicMainLayout = () => {
   return (
     <div className={styles.grid}>
       <Logo className={styles.gridItem} />
       <TopBar className={styles.gridItem} />
-      <SideBar className={styles.gridItem} />
 
       <MainContainer className={styles.gridItem}>
         <Outlet />
       </MainContainer>
-      {/* <UserSideBar className={styles.gridItem} /> */}
+      {/* <Errors /> */}
     </div>
   );
 };
 
-export default MainLayout;
+export default PublicMainLayout;

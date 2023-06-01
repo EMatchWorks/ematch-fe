@@ -1,7 +1,7 @@
-import { AuthResponse } from '../models/response/AuthResponse';
+import { IAuthResponse } from '../models/response/AuthResponse';
 import $api from '../http';
 import { AxiosResponse } from 'axios';
-import { INews } from '../models/INews';
+import { INews } from '../models/News/INews';
 
 export default class CreateNewsService {
   static async createNews(
