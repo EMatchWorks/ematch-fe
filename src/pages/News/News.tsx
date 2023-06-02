@@ -5,6 +5,7 @@ import styles from './News.module.scss';
 import { Context } from '../..';
 import Preloader from '../../assets/preloader/Preloader';
 import { observer } from 'mobx-react-lite';
+import { Link } from 'react-router-dom';
 
 const News = () => {
   const { newsStore } = useContext(Context);
@@ -26,6 +27,9 @@ const News = () => {
           ))}
         </div>
       )}
+      <Link to={'./add_news'} className={styles.buttonCreate}>
+        Add news
+      </Link>
     </div>
   );
 };

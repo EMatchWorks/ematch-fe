@@ -1,58 +1,135 @@
 import { useEffect, useContext, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import matches from '../../data/matches';
+import { Link, useParams } from 'react-router-dom';
+
 import NotFound from '../NotFound/NotFound';
 import { Context } from '../..';
 import { observer } from 'mobx-react-lite';
 import Preloader from '../../assets/preloader/Preloader';
 import styles from './Match.module.scss';
 import MatchTeam from '../../components/MatchTeam/MatchTeam';
-import { IMatch } from '../../models/Match/IMatch';
-import MatchService from '../../services/MatchService';
-import { ITeam } from '../../models/Team/ITeam';
+import { IMatch, IMatchErorr } from '../../models/Match/IMatch';
+
+import overpassBG from '../../assets/background/Maps/de_overpass.jpg';
+import mirageBG from '../../assets/background/Maps/de_mirage.jpg';
+import dustBG from '../../assets/background/Maps/de_dust2.jpg';
+import cobleBG from '../../assets/background/Maps/de_cbble.jpg';
+import nukeBG from '../../assets/background/Maps/de_nuke.jpg';
+import infernoBG from '../../assets/background/Maps/de_inferno.jpg';
+import anchientBG from '../../assets/background/Maps/de_ancient.jpg';
+import trainBG from '../../assets/background/Maps/de_train.jpg';
+import vertigoBG from '../../assets/background/Maps/de_vertigo.jpg';
+import anubisBG from '../../assets/background/Maps/de_anubis.jpg';
+import maps from '../../data/map';
+import { set } from 'mobx';
+
+const mapBGHandler = (name: string) => {
+  switch (maps.find((map) => map.name === name)?.name) {
+    case 'de_mirage':
+      return mirageBG;
+    case 'de_overpass':
+      return overpassBG;
+    case 'de_dust2':
+      return dustBG;
+    case 'de_cbble':
+      return cobleBG;
+    case 'de_nuke':
+      return nukeBG;
+    case 'de_inferno':
+      return infernoBG;
+    case 'de_ancient':
+      return anchientBG;
+    case 'de_train':
+      return trainBG;
+    case 'de_vertigo':
+      return vertigoBG;
+    case 'de_anubis':
+      return anubisBG;
+    default:
+      break;
+  }
+};
 
 const Match = () => {
-  const { loadMatch, teamStore } = useContext(Context);
-  const [teams, setTeams] = useState({
-    team1: {} as ITeam,
-    team2: {} as ITeam,
+  const { loadMatch } = useContext(Context);
+  const [matchData, setMatchData] = useState({
+    match: {} as IMatch,
+    matchError: {} as IMatchErorr,
+    isLoading: true,
   });
+
+  const setMatchIp = (newMatch: IMatch) => {
+    setMatchData({ ...matchData, match: newMatch });
+  };
+
   const params = useParams();
   const matchID = Number(params.match_id);
   useEffect(() => {
     (async () => {
       await loadMatch.loadMatch(matchID);
-      await teamStore.loadTeam(loadMatch.match.team1Id);
-      const team1Teamp = { ...teamStore.team };
-      await teamStore.loadTeam(loadMatch.match.team2Id);
-      const team2Teamp = { ...teamStore.team };
-      setTeams({
-        team1: { ...team1Teamp },
-        team2: { ...team2Teamp },
-      });
+      if (!(loadMatch.matchError.status >= 400)) {
+        setMatchData({
+          match: { ...loadMatch.match },
+          matchError: {} as IMatchErorr,
+          isLoading: false,
+        });
+      } else {
+        setMatchData({
+          match: {} as IMatch,
+          matchError: { ...loadMatch.matchError },
+          isLoading: false,
+        });
+      }
     })();
   }, []);
 
   return (
     <div className={styles.container}>
-      {console.log(loadMatch.isLoadingMatch)}
-      {loadMatch.isLoadingMatch ? (
+      {matchData.isLoading ? (
         <div className={styles.preloader}>
           <Preloader />
         </div>
-      ) : loadMatch.matchError.status ? (
+      ) : matchData.matchError.status ? (
         <>
           <NotFound />
         </>
       ) : (
         <>
-          {console.log(loadMatch.match)}
-          <div className={styles.team}>
-            <MatchTeam team={teams.team1} />
+          {console.log(matchData.match)}
+          <div className={styles.content}>
+            <div className={styles.team}>
+              <MatchTeam
+                teamID={matchData.match.team1Id}
+                matchID={matchData.match.id}
+                setMatch={setMatchIp}
+              />
+            </div>
+            <div className={styles.map}>
+              <div className={styles.mapPic}>
+                <img
+                  className={styles.imgMap}
+                  src={mapBGHandler(matchData.match.map)}
+                />
+              </div>
+              {matchData.match.map}
+            </div>
+            <div className={styles.team}>
+              <MatchTeam
+                teamID={matchData.match.team2Id}
+                matchID={matchData.match.id}
+                setMatch={setMatchIp}
+              />
+            </div>
           </div>
-          <div className={styles.team}>
-            <MatchTeam team={teams.team2} />
-          </div>
+          <a
+            href={`steam://connect/${matchData.match.ip}`}
+            className={
+              styles.matchLink +
+              ' ' +
+              (matchData.match.ip ? '' : styles.disable)
+            }
+          >
+            Join to match
+          </a>
         </>
       )}
     </div>

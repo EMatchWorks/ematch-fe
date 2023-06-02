@@ -36,7 +36,7 @@ const MatchesList = () => {
         </div>
       ) : (
         <>
-          <MatchSearch inputValue={inputValue} setInputValue={setInputValue} />
+          {/* <MatchSearch inputValue={inputValue} setInputValue={setInputValue} /> */}
           <MatchMapFilter mapFilter={mapFilter} setMapFilter={setMapFilter} />
           <div className={styles.gridContainer}>
             {' '}

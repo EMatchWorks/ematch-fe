@@ -35,6 +35,7 @@ export default class LoadMatch {
 
   async loadMatch(id: number) {
     this.setIsLoadingMatch(true);
+    this.cleareMatchError();
     try {
       const response = await MatchService.get(id);
       this.setMatch({ ...response.data });

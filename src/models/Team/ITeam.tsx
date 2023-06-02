@@ -6,5 +6,5 @@ export interface ITeam {
   description?: string;
   isDisposable: boolean;
   size: number;
-  users: any;
+  users: IUser[];
 }

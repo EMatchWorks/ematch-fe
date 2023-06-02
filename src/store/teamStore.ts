@@ -22,12 +22,22 @@ export default class TeamStore {
     this.setIsLoading(true);
     try {
       const response = await TeamService.getTeam(id);
-      console.log(response.data);
       this.setTeam(response.data);
+      return this.team;
     } catch (error: any) {
       console.log(error.response.data);
     } finally {
       this.setIsLoading(false);
+    }
+  }
+  async addUser(teamId: number, matchId: number) {
+    try {
+      const response = await TeamService.addUser(teamId, matchId);
+
+      return response.data;
+    } catch (error: any) {
+      console.log(error.response.data);
+      return null;
     }
   }
 }

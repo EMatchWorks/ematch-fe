@@ -10,9 +10,9 @@ const TournamentsList = () => {
       {tournamentList.map((el, index) => (
         <TournamentBanner tournament={el} key={index} />
       ))}
-      <div className={styles.linkCreateMatch}>
+      {/* <div className={styles.linkCreateMatch}>
         <Link to="./createTournament">Create Tournament</Link>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -8,11 +8,7 @@ const contentArr = [
       <div className={styles.itemContainer}>
         <div className={styles.itemGrid}>
           <div className={styles.itemText}>
-            NUMBER 1 <br />
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Reprehenderit, voluptatibus fugit similique minima velit ad dolores
-            dolorem deleniti! Modi, amet mollitia itaque totam sunt deserunt
-            similique voluptates sint officiis exercitationem?
+            New modern platform for playing CS:GO with great community!
           </div>
           <div className={styles.itemImg}>
             <img src={CTPLayerIMG} alt={'CT'} />
@@ -26,47 +22,7 @@ const contentArr = [
       <div className={styles.itemContainer}>
         <div className={styles.itemGrid}>
           <div className={styles.itemText}>
-            NUMBER 2 <br />
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Reprehenderit, voluptatibus fugit similique minima velit ad dolores
-            dolorem deleniti! Modi, amet mollitia itaque totam sunt deserunt
-            similique voluptates sint officiis exercitationem?
-          </div>
-          <div className={styles.itemImg}>
-            <img src={CTPLayerIMG} alt={'CT'} />
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    content: (
-      <div className={styles.itemContainer}>
-        <div className={styles.itemGrid}>
-          <div className={styles.itemText}>
-            NUMBER 3 <br />
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Reprehenderit, voluptatibus fugit similique minima velit ad dolores
-            dolorem deleniti! Modi, amet mollitia itaque totam sunt deserunt
-            similique voluptates sint officiis exercitationem?
-          </div>
-          <div className={styles.itemImg}>
-            <img src={CTPLayerIMG} alt={'CT'} />
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    content: (
-      <div className={styles.itemContainer}>
-        <div className={styles.itemGrid}>
-          <div className={styles.itemText}>
-            NUMBER 4 <br />
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Reprehenderit, voluptatibus fugit similique minima velit ad dolores
-            dolorem deleniti! Modi, amet mollitia itaque totam sunt deserunt
-            similique voluptates sint officiis exercitationem?
+            Check the most recent news in real time and share them
           </div>
           <div className={styles.itemImg}>
             <img src={CTPLayerIMG} alt={'CT'} />
