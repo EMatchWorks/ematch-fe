@@ -45,10 +45,10 @@ const Registration = () => {
           setInput={setUsername}
           error={errors.login}
           errorText={
-            'The login must consist of 4-16 Latin characters, digits, and symbols "_", "-".'
+            'Логін повинен складатися з 4-16 латинських символів, цифр та символів "_", "-".'
           }
         >
-          Username
+          Ім'я користувача
         </Input>
         <Input
           name="email"
@@ -56,7 +56,7 @@ const Registration = () => {
           value={email}
           setInput={setEmail}
           error={errors.email}
-          errorText={'Incorrect email. Please try again'}
+          errorText={'Неправильний email. Будь ласка, спробуйте ще раз'}
         >
           Email
         </Input>
@@ -67,10 +67,10 @@ const Registration = () => {
           setInput={setPassword}
           error={errors.password}
           errorText={
-            'The password must be between 4 and 16 characters, and contain at least one uppercase letter and one digit.'
+            'Пароль повинен містити від 4 до 16 символів і містити принаймні одну велику літеру та одну цифру.'
           }
         >
-          Password
+          Пароль
         </Input>
         <button>Registrantion</button>
       </form>

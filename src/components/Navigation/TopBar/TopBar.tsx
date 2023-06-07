@@ -29,10 +29,10 @@ const TopBar = (props: Props) => {
           ) : (
             <div className={styles.link}>
               <Link role={'button'} to="./login">
-                Sign in
+                Вхід
               </Link>
               <Link role={'button'} to="./reg">
-                Sign up
+                Регістрація
               </Link>
             </div>
           )}

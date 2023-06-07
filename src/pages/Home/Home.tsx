@@ -8,7 +8,7 @@ const contentArr = [
       <div className={styles.itemContainer}>
         <div className={styles.itemGrid}>
           <div className={styles.itemText}>
-            New modern platform for playing CS:GO with great community!
+            Нова сучасна платформа для гри в CS:GO з чудовим комьюніті!
           </div>
           <div className={styles.itemImg}>
             <img src={CTPLayerIMG} alt={'CT'} />
@@ -22,7 +22,8 @@ const contentArr = [
       <div className={styles.itemContainer}>
         <div className={styles.itemGrid}>
           <div className={styles.itemText}>
-            Check the most recent news in real time and share them
+            Слідкуйте за найсвіжішими новинами в режимі реального часу та
+            діліться ними
           </div>
           <div className={styles.itemImg}>
             <img src={CTPLayerIMG} alt={'CT'} />
