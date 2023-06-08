@@ -1,11 +1,12 @@
 .layoutUser {
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: hidden;
   padding: 0 50px;
   padding-top: 50px;
 
   .userDataContainer {
+    height: 15%;
     display: flex;
     .userAvatar {
       width: 90px;
@@ -27,7 +28,9 @@
     }
   }
   .userProfileNav {
-    margin-top: 30px;
+    height: 10%;
+    overflow: hidden;
+    padding-top: 30px;
     font-size: 28px;
     a {
       margin-right: 25px;
@@ -41,6 +44,8 @@
     }
   }
   .outlet {
-    margin-top: 50px;
+    margin-top: 3%;
+    height: 72%;
+    overflow: hidden;
   }
 }

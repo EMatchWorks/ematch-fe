@@ -28,9 +28,9 @@ const Statistic = (props: StatisticProps) => {
           d="M200 3L390.211 141.197L317.557 364.803H82.4429L9.7887 141.197L200 3Z"
           fill="#0B0C10"
           fill-opacity="0.51"
-          stroke="#1F4041"
+          stroke="#66FCF1"
           stroke-opacity="0.4"
-          stroke-width="2"
+          stroke-width="4"
         />
         <path
           d="M200 18L371.19 142.377L305.801 343.623H94.1987L28.8098 142.377L200 18Z"
@@ -112,8 +112,13 @@ const Statistic = (props: StatisticProps) => {
             props.winRate,
           )}Z`}
           fill="#66FCF1"
-          fill-opacity="0.25"
-          stroke="#1F4041"
+          fill-opacity="0.5"
+        />
+        <path
+          d="M200 3L390.211 141.197L317.557 364.803H82.4429L9.7887 141.197L200 3Z"
+          stroke="#66FCF1"
+          stroke-opacity="1"
+          stroke-width="4"
         />
       </svg>
     </div>
