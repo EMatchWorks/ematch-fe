@@ -4,6 +4,12 @@ export enum EMatchStatus {
   InProgress = 'InProgress',
   Finished = 'Finished',
 }
+
+export enum EMatchBelonging {
+  Single = 'Single',
+  Tournament = 'Tournament',
+}
+
 export enum EMatchMode {
   Duel = '1v1',
   Wingman = '2v2',

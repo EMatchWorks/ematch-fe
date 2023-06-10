@@ -1,17 +1,31 @@
-import { EMapSelectType, EMaps, EMatchMode, EMatchStatus } from './EMAtch';
+import {
+  EMapSelectType,
+  EMaps,
+  EMatchBelonging,
+  EMatchMode,
+  EMatchStatus,
+} from './EMAtch';
 
-export interface IMatch {
+export type IMatch = {
   id: number;
   status: EMatchStatus;
-  stats: string;
-  type: EMatchMode;
+  mode: EMatchMode;
   mapSelection: EMapSelectType;
   map: EMaps;
+  belonging: EMatchBelonging;
+  stats: string;
   ip: string;
   creatorId: number;
-  team1Id: number;
-  team2Id: number;
-}
+  users: MembershipDto[];
+};
+
+export type MembershipDto = {
+  id: number;
+  userId: number;
+  team: 1 | 2;
+  matchId: number;
+  isCaptain: boolean;
+};
 
 export interface ICreateMatch {
   mode: EMatchMode;

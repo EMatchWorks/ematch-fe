@@ -82,6 +82,21 @@ const Match = () => {
     })();
   }, []);
 
+  const teamHandler = (teamNumber: number) => {
+    const team = [];
+    matchData.match.users.map((el) => {
+      if (el.team === teamNumber) {
+        team.push(el);
+      }
+    });
+    for (let i = team.length; i < +matchData.match.mode[0]; i++) {
+      team.push(null);
+    }
+    console.log('teamHandler');
+    console.log(team);
+    return team;
+  };
+
   return (
     <div className={styles.container}>
       {matchData.isLoading ? (
@@ -97,11 +112,7 @@ const Match = () => {
           {console.log(matchData.match)}
           <div className={styles.content}>
             <div className={styles.team}>
-              <MatchTeam
-                teamID={matchData.match.team1Id}
-                matchID={matchData.match.id}
-                setMatch={setMatchIp}
-              />
+              <MatchTeam team={[...teamHandler(1)]} />
             </div>
             <div className={styles.map}>
               <div className={styles.mapPic}>
@@ -113,11 +124,7 @@ const Match = () => {
               {matchData.match.map}
             </div>
             <div className={styles.team}>
-              <MatchTeam
-                teamID={matchData.match.team2Id}
-                matchID={matchData.match.id}
-                setMatch={setMatchIp}
-              />
+              <MatchTeam team={[...teamHandler(2)]} />
             </div>
           </div>
           <a

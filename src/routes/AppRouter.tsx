@@ -22,12 +22,19 @@ import CreateNews from '../pages/CreateNews/CreateNews';
 import { Context } from '..';
 import PrivateMainLayout from '../layouts/PrivateMainLayout/PrivateMainLayout';
 import { observer } from 'mobx-react-lite';
+import Preloader from '../assets/preloader/Preloader';
 
 const AppRouter = () => {
   const { userStore } = useContext(Context);
   return (
     <Routes>
-      {userStore.isAuth ? (
+      {userStore.isLoading ? (
+        <>
+          <Route path="*" element={<PublicMainLayout />}>
+            <Route index element={<Preloader />} />
+          </Route>
+        </>
+      ) : userStore.isAuth ? (
         <>
           <Route path="/" element={<PrivateMainLayout />}>
             <Route index element={<Home />} />
