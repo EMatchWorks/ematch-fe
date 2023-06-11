@@ -11,6 +11,7 @@ export default class TeamService {
     team: number,
     matchId: number,
   ): Promise<AxiosResponse<IMatch>> {
+    console.log(team, matchId);
     return $api.post(`/match/join`, { team, matchId });
   }
 }

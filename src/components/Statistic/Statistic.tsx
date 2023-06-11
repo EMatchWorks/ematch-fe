@@ -11,115 +11,160 @@ type StatisticProps = {
 
 const Statistic = (props: StatisticProps) => {
   const vectorWidth = (x2: number, percent: number): number => {
-    let newCoordanate = ((x2 - 200) * percent) / 100 + 200;
+    let newCoordanate = ((x2 - 300) * percent) / 100 + 300;
     return newCoordanate;
   };
 
   return (
     <div className={styles.container}>
       <svg
-        width="400"
-        height="403"
-        viewBox="0 0 400 403"
+        width="600"
+        height="603"
+        viewBox="0 0 600 603"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M200 3L390.211 141.197L317.557 364.803H82.4429L9.7887 141.197L200 3Z"
+          d="M300 103L490.211 241.197L417.557 464.803H182.4429L109.7887 241.197L300 103Z"
           fill="#0B0C10"
           fill-opacity="0.51"
-          stroke="#66FCF1"
+          stroke="#1F4041"
           stroke-opacity="0.4"
           stroke-width="4"
         />
         <path
-          d="M200 18L371.19 142.377L305.801 343.623H94.1987L28.8098 142.377L200 18Z"
+          d="M300 118L471.19 242.377L405.801 443.623H194.1987L128.8098 242.377L300 118Z"
           stroke="#1F4041"
           stroke-opacity="0.4"
-          stroke-width="2"
+          stroke-width="4"
         />
         <path
-          d="M200 38L352.169 148.557L294.046 327.443H105.954L47.831 148.557L200 38Z"
+          d="M300 138L452.169 248.557L394.046 427.443H205.954L147.831 248.557L300 138Z"
           stroke="#1F4041"
           stroke-opacity="0.4"
-          stroke-width="2"
+          stroke-width="4"
         />
         <path
-          d="M200 58L333.148 154.738L282.29 311.262H117.71L66.8521 154.738L200 58Z"
+          d="M300 158L433.148 254.738L382.29 411.262H217.71L166.8521 254.738L300 158Z"
           stroke="#1F4041"
           stroke-opacity="0.4"
-          stroke-width="2"
+          stroke-width="4"
         />
         <path
-          d="M200 78L314.127 160.918L270.534 295.082H129.466L85.8732 160.918L200 78Z"
+          d="M300 178L414.127 260.918L370.534 395.082H229.466L185.8732 260.918L300 178Z"
           stroke="#1F4041"
           stroke-opacity="0.4"
-          stroke-width="2"
+          stroke-width="4"
         />
         <path
-          d="M200 98L295.106 167.098L258.779 278.902H141.221L104.894 167.098L200 98Z"
+          d="M300 198L395.106 267.098L358.779 378.902H241.221L204.894 267.098L300 198Z"
           stroke="#1F4041"
           stroke-opacity="0.4"
-          stroke-width="2"
+          stroke-width="4"
         />
         <path
-          d="M200 118L276.085 173.279L247.023 262.721H152.977L123.915 173.279L200 118Z"
+          d="M300 218L376.085 273.279L347.023 362.721H252.977L223.915 273.279L300 218Z"
           stroke="#1F4041"
           stroke-opacity="0.4"
-          stroke-width="2"
+          stroke-width="4"
         />
         <path
-          d="M200 138L257.063 179.459L235.267 246.541H164.733L142.937 179.459L200 138Z"
+          d="M300 238L357.063 279.459L335.267 346.541H264.733L242.937 279.459L300 238Z"
           stroke="#1F4041"
           stroke-opacity="0.4"
-          stroke-width="2"
+          stroke-width="4"
         />
         <path
-          d="M200 158L238.042 185.639L223.511 230.361H176.489L161.958 185.639L200 158Z"
+          d="M300 258L338.042 285.639L323.511 330.361H276.489L261.958 285.639L300 258Z"
           stroke="#1F4041"
           stroke-opacity="0.4"
-          stroke-width="2"
+          stroke-width="4"
         />
         <path
-          d="M200 178L219.021 191.82L211.756 214.18H188.244L180.979 191.82L200 178Z"
+          d="M300 278L319.021 291.82L311.756 314.18H288.244L280.979 291.82L300 278Z"
           stroke="#1F4041"
           stroke-opacity="0.4"
-          stroke-width="2"
+          stroke-width="4"
         />
         <path
-          d="M200.5 198L200.976 198.345L200.794 198.905H200.206L200.024 198.345L200.5 198Z"
+          d="M300.5 298L300.976 298.345L300.794 298.905H300.206L300.024 298.345L300.5 298Z"
           stroke="#66FCF1"
-          stroke-width="2"
+          stroke-width="4"
         />
         <path
-          d={`M${vectorWidth(200, props.winRate)} ${vectorWidth(
-            3,
+          d={`M${vectorWidth(300, props.winRate)} ${vectorWidth(
+            103,
             props.winRate,
-          )}L${vectorWidth(390.211, props.headshot)} ${vectorWidth(
-            141.197,
+          )}L${vectorWidth(490.211, props.headshot)} ${vectorWidth(
+            241.197,
             props.headshot,
-          )}L${vectorWidth(317.557, props.mapFlexibel)} ${vectorWidth(
-            364.803,
+          )}L${vectorWidth(417.557, props.mapFlexibel)} ${vectorWidth(
+            464.803,
             props.mapFlexibel,
-          )} L${vectorWidth(82.443, props.firstKill)} ${vectorWidth(
-            364.803,
+          )} L${vectorWidth(182.443, props.firstKill)} ${vectorWidth(
+            464.803,
             props.firstKill,
-          )} L${vectorWidth(9.7887, props.kast)} ${vectorWidth(
-            141.197,
+          )} L${vectorWidth(109.7887, props.kast)} ${vectorWidth(
+            241.197,
             props.kast,
-          )} L${vectorWidth(200, props.winRate)} ${vectorWidth(
-            3,
+          )} L${vectorWidth(300, props.winRate)} ${vectorWidth(
+            103,
             props.winRate,
           )}Z`}
           fill="#66FCF1"
           fill-opacity="0.5"
         />
         <path
-          d="M200 3L390.211 141.197L317.557 364.803H82.4429L9.7887 141.197L200 3Z"
+          d="M300 103L490.211 241.197L417.557 464.803H182.4429L109.7887 241.197L300 103Z"
           stroke="#66FCF1"
           stroke-opacity="1"
           stroke-width="4"
         />
+        <text
+          x="300"
+          y="87"
+          fill="white"
+          dominant-baseline="middle"
+          text-anchor="middle"
+        >
+          % перемог
+        </text>
+        <text
+          x="500.211"
+          y="241.197"
+          fill="white"
+          dominant-baseline="start"
+          text-anchor="start"
+        >
+          % хедшотів
+        </text>
+        <text
+          x="417.557"
+          y="484.803"
+          fill="white"
+          dominant-baseline="middle"
+          text-anchor="middle"
+        >
+          % гнучкості карт
+        </text>
+        <text
+          x="182.4429"
+          y="484.803"
+          fill="white"
+          dominant-baseline="middle"
+          text-anchor="middle"
+        >
+          % перші вбивства
+        </text>
+        <text
+          x="99.7887"
+          y="241.197"
+          fill="white"
+          dominant-baseline="end"
+          text-anchor="end"
+        >
+          % користності
+        </text>
       </svg>
     </div>
   );

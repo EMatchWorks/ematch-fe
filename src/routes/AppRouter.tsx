@@ -43,42 +43,46 @@ const AppRouter = () => {
           </Route>
         </>
       ) : userStore.isAuth ? (
-        <>
-          <Route path="/" element={<PrivateMainLayout />}>
-            <Route index element={<Home />} />
+        userStore.user.steamId === null ? (
+          (window.location.href = 'http://localhost:9000/api/auth/steam')
+        ) : (
+          <>
+            <Route path="/" element={<PrivateMainLayout />}>
+              <Route index element={<Home />} />
 
-            <Route path="play">
-              <Route index element={<Play />} />
-              <Route path=":match_id" element={<Match />} />
-            </Route>
-
-            <Route path="news">
-              <Route index element={<News />} />
-              <Route path="add_news" element={<CreateNews />} />
-            </Route>
-            <Route path="teams" element={<Teams />} />
-
-            <Route path="tournaments">
-              <Route index element={<TournamentsList />} />
-              <Route path="createTournament" element={<CreateTournament />} />
-
-              <Route path=":tournament_id">
-                <Route index element={<Tournament />} />
+              <Route path="play">
+                <Route index element={<Play />} />
                 <Route path=":match_id" element={<Match />} />
               </Route>
+
+              <Route path="news">
+                <Route index element={<News />} />
+                <Route path="add_news" element={<CreateNews />} />
+              </Route>
+              <Route path="teams" element={<Teams />} />
+
+              <Route path="tournaments">
+                <Route index element={<TournamentsList />} />
+                <Route path="createTournament" element={<CreateTournament />} />
+
+                <Route path=":tournament_id">
+                  <Route index element={<Tournament />} />
+                  <Route path=":match_id" element={<Match />} />
+                </Route>
+              </Route>
+
+              <Route path=":user_id" element={<UserLayout />}>
+                <Route index element={<UserProfile />} />
+                <Route path="friends" element={<UserFriends />} />
+                <Route path="teams" element={<UserTeams />} />
+              </Route>
+
+              <Route path="anticheat" element={<Anticheat />} />
+
+              <Route path="*" element={<NotFound />} />
             </Route>
-
-            <Route path=":user_id" element={<UserLayout />}>
-              <Route index element={<UserProfile />} />
-              <Route path="friends" element={<UserFriends />} />
-              <Route path="teams" element={<UserTeams />} />
-            </Route>
-
-            <Route path="anticheat" element={<Anticheat />} />
-
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </>
+          </>
+        )
       ) : (
         <>
           <Route path="/" element={<PublicMainLayout />}>

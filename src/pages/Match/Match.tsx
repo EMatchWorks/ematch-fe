@@ -109,7 +109,7 @@ const Match = () => {
               <MatchTeam
                 team={[...teamHandler(1)]}
                 addUser={addUserAtTeam}
-                teamID={2}
+                teamID={1}
               />
             </div>
             <div className={styles.map}>

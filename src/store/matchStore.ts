@@ -35,6 +35,7 @@ export default class MatchStore {
   async createMatch(mode: string, selectType: string, map: string) {
     try {
       const response = await MatchService.create(mode, selectType, map);
+      console.log(response);
       return response.data.id;
     } catch (e: any) {
       console.error(e);

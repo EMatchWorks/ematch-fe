@@ -21,4 +21,7 @@ export default class AuthService {
   static async logout(): Promise<AxiosResponse<IAuthResponse>> {
     return $api.post('/auth/logout');
   }
+  static authSteam(): Promise<AxiosResponse<HTMLElement>> {
+    return $api.get<HTMLElement>(`/auth/steam`);
+  }
 }
