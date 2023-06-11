@@ -23,6 +23,7 @@ import { Context } from '..';
 import PrivateMainLayout from '../layouts/PrivateMainLayout/PrivateMainLayout';
 import { observer } from 'mobx-react-lite';
 import Preloader from '../assets/preloader/Preloader';
+import styles from './AppRouter.module.scss';
 
 const AppRouter = () => {
   const { userStore } = useContext(Context);
@@ -31,7 +32,14 @@ const AppRouter = () => {
       {userStore.isLoading ? (
         <>
           <Route path="*" element={<PublicMainLayout />}>
-            <Route index element={<Preloader />} />
+            <Route
+              index
+              element={
+                <div className={styles.preloader}>
+                  <Preloader />
+                </div>
+              }
+            />
           </Route>
         </>
       ) : userStore.isAuth ? (

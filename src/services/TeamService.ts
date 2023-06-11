@@ -8,9 +8,9 @@ export default class TeamService {
     return $api.get(`/team/${id}`, {});
   }
   static async addUser(
-    teamId: number,
+    team: number,
     matchId: number,
   ): Promise<AxiosResponse<IMatch>> {
-    return $api.post(`/match/join`, { teamId, matchId });
+    return $api.post(`/match/join`, { team, matchId });
   }
 }

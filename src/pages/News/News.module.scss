@@ -7,10 +7,12 @@
   // gap: 60px;
   overflow-y: scroll;
   .preloader {
+    width: 25vw;
+    height: 25vw;
     margin: 0 auto;
-    width: 50vw;
-    height: 50vw;
+    margin-top: 25vh;
   }
+
   .buttonCreate {
     position: fixed;
     text-align: center;

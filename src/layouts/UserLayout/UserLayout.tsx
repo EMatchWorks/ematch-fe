@@ -24,16 +24,16 @@ const UserLayout = () => {
         return <NotFound />;
       }
     })();
-  }, [user]);
+  }, []);
 
   const activeLinkHandler = (isActive: boolean) => {
     return isActive ? styles.activeLink : styles.link;
   };
   if (!user) {
     return (
-      <>
+      <div className={styles.preloader}>
         <Preloader />
-      </>
+      </div>
     );
   }
 
@@ -51,19 +51,19 @@ const UserLayout = () => {
           to={`.`}
           end
         >
-          User info
+          Профіль
         </NavLink>
         <NavLink
           className={({ isActive }) => activeLinkHandler(isActive)}
           to={`./friends`}
         >
-          Friends
+          Друзі
         </NavLink>
         <NavLink
           className={({ isActive }) => activeLinkHandler(isActive)}
           to={`./teams`}
         >
-          Teams
+          Команди
         </NavLink>
       </div>
       <div className={styles.outlet}>

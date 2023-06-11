@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import NotFound from '../NotFound/NotFound';
@@ -21,6 +21,8 @@ import vertigoBG from '../../assets/background/Maps/de_vertigo.jpg';
 import anubisBG from '../../assets/background/Maps/de_anubis.jpg';
 import maps from '../../data/map';
 import { set } from 'mobx';
+import MatchService from '../../services/MatchService';
+import TeamService from '../../services/TeamService';
 
 const mapBGHandler = (name: string) => {
   switch (maps.find((map) => map.name === name)?.name) {
@@ -50,94 +52,96 @@ const mapBGHandler = (name: string) => {
 };
 
 const Match = () => {
-  const { loadMatch } = useContext(Context);
-  const [matchData, setMatchData] = useState({
-    match: {} as IMatch,
-    matchError: {} as IMatchErorr,
-    isLoading: true,
-  });
-
-  const setMatchIp = (newMatch: IMatch) => {
-    setMatchData({ ...matchData, match: newMatch });
-  };
+  const [matchData, setMatchData] = useState<IMatch>();
+  const [isError, setIsError] = useState(false);
 
   const params = useParams();
   const matchID = Number(params.match_id);
+  const eventSource = MatchService.eventSource(matchID);
+
   useEffect(() => {
+    console.log('useEffect');
     (async () => {
-      await loadMatch.loadMatch(matchID);
-      if (!(loadMatch.matchError.status >= 400)) {
-        setMatchData({
-          match: { ...loadMatch.match },
-          matchError: {} as IMatchErorr,
-          isLoading: false,
-        });
-      } else {
-        setMatchData({
-          match: {} as IMatch,
-          matchError: { ...loadMatch.matchError },
-          isLoading: false,
-        });
+      try {
+        const response = await MatchService.get(matchID);
+
+        console.log(response.data);
+        setMatchData({ ...response.data });
+      } catch (e) {
+        setIsError(true);
       }
     })();
   }, []);
 
+  const addUserAtTeam = async (teamID: number) => {
+    console.log('addUserAtTeam');
+    await TeamService.addUser(teamID, matchData!.id);
+  };
+
+  eventSource.onmessage = ({ data }) => {
+    setMatchData({ ...data });
+  };
+
   const teamHandler = (teamNumber: number) => {
     const team = [];
-    matchData.match.users.map((el) => {
-      if (el.team === teamNumber) {
-        team.push(el);
-      }
-    });
-    for (let i = team.length; i < +matchData.match.mode[0]; i++) {
+    if (matchData) {
+      matchData.users.map((el) => {
+        if (el.team === teamNumber) {
+          team.push(el);
+        }
+      });
+    }
+    for (let i = team.length; i < +matchData!.mode[0]; i++) {
       team.push(null);
     }
-    console.log('teamHandler');
-    console.log(team);
     return team;
   };
 
+  if (isError) return <NotFound />;
+
   return (
     <div className={styles.container}>
-      {matchData.isLoading ? (
-        <div className={styles.preloader}>
-          <Preloader />
-        </div>
-      ) : matchData.matchError.status ? (
+      {matchData ? (
         <>
-          <NotFound />
-        </>
-      ) : (
-        <>
-          {console.log(matchData.match)}
+          {console.log(matchData)}
           <div className={styles.content}>
             <div className={styles.team}>
-              <MatchTeam team={[...teamHandler(1)]} />
+              <MatchTeam
+                team={[...teamHandler(1)]}
+                addUser={addUserAtTeam}
+                teamID={2}
+              />
             </div>
             <div className={styles.map}>
               <div className={styles.mapPic}>
                 <img
                   className={styles.imgMap}
-                  src={mapBGHandler(matchData.match.map)}
+                  src={mapBGHandler(matchData.map)}
                 />
               </div>
-              {matchData.match.map}
+              {matchData.map}
             </div>
             <div className={styles.team}>
-              <MatchTeam team={[...teamHandler(2)]} />
+              <MatchTeam
+                team={[...teamHandler(2)]}
+                addUser={addUserAtTeam}
+                teamID={2}
+              />
             </div>
           </div>
           <a
-            href={`steam://connect/${matchData.match.ip}`}
+            href={`steam://connect/${matchData}`}
             className={
-              styles.matchLink +
-              ' ' +
-              (matchData.match.ip ? '' : styles.disable)
+              styles.matchLink + ' ' + (matchData.ip ? '' : styles.disable)
             }
           >
             Join to match
           </a>
         </>
+      ) : (
+        <div className={styles.preloader}>
+          <Preloader />
+        </div>
       )}
     </div>
   );

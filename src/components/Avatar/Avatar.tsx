@@ -27,7 +27,7 @@ const Avatar = (props: AvatarProps) => {
         setIsLoading(false);
       }, 3000);
     })();
-  }, [props.id]);
+  }, []);
 
   if (isLoading) {
     return (

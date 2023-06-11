@@ -11,11 +11,16 @@ export default class MatchService {
   ): Promise<AxiosResponse<IMatch>> {
     return $api.post('match', { mode, selectType, map });
   }
-  static async get(id: Number): Promise<AxiosResponse<IMatch>> {
+
+  static async get(id: number): Promise<AxiosResponse<IMatch>> {
     return await $api.get(`match/${id}`, {});
   }
 
   static async getList(): Promise<AxiosResponse<IMatch[]>> {
     return $api.get('match', {});
+  }
+
+  static eventSource(teamID: number) {
+    return new EventSource(`/match/${teamID}/status`);
   }
 }

@@ -12,12 +12,11 @@ const NotFound = () => {
     return () => {
       clearTimeout(timeout);
     };
-  });
+  }, []);
 
   return (
     <>
-      <div>Page not found</div>
-      <div>Redirecting...</div>
+      <div>404</div>
     </>
   );
 };
