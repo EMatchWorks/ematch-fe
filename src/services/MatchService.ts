@@ -13,6 +13,7 @@ export default class MatchService {
   }
 
   static async get(id: number): Promise<AxiosResponse<IMatch>> {
+    console.log(id);
     return await $api.get(`match/${id}`, {});
   }
 
