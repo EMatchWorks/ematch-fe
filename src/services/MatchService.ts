@@ -1,5 +1,5 @@
 import { IAuthResponse } from '../models/response/AuthResponse';
-import $api from '../http';
+import $api, { API_URL } from '../http';
 import { AxiosResponse } from 'axios';
 import { IMatch, ICreateMatch, IMatchErorr } from '../models/Match/IMatch';
 
@@ -22,6 +22,6 @@ export default class MatchService {
   }
 
   static eventSource(teamID: number) {
-    return new EventSource(`/match/${teamID}/status`);
+    return new EventSource(`${API_URL}/match/${teamID}/status`);
   }
 }
