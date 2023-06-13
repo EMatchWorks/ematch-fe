@@ -78,8 +78,10 @@ const Match = () => {
     await TeamService.addUser(teamID, matchData!.id);
   };
 
-  eventSource.onmessage = ({ data }) => {
-    setMatchData({ ...data });
+  eventSource.onmessage = (res) => {
+    console.log('eventSource');
+    console.log(JSON.parse(res.data));
+    setMatchData({ ...JSON.parse(res.data).match });
   };
 
   const teamHandler = (teamNumber: number) => {
@@ -130,12 +132,12 @@ const Match = () => {
             </div>
           </div>
           <a
-            href={`steam://connect/${matchData}`}
+            href={`steam://connect/${matchData.ip}`}
             className={
               styles.matchLink + ' ' + (matchData.ip ? '' : styles.disable)
             }
           >
-            Join to match
+            Приєднатись до матчу
           </a>
         </>
       ) : (
