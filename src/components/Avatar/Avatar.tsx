@@ -9,14 +9,16 @@ type AvatarProps = {
 };
 
 const Avatar = (props: AvatarProps) => {
-  const [avatar, setAvatar] = useState(avatarDefault);
+  const [avatar, setAvatar] = useState<string>();
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     (async () => {
       try {
         let response = await UserAvatarService.fetchUserAvatar(props.id);
 
-        let avatar = response.data.img;
+        let avatar = response.data;
+
         if (avatar) {
           setAvatar(avatar);
         }
@@ -36,7 +38,7 @@ const Avatar = (props: AvatarProps) => {
       </div>
     );
   } else {
-    return <img src={avatar} alt="Avatar" />;
+    return <img src={`data:image/png;base64,${avatar}`} alt="Avatar" />;
   }
 };
 

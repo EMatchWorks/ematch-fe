@@ -3,7 +3,8 @@ import { AxiosResponse } from 'axios';
 import { IUserAvatar } from '../models/User/IUserAvatar';
 
 export default class UserAvatarService {
-  static fetchUserAvatar(userId: number): Promise<AxiosResponse<IUserAvatar>> {
-    return $api.get<IUserAvatar>(`/user/${userId}/avatar`);
+  static async fetchUserAvatar(userId: number): Promise<AxiosResponse<string>> {
+    const response = await $api.get<string>(`/user/${userId}/avatar`);
+    return response;
   }
 }

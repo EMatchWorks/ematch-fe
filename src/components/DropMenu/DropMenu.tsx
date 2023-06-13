@@ -51,7 +51,7 @@ const DropMenu = (props: DropMenuProps) => {
         onClick={setInputParamsStylesHandler}
       >
         <div>{props.name}</div>
-        <div>{props.choosenParam}</div>
+        <div className={styles.choosenParam}>{props.choosenParam}</div>
       </div>
       <div className={styles.inputParams} style={inputParamsStyles}>
         {props.paramsList.map((el, index) => (

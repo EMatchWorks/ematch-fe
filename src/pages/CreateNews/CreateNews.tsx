@@ -18,12 +18,12 @@ const CreateNews = () => {
     <div className={styles.container}>
       <form onSubmit={handlerFormSubmit}>
         <Input name="title" type="text" value={title} setInput={setTitle}>
-          Title
+          Заголовок
         </Input>
         <Textarea name="content" value={content} setInput={setContent}>
-          Content
+          Зміст
         </Textarea>
-        <button>Create article</button>
+        <button>Додати новину</button>
       </form>
     </div>
   );

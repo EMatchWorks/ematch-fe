@@ -22,7 +22,7 @@ const TopBar = (props: Props) => {
         <div>
           {userStore.isAuth && !userStore.isLoading ? (
             <div className={styles.avatar}>
-              <Link to={`/${userStore.user.id.toString()}`}>
+              <Link to={`/users/${userStore.user.id.toString()}`}>
                 <Avatar id={userStore.user.id} />
               </Link>
             </div>
@@ -32,7 +32,7 @@ const TopBar = (props: Props) => {
                 Вхід
               </Link>
               <Link role={'button'} to="./reg">
-                Регістрація
+                Реєстрація
               </Link>
             </div>
           )}

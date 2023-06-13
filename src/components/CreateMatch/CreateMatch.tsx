@@ -39,19 +39,19 @@ const CreateMatch = () => {
     <div className={styles.container}>
       <div className={styles.fieldsContainer}>
         <DropMenu
-          name={'Mode'}
+          name={'Режим'}
           choosenParam={modeVarc}
           paramsList={mode}
           setChoosenParam={setModeVarc}
         />
         <DropMenu
-          name={'Select Type'}
+          name={'Виборка'}
           choosenParam={selectTypeVarc}
           paramsList={selectType}
           setChoosenParam={setSelectTypeVarc}
         />
         <DropMenu
-          name={'Map'}
+          name={'Мапа'}
           choosenParam={mapVarc}
           paramsList={maps}
           setChoosenParam={setMapVarc}
@@ -59,7 +59,7 @@ const CreateMatch = () => {
         />
       </div>
       <div className={styles.button} onClick={createMatchHandler}>
-        Create Match
+        Створити матч
       </div>
     </div>
   );

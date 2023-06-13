@@ -120,51 +120,105 @@ const Statistic = (props: StatisticProps) => {
           stroke-opacity="1"
           stroke-width="4"
         />
-        <text
-          x="300"
-          y="87"
-          fill="white"
-          dominant-baseline="middle"
-          text-anchor="middle"
-        >
-          % перемог
-        </text>
-        <text
-          x="500.211"
-          y="241.197"
-          fill="white"
-          dominant-baseline="start"
-          text-anchor="start"
-        >
-          % хедшотів
-        </text>
-        <text
-          x="417.557"
-          y="484.803"
-          fill="white"
-          dominant-baseline="middle"
-          text-anchor="middle"
-        >
-          % гнучкості карт
-        </text>
-        <text
-          x="182.4429"
-          y="484.803"
-          fill="white"
-          dominant-baseline="middle"
-          text-anchor="middle"
-        >
-          % перші вбивства
-        </text>
-        <text
-          x="99.7887"
-          y="241.197"
-          fill="white"
-          dominant-baseline="end"
-          text-anchor="end"
-        >
-          % користності
-        </text>
+
+        {window.innerWidth <= 1200 ? (
+          <>
+            <text
+              x="300"
+              y="47"
+              fill="white"
+              dominant-baseline="middle"
+              text-anchor="middle"
+            >
+              % перемог
+            </text>
+            <text
+              x="460.211"
+              y="201.197"
+              fill="white"
+              dominant-baseline="start"
+              text-anchor="start"
+            >
+              % хедшотів
+            </text>
+            <text
+              x="477.557"
+              y="504.803"
+              fill="white"
+              dominant-baseline="middle"
+              text-anchor="middle"
+            >
+              % гнучкості карт
+            </text>
+            <text
+              x="122.4429"
+              y="504.803"
+              fill="white"
+              dominant-baseline="middle"
+              text-anchor="middle"
+            >
+              % перші вбивства
+            </text>
+            <text
+              x="139.7887"
+              y="201.197"
+              fill="white"
+              dominant-baseline="end"
+              text-anchor="end"
+            >
+              % користності
+            </text>
+          </>
+        ) : (
+          <>
+            {' '}
+            <text
+              x="300"
+              y="87"
+              fill="white"
+              dominant-baseline="middle"
+              text-anchor="middle"
+            >
+              % перемог
+            </text>
+            <text
+              x="500.211"
+              y="241.197"
+              fill="white"
+              dominant-baseline="start"
+              text-anchor="start"
+            >
+              % хедшотів
+            </text>
+            <text
+              x="417.557"
+              y="484.803"
+              fill="white"
+              dominant-baseline="middle"
+              text-anchor="middle"
+            >
+              % гнучкості карт
+            </text>
+            <text
+              x="182.4429"
+              y="484.803"
+              fill="white"
+              dominant-baseline="middle"
+              text-anchor="middle"
+            >
+              % перші вбивства
+            </text>
+            <text
+              x="99.7887"
+              y="241.197"
+              fill="white"
+              dominant-baseline="end"
+              text-anchor="end"
+            >
+              % користності
+            </text>
+          </>
+        )}
       </svg>
     </div>
   );

@@ -44,6 +44,24 @@ const Home = () => {
     }
   };
 
+  var touchStart: number, touchMove: number;
+
+  const setTouStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    touchStart = event.touches[0].clientY;
+  };
+
+  const setTouMove = (event: React.TouchEvent<HTMLDivElement>) => {
+    touchMove = event.touches[0].clientY;
+  };
+
+  const swipeHandler = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStart > touchMove + 5 && itemIndex !== contentArr.length - 1) {
+      setItemIndex(itemIndex + 1);
+    } else if (touchStart < touchMove - 5 && itemIndex !== 0) {
+      setItemIndex(itemIndex - 1);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div
@@ -56,6 +74,9 @@ const Home = () => {
               <div
                 key={index}
                 onWheel={scrollProcentHandler}
+                onTouchStart={setTouStart}
+                onTouchMove={setTouMove}
+                onTouchEnd={swipeHandler}
                 style={{ width: '100%', height: '100%' }}
               >
                 {el.content}

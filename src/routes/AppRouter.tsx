@@ -24,6 +24,7 @@ import PrivateMainLayout from '../layouts/PrivateMainLayout/PrivateMainLayout';
 import { observer } from 'mobx-react-lite';
 import Preloader from '../assets/preloader/Preloader';
 import styles from './AppRouter.module.scss';
+import SteamRealocate from '../pages/SteamRealocate/SteamRealocate';
 
 const AppRouter = () => {
   const { userStore } = useContext(Context);
@@ -44,9 +45,10 @@ const AppRouter = () => {
         </>
       ) : userStore.isAuth ? (
         userStore.user.steamId === null ? (
-          (window.location.href = 'http://localhost:9000/api/auth/steam')
+          <Route path="*" element={<SteamRealocate />} />
         ) : (
           <>
+            {console.log(userStore.user.steamId)}
             <Route path="/" element={<PrivateMainLayout />}>
               <Route index element={<Home />} />
 
@@ -71,14 +73,13 @@ const AppRouter = () => {
                 </Route>
               </Route>
 
-              <Route path=":user_id" element={<UserLayout />}>
+              <Route path="users/:user_id" element={<UserLayout />}>
                 <Route index element={<UserProfile />} />
                 <Route path="friends" element={<UserFriends />} />
                 <Route path="teams" element={<UserTeams />} />
               </Route>
 
               <Route path="anticheat" element={<Anticheat />} />
-
               <Route path="*" element={<NotFound />} />
             </Route>
           </>

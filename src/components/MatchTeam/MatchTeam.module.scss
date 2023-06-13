@@ -3,15 +3,15 @@
   justify-content: space-around;
   align-items: center;
   height: 100%;
-  
+
   .cell {
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 10px;
-    width: 5vw;
-    height: 5vw;
+    width: 70px;
+    height: 70px;
     background-color: #0b0c109e;
     border-radius: 20px;
     img {
