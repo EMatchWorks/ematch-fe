@@ -16,18 +16,19 @@ const MatchUser = (props: MatchUserProps) => {
 
   useEffect(() => {
     (async () => {
-      const response = await UserService.fetchUser(user.id.toString());
+      const response = await UserService.fetchUser(props.user.toString());
+
       setUser({ ...response.data });
     })();
   }, []);
 
   return (
     <div className={styles.user}>
-      {user ? (
+      {!!user ? (
         <>
           <div className={styles.userAvatar}>
             <div className={styles.avatar}>
-              <Avatar id={user.id} />
+              <Avatar id={props.user} nameAvatar={`AvataId in match`} />
             </div>
           </div>
           <div className={styles.userName}>{user.username}</div>

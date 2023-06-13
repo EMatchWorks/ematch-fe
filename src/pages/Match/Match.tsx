@@ -57,10 +57,10 @@ const Match = () => {
 
   const params = useParams();
   const matchID = Number(params.match_id);
-  const eventSource = MatchService.eventSource(matchID);
 
   useEffect(() => {
     console.log('useEffect');
+
     (async () => {
       try {
         const response = await MatchService.get(matchID);
@@ -71,17 +71,17 @@ const Match = () => {
         setIsError(true);
       }
     })();
+
+    const eventSource = MatchService.eventSource(matchID);
+    eventSource.onmessage = (res) => {
+      setMatchData({ ...JSON.parse(res.data).match });
+    };
+
+    return () => eventSource.close();
   }, []);
 
   const addUserAtTeam = async (teamID: number) => {
-    console.log('addUserAtTeam');
     await TeamService.addUser(teamID, matchData!.id);
-  };
-
-  eventSource.onmessage = (res) => {
-    console.log('eventSource');
-    console.log(JSON.parse(res.data));
-    setMatchData({ ...JSON.parse(res.data).match });
   };
 
   const teamHandler = (teamNumber: number) => {

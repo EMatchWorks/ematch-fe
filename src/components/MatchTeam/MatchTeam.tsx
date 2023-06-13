@@ -16,21 +16,6 @@ type MatchTeamProps = {
 };
 
 const MatchTeam = (props: MatchTeamProps) => {
-  // const emptyCellsPush = (): JSX.Element[] => {
-  //   const emptyCells = [] as JSX.Element[];
-  //   for (let i = teamData.team.users.length; i < teamData.team.size; i++) {
-  //     emptyCells.push(
-  //       <div onClick={addUserAtTeam} className={styles.cell} key={i}>
-  //         <img src={Plus} />
-  //       </div>,
-  //     );
-  //   }
-  //   return [...emptyCells];
-  // };
-
-  //   console.log('MatchTeam');
-  //   console.log(props.teamID);
-
   return (
     <div className={styles.container}>
       {props.team.map((user, index) =>
