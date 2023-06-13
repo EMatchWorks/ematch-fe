@@ -44,7 +44,7 @@ const MatchTeam = (props: MatchTeamProps) => {
           </div>
         ) : (
           <>
-            <MatchUser user={user.id} key={index} />
+            <MatchUser user={user.userId} key={index} />
           </>
         ),
       )}
