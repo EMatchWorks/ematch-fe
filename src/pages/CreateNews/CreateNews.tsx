@@ -4,15 +4,20 @@ import { useState, useContext } from 'react';
 import { Context } from '../..';
 import Input from '../../components/Input/Input';
 import Textarea from '../../components/Textarea/Textarea';
+import { useNavigate } from 'react-router-dom';
 
 const CreateNews = () => {
+  const navigate = useNavigate();
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
   const { newsStore } = useContext(Context);
 
   async function handlerFormSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
-    newsStore.createNews(title, content);
+    try {
+      await newsStore.createNews(title, content);
+      navigate('../');
+    } catch (e) {}
   }
   return (
     <div className={styles.container}>

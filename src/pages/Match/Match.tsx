@@ -114,14 +114,22 @@ const Match = () => {
                 teamID={1}
               />
             </div>
-            <div className={styles.map}>
-              <div className={styles.mapPic}>
-                <img
-                  className={styles.imgMap}
-                  src={mapBGHandler(matchData.map)}
-                />
+            <div>
+              <div className={styles.map}>
+                <div className={styles.mapPic}>
+                  <img
+                    className={styles.imgMap}
+                    src={mapBGHandler(matchData.map)}
+                  />
+                </div>
+                {matchData.map}
               </div>
-              {matchData.map}
+              <a
+                href={`steam://connect/${matchData.ip}`}
+                className={styles.matchLink + ' ' + (matchData.ip ? '' : '')}
+              >
+                Приєднатись до матчу
+              </a>
             </div>
             <div className={styles.team}>
               <MatchTeam
@@ -131,14 +139,6 @@ const Match = () => {
               />
             </div>
           </div>
-          <a
-            href={`steam://connect/${matchData.ip}`}
-            className={
-              styles.matchLink + ' ' + (matchData.ip ? '' : styles.disable)
-            }
-          >
-            Приєднатись до матчу
-          </a>
         </>
       ) : (
         <div className={styles.preloader}>

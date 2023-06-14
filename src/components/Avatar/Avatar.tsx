@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import avatarDefault from '../../assets/AvatarIcon/AvatarDefault.jpg';
+import avatarDefault from '../../assets/AvatarIcon/AvatarDefault.png';
 import UserAvatarService from '../../services/UserAvatarService';
 import Preloader from '../../assets/preloader/Preloader';
 import styles from './Avatar.module.scss';

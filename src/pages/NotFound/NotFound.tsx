@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
+import styles from './NotFound.module.scss';
 import { useNavigate } from 'react-router-dom';
+import Preloader from '../../assets/preloader/Preloader';
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -16,7 +18,9 @@ const NotFound = () => {
 
   return (
     <>
-      <div>404</div>
+      <div className={styles.preloader}>
+        <Preloader />
+      </div>
     </>
   );
 };

@@ -3,11 +3,16 @@
   height: 100%;
 }
 .user {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 10px;
   .userAvatar {
     display: flex;
     cursor: pointer;
-    width: 5vw;
-    height: 5vw;
+    width: 70px;
+    height: 70px;
     background-color: #0b0c109e;
     border-radius: 20px;
     img {
@@ -21,5 +26,7 @@
     font-size: 1.8rem;
     text-align: center;
     margin-top: 10px;
+    position: absolute;
+    bottom: -30px;
   }
 }
