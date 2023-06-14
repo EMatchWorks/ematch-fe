@@ -1,6 +1,10 @@
 .container {
-  path {
-    transition: all 0.1s ease-in 0s;
+  svg {
+    position: relative;
+    top: -80px;
+    path {
+      transition: all 0.1s ease-in 0s;
+    }
   }
 }
 
