@@ -12,6 +12,7 @@ interface Props {
 
 const TopBar = (props: Props) => {
   const { userStore } = useContext(Context);
+
   return (
     <div className={props.className + ' ' + styles.container}>
       {userStore.isLoading ? (

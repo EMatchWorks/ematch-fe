@@ -1,8 +1,8 @@
 export interface IUser {
-  id: number;
+  id: string;
   username: string;
   email: string;
-  profileId: number;
+  profileId: string;
   steamId?: string;
   role?: string;
 }

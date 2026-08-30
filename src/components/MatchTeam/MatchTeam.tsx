@@ -1,17 +1,12 @@
-import { useContext, useState, useEffect } from 'react';
-import { Context } from '../..';
+
 import styles from './MatchTeam.module.scss';
-import Preloader from '../../assets/preloader/Preloader';
 import MatchUser from '../MatchUser/MatchUser';
-import { observer } from 'mobx-react-lite';
-import { ITeam } from '../../models/Team/ITeam';
 import Plus from '../../assets/icons/Plus/Plus.svg';
-import { IMatch, IMatchErorr, MembershipDto } from '../../models/Match/IMatch';
-import TeamService from '../../services/TeamService';
+import { MembershipDto } from '../../models/Match/IMatch';
 
 type MatchTeamProps = {
   team: null[] | MembershipDto[];
-  addUser: (id: number) => {};
+  addUser: (id: number) => void;
   teamID: number;
 };
 
@@ -25,12 +20,10 @@ const MatchTeam = (props: MatchTeamProps) => {
             className={styles.cell}
             key={index}
           >
-            <img src={Plus} />
+            <img src={Plus} alt="plus" />
           </div>
         ) : (
-          <>
-            <MatchUser user={user.userId} key={index} />
-          </>
+          <MatchUser user={user.userId} key={index} />
         ),
       )}
     </div>

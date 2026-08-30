@@ -6,7 +6,6 @@ import './index.scss';
 import UserStore from './store/userStore';
 import NewsStore from './store/newsStore';
 import MatchStore from './store/matchStore';
-import ErrorStore from './store/errorStore';
 import TeamStore from './store/teamStore';
 import LoadMatch from './store/loadMatch';
 

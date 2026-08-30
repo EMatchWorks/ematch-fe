@@ -1,48 +1,18 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import avatarDefault from '../../assets/AvatarIcon/AvatarDefault.png';
-import UserAvatarService from '../../services/UserAvatarService';
-import Preloader from '../../assets/preloader/Preloader';
-import styles from './Avatar.module.scss';
+
 type AvatarProps = {
-  id: number;
+  // `id` isn't used below (see comment), so it stays loose rather than
+  // forcing every caller to migrate to ematch-be's uuid string ids.
+  id: number | string;
   nameAvatar?: string;
 };
 
+// Avatar upload/serving is disabled on the backend (the file module was
+// removed in ematch-be), so we always fall back to the default avatar for
+// now instead of hitting the now-nonexistent `/user/:id/avatar` endpoint.
 const Avatar = (props: AvatarProps) => {
-  const [avatar, setAvatar] = useState({ img: '', isLoading: true });
-  useEffect(() => {
-    (async () => {
-      try {
-        console.log(props.nameAvatar + ' ' + props.id);
-
-        let response = await UserAvatarService.fetchUserAvatar(props.id);
-        let avatar = response.data;
-        console.log(props.nameAvatar);
-        console.log(response);
-
-        setAvatar({ img: avatar, isLoading: false });
-      } catch (error) {
-        console.log(error);
-        setAvatar({ img: '', isLoading: false });
-      }
-    })();
-  }, []);
-
-  if (avatar.isLoading) {
-    return (
-      <div className={styles.preloader}>
-        <Preloader />
-      </div>
-    );
-  } else {
-    return (
-      <img
-        src={avatar.img ? `data:image/png;base64,${avatar.img}` : avatarDefault}
-        alt="Avatar"
-      />
-    );
-  }
+  return <img src={avatarDefault} alt="Avatar" />;
 };
 
 export default Avatar;

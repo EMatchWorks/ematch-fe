@@ -63,6 +63,20 @@
     opacity: 0;
     pointer-events: none;
   }
+  .starting {
+    pointer-events: none;
+    opacity: 0.6;
+    cursor: default;
+  }
+  .leaveButton {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    background-color: #4a1f1f;
+    &:hover {
+      background-color: #6e2b2b;
+    }
+  }
 }
 
 @media (max-width: 730px) {

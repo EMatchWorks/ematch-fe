@@ -44,11 +44,10 @@ const AppRouter = () => {
           </Route>
         </>
       ) : userStore.isAuth ? (
-        userStore.user.steamId === null ? (
+        userStore.user?.steamId === null ? (
           <Route path="*" element={<SteamRealocate />} />
         ) : (
           <>
-            {console.log(userStore.user.steamId)}
             <Route path="/" element={<PrivateMainLayout />}>
               <Route index element={<Home />} />
 

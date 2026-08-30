@@ -17,11 +17,13 @@ const MatchesList = () => {
   const [mapFilter, setMapFilter] = useState<string[]>([]);
 
   useEffect(() => {
-    matchStore.loadMatchList();
-  }, []);
+    matchStore.loadMatchList().catch();
+  }, [matchStore]);
 
-  const findUserName = (id: number): string => {
-    return users.find((user) => user.id === id)?.userName || '';
+  const findUserName = (id: string): string => {
+    // `users` is local mock data with numeric ids, while match.creatorId is
+    // now a real ematch-be uuid string - coerce so this still type-checks.
+    return users.find((user) => user.id.toString() === id)?.userName || '';
   };
 
   const mapBGHandler = (name: string): string => {
@@ -36,7 +38,7 @@ const MatchesList = () => {
         </div>
       ) : (
         <>
-          {/* <MatchSearch inputValue={inputValue} setInputValue={setInputValue} /> */}
+          <MatchSearch inputValue={inputValue} setInputValue={setInputValue} />
           <MatchMapFilter mapFilter={mapFilter} setMapFilter={setMapFilter} />
           <div className={styles.gridContainer}>
             {' '}

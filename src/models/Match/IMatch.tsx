@@ -7,7 +7,7 @@ import {
 } from './EMAtch';
 
 export type IMatch = {
-  id: number;
+  id: string;
   status: EMatchStatus;
   mode: EMatchMode;
   mapSelection: EMapSelectType;
@@ -15,15 +15,17 @@ export type IMatch = {
   belonging: EMatchBelonging;
   stats: string;
   ip: string;
-  creatorId: number;
-  users: MembershipDto[];
+  creatorId: string;
+  memberships: MembershipDto[];
 };
 
+// ematch-be's entities use uuid primary keys, so these are all string ids,
+// not numbers.
 export type MembershipDto = {
-  id: number;
-  userId: number;
+  id: string;
+  userId: string;
   team: 1 | 2;
-  matchId: number;
+  matchId: string;
   isCaptain: boolean;
 };
 

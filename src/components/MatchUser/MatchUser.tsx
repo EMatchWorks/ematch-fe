@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
 import styles from './MatchUser.module.scss';
-import { Context } from '../..';
 import { IUser } from '../../models/User/IUser';
 import Avatar from '../Avatar/Avatar';
-import { MembershipDto } from '../../models/Match/IMatch';
 import UserService from '../../services/UserService';
 import Preloader from '../../assets/preloader/Preloader';
 
 type MatchUserProps = {
-  user: number;
+  user: string;
 };
 
 const MatchUser = (props: MatchUserProps) => {
@@ -16,11 +14,11 @@ const MatchUser = (props: MatchUserProps) => {
 
   useEffect(() => {
     (async () => {
-      const response = await UserService.fetchUser(props.user.toString());
+      const response = await UserService.fetchUser(props.user);
 
       setUser({ ...response.data });
     })();
-  }, []);
+  }, [props.user]);
 
   return (
     <div className={styles.user}>

@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Socket } from 'socket.io-client';
 
 import NotFound from '../NotFound/NotFound';
 import { Context } from '../..';
@@ -7,7 +8,8 @@ import { observer } from 'mobx-react-lite';
 import Preloader from '../../assets/preloader/Preloader';
 import styles from './Match.module.scss';
 import MatchTeam from '../../components/MatchTeam/MatchTeam';
-import { IMatch, IMatchErorr } from '../../models/Match/IMatch';
+import { IMatch } from '../../models/Match/IMatch';
+import { EMatchStatus } from '../../models/Match/EMAtch';
 
 import overpassBG from '../../assets/background/Maps/de_overpass.jpg';
 import mirageBG from '../../assets/background/Maps/de_mirage.jpg';
@@ -15,14 +17,12 @@ import dustBG from '../../assets/background/Maps/de_dust2.jpg';
 import cobleBG from '../../assets/background/Maps/de_cbble.jpg';
 import nukeBG from '../../assets/background/Maps/de_nuke.jpg';
 import infernoBG from '../../assets/background/Maps/de_inferno.jpg';
-import anchientBG from '../../assets/background/Maps/de_ancient.jpg';
+import ancientBG from '../../assets/background/Maps/de_ancient.jpg';
 import trainBG from '../../assets/background/Maps/de_train.jpg';
 import vertigoBG from '../../assets/background/Maps/de_vertigo.jpg';
 import anubisBG from '../../assets/background/Maps/de_anubis.jpg';
 import maps from '../../data/map';
-import { set } from 'mobx';
 import MatchService from '../../services/MatchService';
-import TeamService from '../../services/TeamService';
 
 const mapBGHandler = (name: string) => {
   switch (maps.find((map) => map.name === name)?.name) {
@@ -39,7 +39,7 @@ const mapBGHandler = (name: string) => {
     case 'de_inferno':
       return infernoBG;
     case 'de_ancient':
-      return anchientBG;
+      return ancientBG;
     case 'de_train':
       return trainBG;
     case 'de_vertigo':
@@ -52,42 +52,68 @@ const mapBGHandler = (name: string) => {
 };
 
 const Match = () => {
+  const { userStore } = useContext(Context);
   const [matchData, setMatchData] = useState<IMatch>();
   const [isError, setIsError] = useState(false);
 
   const params = useParams();
-  const matchID = Number(params.match_id);
+  const matchID = params.match_id as string;
+  const socketRef = useRef<Socket | null>(null);
 
   useEffect(() => {
-    console.log('useEffect');
-
     (async () => {
       try {
         const response = await MatchService.get(matchID);
 
-        console.log(response.data);
         setMatchData({ ...response.data });
       } catch (e) {
         setIsError(true);
       }
     })();
 
-    const eventSource = MatchService.eventSource(matchID);
-    eventSource.onmessage = (res) => {
-      setMatchData({ ...JSON.parse(res.data).match });
+    const { socket, unsubscribe } = MatchService.subscribeToMatch(
+      matchID,
+      userStore.user.id,
+      (match) => {
+        setMatchData({ ...match });
+      },
+    );
+    socketRef.current = socket;
+
+    return () => {
+      socketRef.current = null;
+      unsubscribe();
     };
+  }, [matchID, userStore.user.id]);
 
-    return () => eventSource.close();
-  }, []);
+  const addUserAtTeam = (teamID: number) => {
+    if (!socketRef.current) return;
 
-  const addUserAtTeam = async (teamID: number) => {
-    await TeamService.addUser(teamID, matchData!.id);
+    MatchService.joinLobby(socketRef.current, {
+      userId: userStore.user.id,
+      matchId: matchID,
+      team: teamID as 1 | 2,
+      isCaptain: false,
+    });
   };
+
+  const leaveMatch = () => {
+    if (!socketRef.current) return;
+
+    MatchService.leaveLobby(socketRef.current, {
+      userId: userStore.user.id,
+      matchId: matchID,
+    });
+  };
+
+  const isParticipant = matchData?.memberships?.some(
+    (membership) => membership.userId === userStore.user.id,
+  );
 
   const teamHandler = (teamNumber: number) => {
     const team = [];
     if (matchData) {
-      matchData.users.map((el) => {
+      matchData.memberships?.forEach((el) => {
         if (el.team === teamNumber) {
           team.push(el);
         }
@@ -105,7 +131,6 @@ const Match = () => {
     <div className={styles.container}>
       {matchData ? (
         <>
-          {console.log(matchData)}
           <div className={styles.content}>
             <div className={styles.team}>
               <MatchTeam
@@ -120,16 +145,38 @@ const Match = () => {
                   <img
                     className={styles.imgMap}
                     src={mapBGHandler(matchData.map)}
-                  />
+                    alt='Map Background'
+                   />
                 </div>
                 {matchData.map}
               </div>
-              <a
-                href={`steam://connect/${matchData.ip}`}
-                className={styles.matchLink + ' ' + (matchData.ip ? '' : '')}
-              >
-                Приєднатись до матчу
-              </a>
+              {matchData.status === EMatchStatus.InProgress && matchData.ip ? (
+                <a
+                  href={`steam://connect/${matchData.ip}`}
+                  className={styles.matchLink}
+                >
+                  Приєднатись до серверу
+                </a>
+              ) : (
+                matchData.status === EMatchStatus.Starting && (
+                  // The match's `ip` is set as soon as this status hits, but
+                  // the Dathost server is often still booting/loading the
+                  // map at that point - MatchService.pollForServerReady
+                  // flips status to InProgress once it actually confirms
+                  // the server is ready, so the link only appears then.
+                  <div className={styles.matchLink + ' ' + styles.starting}>
+                    Сервер запускається...
+                  </div>
+                )
+              )}
+              {isParticipant && (
+                <button
+                  className={styles.matchLink + ' ' + styles.leaveButton}
+                  onClick={leaveMatch}
+                >
+                  Покинути матч
+                </button>
+              )}
             </div>
             <div className={styles.team}>
               <MatchTeam

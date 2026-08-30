@@ -1,5 +1,5 @@
 import { API_URL } from '../http/index';
-import { IAuthResponse } from '../models/response/AuthResponse';
+import { IWrappedAuthResponse } from '../models/response/AuthResponse';
 import { makeAutoObservable } from 'mobx';
 import AuthService from '../services/AuthService';
 import { IUser } from '../models/User/IUser';
@@ -29,10 +29,12 @@ export default class UserStore {
     this.setIsLoading(true);
     try {
       const response = await AuthService.login(usernameOrEmail, password);
-      localStorage.setItem('token', response.data.accessToken);
+      const accessToken = response?.data?.accessToken;
+      const userData = response?.data?.userData;
+
+      localStorage.setItem('token', accessToken);
       this.setAuth(true);
-      console.log(response.data);
-      this.setUser(response.data.userData);
+      this.setUser(userData);
     } catch (e: any) {
       console.error(e.response?.data?.message);
       this.setIsLoading(false);
@@ -48,9 +50,12 @@ export default class UserStore {
         email,
         password,
       );
-      localStorage.setItem('token', response.data.accessToken);
+      const accessToken = response?.data?.accessToken;
+      const userData = response?.data?.userData;
+
+      localStorage.setItem('token', accessToken);
       this.setAuth(true);
-      this.setUser(response.data.userData);
+      this.setUser(userData);
     } catch (e: any) {
       console.error(e.response?.data?.message);
     }
@@ -70,15 +75,17 @@ export default class UserStore {
   async checkAuth() {
     this.setIsLoading(true);
     try {
-      const response = await axios.get<IAuthResponse>(
+      const response = await axios.get<IWrappedAuthResponse>(
         `${API_URL}/auth/refresh`,
         {
           withCredentials: true,
         },
       );
-      localStorage.setItem('token', response.data.accessToken);
+      const accessToken = response?.data?.data?.accessToken;
+      const userData = response?.data?.data?.userData;
+      localStorage.setItem('token', accessToken);
       this.setAuth(true);
-      this.setUser(response.data.userData);
+      this.setUser(userData);
     } catch (e: any) {
       console.error(e.response?.data?.message);
     } finally {

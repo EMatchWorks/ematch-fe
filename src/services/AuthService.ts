@@ -18,8 +18,10 @@ export default class AuthService {
     return $api.post('/auth/register', { username, email, password });
   }
 
-  static async logout(): Promise<AxiosResponse<IAuthResponse>> {
-    return $api.post('/auth/logout');
+  static async logout(): Promise<AxiosResponse<void>> {
+    // ematch-be logout is now `GET /auth/logout` returning 204 with no body -
+    // it just clears the auth cookies server-side.
+    return $api.get('/auth/logout');
   }
   static authSteam(): Promise<AxiosResponse<HTMLElement>> {
     return $api.get<HTMLElement>(`/auth/steam`);

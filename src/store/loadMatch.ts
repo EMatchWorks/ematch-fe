@@ -33,7 +33,7 @@ export default class LoadMatch {
     this.matchError = {} as IError;
   }
 
-  async loadMatch(id: number) {
+  async loadMatch(id: string) {
     this.setIsLoadingMatch(true);
     this.cleareMatchError();
     try {
@@ -47,7 +47,6 @@ export default class LoadMatch {
       });
     } finally {
       this.setIsLoadingMatch(false);
-      console.log(this.isLoadingMatch);
     }
   }
 }

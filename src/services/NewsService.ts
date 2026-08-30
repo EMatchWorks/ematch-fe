@@ -1,4 +1,3 @@
-import { IAuthResponse } from '../models/response/AuthResponse';
 import $api from '../http';
 import { AxiosResponse } from 'axios';
 import { INews } from '../models/News/INews';
