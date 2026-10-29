@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styles from './UserProfile.module.scss';
 import Plus from '../../assets/icons/Plus/Plus.svg';
 import StatisticIcon from '../../assets/icons/Statistic/Statistic.svg';
@@ -7,10 +8,14 @@ import MatchHistory from '../../components/MatchHistory/MatchHistory';
 
 const User = () => {
   const [isOpenStatistic, setIsOpenStatistic] = useState(false);
+  // UserLayout already resolved and validated this - it only renders
+  // <Outlet /> (this page) once it has fetched a user for params.user_id.
+  const { user_id } = useParams();
+
   return (
     <div className={styles.container}>
       <div className={styles.matchHistory}>
-        <MatchHistory />
+        <MatchHistory userId={user_id as string} />
       </div>
       <div
         className={

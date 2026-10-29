@@ -60,6 +60,12 @@
     "deleteConfirmMessage": "Are you sure you want to delete this match? This cannot be undone.",
     "deleteConfirmConfirm": "Delete"
   },
+  "matchHistory": {
+    "loading": "Loading match history...",
+    "empty": "No finished matches yet",
+    "win": "Win",
+    "lose": "Loss"
+  },
   "matchUser": {
     "captain": "Captain",
     "reconnecting": "Reconnecting..."

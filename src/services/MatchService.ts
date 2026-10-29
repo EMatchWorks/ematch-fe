@@ -48,6 +48,14 @@ export default class MatchService {
     return $api.delete(`matches/${id}`);
   }
 
+  static async getUserMatchHistory(
+    userId: string,
+  ): Promise<AxiosResponse<IMatch[]>> {
+    return $api.get('matches', {
+      params: { userId, status: [EMatchStatus.Finished] },
+    });
+  }
+
   static subscribeToMatch(
     matchId: string,
     userId: string,
