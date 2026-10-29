@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Context } from '../..';
 import Input from '../../components/Input/Input';
 import styles from './Login.module.scss';
@@ -8,6 +9,7 @@ const emailRegex: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordRegex: RegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
 
 const Login = () => {
+  const { t } = useTranslation();
   const [errors, setErrors] = useState({
     login: false,
     password: false,
@@ -37,11 +39,9 @@ const Login = () => {
           value={username}
           setInput={setUsername}
           error={errors.login}
-          errorText={
-            'Логін повинен складатися з 4-16 латинських символів, цифр та символів "_", "-".'
-          }
+          errorText={t('auth.login.usernameError')}
         >
-          Email\Ім'я користувача
+          {t('auth.login.usernameLabel')}
         </Input>
         <Input
           name="password"
@@ -49,13 +49,11 @@ const Login = () => {
           value={password}
           setInput={setPassword}
           error={errors.password}
-          errorText={
-            'Пароль повинен містити від 4 до 16 символів і містити принаймні одну велику літеру та одну цифру.'
-          }
+          errorText={t('auth.login.passwordError')}
         >
-          Пароль
+          {t('auth.login.passwordLabel')}
         </Input>
-        <button type="submit">Увійти</button>
+        <button type="submit">{t('auth.login.submit')}</button>
       </form>
     </div>
   );

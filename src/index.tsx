@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.scss';
+import './i18n';
 import UserStore from './store/userStore';
 import NewsStore from './store/newsStore';
 import MatchStore from './store/matchStore';

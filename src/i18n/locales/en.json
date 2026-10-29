@@ -1,0 +1,81 @@
+{
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Yes"
+  },
+  "nav": {
+    "tournamentsComingSoon": "Tournaments coming soon",
+    "login": "Log in",
+    "register": "Sign up"
+  },
+  "home": {
+    "slide1": "A new modern platform for playing CS:GO with a great community!",
+    "slide2": "Follow the latest news in real time and share it"
+  },
+  "auth": {
+    "login": {
+      "usernameLabel": "Email\\Username",
+      "passwordLabel": "Password",
+      "usernameError": "Login must consist of 4-16 Latin characters, digits, and the symbols \"_\", \"-\".",
+      "passwordError": "Password must be 4-16 characters long and contain at least one uppercase letter and one digit.",
+      "submit": "Log in"
+    },
+    "register": {
+      "usernameLabel": "Username",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "usernameError": "Login must consist of 4-16 Latin characters, digits, and the symbols \"_\", \"-\".",
+      "emailError": "Invalid email. Please try again",
+      "passwordError": "Password must be 4-16 characters long and contain at least one uppercase letter and one digit.",
+      "submit": "Sign up"
+    }
+  },
+  "createMatch": {
+    "modeLabel": "Mode",
+    "selectTypeLabel": "Map pick",
+    "mapLabel": "Map",
+    "submit": "Create match"
+  },
+  "match": {
+    "mode": "Mode",
+    "status": "Status",
+    "players": "Players",
+    "statusLabels": {
+      "Pending": "Waiting for players",
+      "Starting": "Server starting",
+      "InProgress": "Match in progress",
+      "Cancelled": "Match cancelled",
+      "Finished": "Match finished"
+    },
+    "connect": "Connect to server",
+    "serverStarting": "Server starting...",
+    "startMatch": "Start match",
+    "leaveMatch": "Leave match",
+    "joinSlot": "Join",
+    "startConfirmTitle": "Incomplete lineup",
+    "startConfirmMessage": "The lobby has {{count}} of {{max}} players. Start the match without a full lineup?",
+    "startConfirmConfirm": "Start"
+  },
+  "matchUser": {
+    "captain": "Captain",
+    "reconnecting": "Reconnecting..."
+  },
+  "profile": {
+    "tabs": {
+      "profile": "Profile"
+    },
+    "stats": {
+      "winRate": "% win rate",
+      "headshot": "% headshots",
+      "mapFlexibility": "% map flexibility",
+      "firstKills": "% first kills",
+      "kast": "% KAST"
+    },
+    "language": {
+      "title": "Language",
+      "uk": "Українська",
+      "en": "English",
+      "ru": "Одесский"
+    }
+  }
+}

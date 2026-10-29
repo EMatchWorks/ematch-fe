@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Play from '../../../assets/icons/Sidebar/Play/Play';
 import News from '../../../assets/icons/Sidebar/News/News';
 import Tournaments from '../../../assets/icons/Sidebar/Cup/Cup';
@@ -10,6 +11,7 @@ interface Props {
 }
 
 const SideBar = (props: Props) => {
+  const { t } = useTranslation();
   const activeClass = (isActive: boolean) => {
     return isActive ? styles.active : styles.disable;
   };
@@ -26,12 +28,15 @@ const SideBar = (props: Props) => {
         <NavLink className={({ isActive }) => activeClass(isActive)} to="news">
           <News />
         </NavLink>
-        <NavLink
-          className={({ isActive }) => activeClass(isActive)}
-          to="tournaments"
+        <div
+          className={styles.comingSoon}
+          title={t('nav.tournamentsComingSoon')}
         >
           <Tournaments />
-        </NavLink>
+          <span className={styles.tooltip}>
+            {t('nav.tournamentsComingSoon')}
+          </span>
+        </div>
         {/* <NavLink
           className={({ isActive }) => activeClass(isActive)}
           to="anticheat"

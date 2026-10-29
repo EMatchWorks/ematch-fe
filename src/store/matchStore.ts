@@ -1,8 +1,14 @@
 import { makeAutoObservable } from 'mobx';
-import { EMapSelectType, EMaps, EMatchMode } from '../models/Match/EMAtch';
-import { IMatch, ICreateMatch, IMatchErorr } from '../models/Match/IMatch';
+import { IMatch } from '../models/Match/IMatch';
+import { EMatchStatus } from '../models/Match/EMAtch';
 import MatchService from '../services/MatchService';
-import { IError } from '../models/Error/IError';
+
+// The Play page's match list is for finding a match to join - Finished and
+// Cancelled matches aren't actionable there.
+const JOINABLE_MATCH_STATUSES = [
+  EMatchStatus.Pending,
+  EMatchStatus.InProgress,
+];
 
 export default class MatchStore {
   matchList = [] as IMatch[];
@@ -23,7 +29,7 @@ export default class MatchStore {
   async loadMatchList() {
     try {
       this.setIsLoadingMatchList(true);
-      const response = await MatchService.getList();
+      const response = await MatchService.getList(JOINABLE_MATCH_STATUSES);
       this.setMatchList(response.data);
     } catch (e: any) {
       console.error(e.response?.data?.message);
@@ -32,10 +38,9 @@ export default class MatchStore {
     }
   }
 
-  async createMatch(mode: string, selectType: string, map: string) {
+  async createMatch(teamSize: number, selectType: string, map: string) {
     try {
-      const response = await MatchService.create(mode, selectType, map);
-      console.log(response);
+      const response = await MatchService.create(teamSize, selectType, map);
       return response.data.id;
     } catch (e: any) {
       console.error(e);

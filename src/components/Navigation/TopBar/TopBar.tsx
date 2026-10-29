@@ -1,10 +1,12 @@
 import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Context } from '../../..';
 import Preloader from '../../../assets/preloader/Preloader';
 import styles from './TopBar.module.scss';
-import Avatar from '../../Avatar/Avatar';
+import UserIcon from '../../../assets/icons/UserSideBar/User';
+import LanguageSwitcher from '../../LanguageSwitcher/LanguageSwitcher';
 
 interface Props {
   className: string;
@@ -12,6 +14,7 @@ interface Props {
 
 const TopBar = (props: Props) => {
   const { userStore } = useContext(Context);
+  const { t } = useTranslation();
 
   return (
     <div className={props.className + ' ' + styles.container}>
@@ -20,20 +23,21 @@ const TopBar = (props: Props) => {
           <Preloader />
         </div>
       ) : (
-        <div>
+        <div className={styles.topRow}>
+          <LanguageSwitcher />
           {userStore.isAuth && !userStore.isLoading ? (
             <div className={styles.avatar}>
               <Link to={`/users/${userStore.user.id.toString()}`}>
-                <Avatar id={userStore.user.id} />
+                <UserIcon />
               </Link>
             </div>
           ) : (
             <div className={styles.link}>
               <Link role={'button'} to="./login">
-                Вхід
+                {t('nav.login')}
               </Link>
               <Link role={'button'} to="./reg">
-                Реєстрація
+                {t('nav.register')}
               </Link>
             </div>
           )}

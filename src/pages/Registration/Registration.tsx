@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Context } from '../..';
 import Input from '../../components/Input/Input';
 import styles from './Registration.module.scss';
@@ -8,6 +9,7 @@ const emailRegex: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordRegex: RegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
 
 const Registration = () => {
+  const { t } = useTranslation();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -44,11 +46,9 @@ const Registration = () => {
           value={username}
           setInput={setUsername}
           error={errors.login}
-          errorText={
-            'Логін повинен складатися з 4-16 латинських символів, цифр та символів "_", "-".'
-          }
+          errorText={t('auth.register.usernameError')}
         >
-          Ім'я користувача
+          {t('auth.register.usernameLabel')}
         </Input>
         <Input
           name="email"
@@ -56,9 +56,9 @@ const Registration = () => {
           value={email}
           setInput={setEmail}
           error={errors.email}
-          errorText={'Неправильний email. Будь ласка, спробуйте ще раз'}
+          errorText={t('auth.register.emailError')}
         >
-          Email
+          {t('auth.register.emailLabel')}
         </Input>
         <Input
           name="password"
@@ -66,13 +66,11 @@ const Registration = () => {
           value={password}
           setInput={setPassword}
           error={errors.password}
-          errorText={
-            'Пароль повинен містити від 4 до 16 символів і містити принаймні одну велику літеру та одну цифру.'
-          }
+          errorText={t('auth.register.passwordError')}
         >
-          Пароль
+          {t('auth.register.passwordLabel')}
         </Input>
-        <button>Registrantion</button>
+        <button>{t('auth.register.submit')}</button>
       </form>
     </div>
   );

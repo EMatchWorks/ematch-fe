@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './CreateMatch.module.scss';
 import DropMenu from '../DropMenu/DropMenu';
 import MatchService from '../../services/MatchService';
@@ -6,6 +7,9 @@ import { Context } from '../..';
 import MatchStore from '../../store/matchStore';
 import { useNavigate } from 'react-router-dom';
 
+// Labels only - the actual match is created with a numeric teamSize
+// (ematch-be stores/validates team size as a symmetrical number, not this
+// display string), derived from the label's first character below.
 const mode = ['1v1', '2v2', '5v5'];
 const selectType = ['preset', 'pick/ban'];
 const maps = [
@@ -19,17 +23,19 @@ const maps = [
 ];
 
 const CreateMatch = () => {
+  const { t } = useTranslation();
   const { matchStore } = useContext(Context);
   const navigate = useNavigate();
 
   const [modeVarc, setModeVarc] = useState(mode[0]);
-  const [selectTypeVarc, setSelectTypeVarc] = useState(selectType[0]);
+  // const [selectTypeVarc, setSelectTypeVarc] = useState(selectType[0]);
   const [mapVarc, setMapVarc] = useState(maps[0]);
 
   const createMatchHandler = async () => {
+    const teamSize = Number(modeVarc.charAt(0));
     const newMatchID = await matchStore.createMatch(
-      modeVarc,
-      selectTypeVarc,
+      teamSize,
+      selectType[0],
       mapVarc,
     );
     navigate(`./${newMatchID}`);
@@ -39,27 +45,28 @@ const CreateMatch = () => {
     <div className={styles.container}>
       <div className={styles.fieldsContainer}>
         <DropMenu
-          name={'Режим'}
+          name={t('createMatch.modeLabel')}
           choosenParam={modeVarc}
           paramsList={mode}
           setChoosenParam={setModeVarc}
         />
+        {/*<DropMenu*/}
+        {/*  name={t('createMatch.selectTypeLabel')}*/}
+        {/*  choosenParam={selectTypeVarc}*/}
+        {/*  paramsList={selectType}*/}
+        {/*  setChoosenParam={setSelectTypeVarc}*/}
+        {/*/>*/}
         <DropMenu
-          name={'Виборка'}
-          choosenParam={selectTypeVarc}
-          paramsList={selectType}
-          setChoosenParam={setSelectTypeVarc}
-        />
-        <DropMenu
-          name={'Мапа'}
+          name={t('createMatch.mapLabel')}
           choosenParam={mapVarc}
           paramsList={maps}
           setChoosenParam={setMapVarc}
-          isDisable={selectTypeVarc === 'pick/ban' ? true : false}
+          // isDisable={selectTypeVarc === 'pick/ban' ? true : false}
+          isDisable={false}
         />
       </div>
       <div className={styles.button} onClick={createMatchHandler}>
-        Створити матч
+        {t('createMatch.submit')}
       </div>
     </div>
   );

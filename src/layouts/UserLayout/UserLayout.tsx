@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import NotFound from '../../pages/NotFound/NotFound';
 import styles from './UserLayout.module.scss';
-import Avatar from '../../components/Avatar/Avatar';
+import UserIcon from '../../assets/icons/UserSideBar/User';
 import UserService from '../../services/UserService';
 import { IUser } from '../../models/User/IUser';
 import Preloader from '../../assets/preloader/Preloader';
 
 const UserLayout = () => {
+  const { t } = useTranslation();
   const [user, setUser] = useState<IUser>();
   const params = useParams();
 
@@ -41,7 +43,7 @@ const UserLayout = () => {
     <div className={styles.layoutUser}>
       <div className={styles.userDataContainer}>
         <div className={styles.userAvatar}>
-          <Avatar id={user.id} />
+          <UserIcon />
         </div>
         <div className={styles.userName}>{'' + user.username}</div>
       </div>
@@ -51,19 +53,7 @@ const UserLayout = () => {
           to={`.`}
           end
         >
-          Профіль
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => activeLinkHandler(isActive)}
-          to={`./friends`}
-        >
-          Друзі
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => activeLinkHandler(isActive)}
-          to={`./teams`}
-        >
-          Команди
+          {t('profile.tabs.profile')}
         </NavLink>
       </div>
       <div className={styles.outlet}>

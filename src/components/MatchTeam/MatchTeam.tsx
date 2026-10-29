@@ -1,4 +1,4 @@
-
+import { useTranslation } from 'react-i18next';
 import styles from './MatchTeam.module.scss';
 import MatchUser from '../MatchUser/MatchUser';
 import Plus from '../../assets/icons/Plus/Plus.svg';
@@ -8,9 +8,12 @@ type MatchTeamProps = {
   team: null[] | MembershipDto[];
   addUser: (id: number) => void;
   teamID: number;
+  disconnectedUserIds?: Set<string>;
 };
 
 const MatchTeam = (props: MatchTeamProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.container}>
       {props.team.map((user, index) =>
@@ -20,10 +23,16 @@ const MatchTeam = (props: MatchTeamProps) => {
             className={styles.cell}
             key={index}
           >
-            <img src={Plus} alt="plus" />
+            <img className={styles.plusIcon} src={Plus} alt="plus" />
+            <span className={styles.tooltip}>{t('match.joinSlot')}</span>
           </div>
         ) : (
-          <MatchUser user={user.userId} key={index} />
+          <MatchUser
+            user={user.userId}
+            isCaptain={user.isCaptain}
+            isDisconnected={props.disconnectedUserIds?.has(user.userId)}
+            key={index}
+          />
         ),
       )}
     </div>

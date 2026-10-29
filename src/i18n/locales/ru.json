@@ -1,0 +1,81 @@
+{
+  "common": {
+    "cancel": "Отмена",
+    "confirm": "Да"
+  },
+  "nav": {
+    "tournamentsComingSoon": "Турниры скоро",
+    "login": "Вход",
+    "register": "Регистрация"
+  },
+  "home": {
+    "slide1": "Новая современная платформа для игры в CS:GO с отличным комьюнити!",
+    "slide2": "Следите за самыми свежими новостями в реальном времени и делитесь ими"
+  },
+  "auth": {
+    "login": {
+      "usernameLabel": "Email\\Имя пользователя",
+      "passwordLabel": "Пароль",
+      "usernameError": "Логин должен состоять из 4-16 латинских символов, цифр и символов \"_\", \"-\".",
+      "passwordError": "Пароль должен содержать от 4 до 16 символов и включать хотя бы одну заглавную букву и одну цифру.",
+      "submit": "Войти"
+    },
+    "register": {
+      "usernameLabel": "Имя пользователя",
+      "emailLabel": "Email",
+      "passwordLabel": "Пароль",
+      "usernameError": "Логин должен состоять из 4-16 латинских символов, цифр и символов \"_\", \"-\".",
+      "emailError": "Неправильный email. Пожалуйста, попробуйте снова",
+      "passwordError": "Пароль должен содержать от 4 до 16 символов и включать хотя бы одну заглавную букву и одну цифру.",
+      "submit": "Зарегистрироваться"
+    }
+  },
+  "createMatch": {
+    "modeLabel": "Режим",
+    "selectTypeLabel": "Выборка",
+    "mapLabel": "Карта",
+    "submit": "Создать матч"
+  },
+  "match": {
+    "mode": "Режим",
+    "status": "Статус",
+    "players": "Игроки",
+    "statusLabels": {
+      "Pending": "Ожидание игроков",
+      "Starting": "Сервер запускается",
+      "InProgress": "Матч идёт",
+      "Cancelled": "Матч отменён",
+      "Finished": "Матч завершён"
+    },
+    "connect": "Подключиться к серверу",
+    "serverStarting": "Сервер запускается...",
+    "startMatch": "Начать матч",
+    "leaveMatch": "Покинуть матч",
+    "joinSlot": "Присоединиться",
+    "startConfirmTitle": "Неполный состав",
+    "startConfirmMessage": "В лобби {{count}} из {{max}} игроков. Начать матч без полного состава?",
+    "startConfirmConfirm": "Начать"
+  },
+  "matchUser": {
+    "captain": "Капитан",
+    "reconnecting": "Переподключение..."
+  },
+  "profile": {
+    "tabs": {
+      "profile": "Профиль"
+    },
+    "stats": {
+      "winRate": "% побед",
+      "headshot": "% хедшотов",
+      "mapFlexibility": "% гибкости карт",
+      "firstKills": "% первых убийств",
+      "kast": "% полезности"
+    },
+    "language": {
+      "title": "Язык",
+      "uk": "Українська",
+      "en": "English",
+      "ru": "Одесский"
+    }
+  }
+}

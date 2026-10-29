@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './Statistic.module.scss';
 
 type StatisticProps = {
@@ -10,6 +11,7 @@ type StatisticProps = {
 };
 
 const Statistic = (props: StatisticProps) => {
+  const { t } = useTranslation();
   const vectorWidth = (x2: number, percent: number): number => {
     let newCoordanate = ((x2 - 300) * percent) / 100 + 300;
     return newCoordanate;
@@ -130,7 +132,7 @@ const Statistic = (props: StatisticProps) => {
               dominant-baseline="middle"
               text-anchor="middle"
             >
-              % перемог
+              {t('profile.stats.winRate')}
             </text>
             <text
               x="460.211"
@@ -139,7 +141,7 @@ const Statistic = (props: StatisticProps) => {
               dominant-baseline="start"
               text-anchor="start"
             >
-              % хедшотів
+              {t('profile.stats.headshot')}
             </text>
             <text
               x="477.557"
@@ -148,7 +150,7 @@ const Statistic = (props: StatisticProps) => {
               dominant-baseline="middle"
               text-anchor="middle"
             >
-              % гнучкості карт
+              {t('profile.stats.mapFlexibility')}
             </text>
             <text
               x="122.4429"
@@ -157,7 +159,7 @@ const Statistic = (props: StatisticProps) => {
               dominant-baseline="middle"
               text-anchor="middle"
             >
-              % перші вбивства
+              {t('profile.stats.firstKills')}
             </text>
             <text
               x="139.7887"
@@ -166,7 +168,7 @@ const Statistic = (props: StatisticProps) => {
               dominant-baseline="end"
               text-anchor="end"
             >
-              % користності
+              {t('profile.stats.kast')}
             </text>
           </>
         ) : (
@@ -179,7 +181,7 @@ const Statistic = (props: StatisticProps) => {
               dominant-baseline="middle"
               text-anchor="middle"
             >
-              % перемог
+              {t('profile.stats.winRate')}
             </text>
             <text
               x="500.211"
@@ -188,7 +190,7 @@ const Statistic = (props: StatisticProps) => {
               dominant-baseline="start"
               text-anchor="start"
             >
-              % хедшотів
+              {t('profile.stats.headshot')}
             </text>
             <text
               x="417.557"
@@ -197,7 +199,7 @@ const Statistic = (props: StatisticProps) => {
               dominant-baseline="middle"
               text-anchor="middle"
             >
-              % гнучкості карт
+              {t('profile.stats.mapFlexibility')}
             </text>
             <text
               x="182.4429"
@@ -206,7 +208,7 @@ const Statistic = (props: StatisticProps) => {
               dominant-baseline="middle"
               text-anchor="middle"
             >
-              % перші вбивства
+              {t('profile.stats.firstKills')}
             </text>
             <text
               x="99.7887"
@@ -215,7 +217,7 @@ const Statistic = (props: StatisticProps) => {
               dominant-baseline="end"
               text-anchor="end"
             >
-              % користності
+              {t('profile.stats.kast')}
             </text>
           </>
         )}

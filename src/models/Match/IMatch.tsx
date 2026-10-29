@@ -2,14 +2,14 @@ import {
   EMapSelectType,
   EMaps,
   EMatchBelonging,
-  EMatchMode,
   EMatchStatus,
 } from './EMAtch';
 
 export type IMatch = {
   id: string;
   status: EMatchStatus;
-  mode: EMatchMode;
+  /** Size of each (symmetrical) team, e.g. 1 for 1v1, 5 for 5v5. */
+  teamSize: number;
   mapSelection: EMapSelectType;
   map: EMaps;
   belonging: EMatchBelonging;
@@ -30,7 +30,7 @@ export type MembershipDto = {
 };
 
 export interface ICreateMatch {
-  mode: EMatchMode;
+  teamSize: number;
   mapSelection: EMapSelectType;
   map: EMaps;
 }

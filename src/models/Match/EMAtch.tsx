@@ -2,18 +2,13 @@ export enum EMatchStatus {
   Pending = 'Pending',
   Starting = 'Starting',
   InProgress = 'InProgress',
+  Cancelled = 'Cancelled',
   Finished = 'Finished',
 }
 
 export enum EMatchBelonging {
   Single = 'Single',
   Tournament = 'Tournament',
-}
-
-export enum EMatchMode {
-  Duel = '1v1',
-  Wingman = '2v2',
-  Default = '5v5',
 }
 
 export enum EMapSelectType {
