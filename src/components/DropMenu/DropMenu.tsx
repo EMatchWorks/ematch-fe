@@ -16,6 +16,12 @@ const DropMenu = (props: DropMenuProps) => {
     'pointer-events': `none`,
   });
 
+  const closeStyles = {
+    height: `${0}px`,
+    opacity: `${0}`,
+    'pointer-events': 'none',
+  };
+
   const setInputParamsStylesHandler = () => {
     if (inputParamsStyles.height === '0px') {
       setInputParamsStyles({
@@ -26,12 +32,13 @@ const DropMenu = (props: DropMenuProps) => {
         'pointer-events': 'all',
       });
     } else {
-      setInputParamsStyles({
-        height: `${0}px`,
-        opacity: `${0}`,
-        'pointer-events': 'none',
-      });
+      setInputParamsStyles(closeStyles);
     }
+  };
+
+  const selectParamHandler = (el: string) => {
+    props.setChoosenParam(el);
+    setInputParamsStyles(closeStyles);
   };
 
   return (
@@ -54,7 +61,7 @@ const DropMenu = (props: DropMenuProps) => {
       </div>
       <div className={styles.inputParams} style={inputParamsStyles}>
         {props.paramsList.map((el, index) => (
-          <div key={index} onClick={() => props.setChoosenParam(el)}>
+          <div key={index} onClick={() => selectParamHandler(el)}>
             {el}
           </div>
         ))}
