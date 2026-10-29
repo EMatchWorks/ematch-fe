@@ -1,4 +1,4 @@
-# Project BAZA - Frontend
+# EMatch - Frontend
 
 ### `npm install`
 Install dependencies before running the app.\
