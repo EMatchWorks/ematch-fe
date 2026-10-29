@@ -1,5 +1,4 @@
 import { useContext, useEffect } from 'react';
-import news from '../../data/news';
 import NewsPost from '../../components/NewsPost/NewsPost';
 import styles from './News.module.scss';
 import { Context } from '../..';
@@ -13,7 +12,7 @@ const News = () => {
 
   useEffect(() => {
     newsStore.loadNews();
-  }, []);
+  }, [newsStore]);
 
   return (
     <div className={styles.container}>
@@ -29,7 +28,7 @@ const News = () => {
         </div>
       )}
       <Link to={'./add_news'} className={styles.buttonCreate}>
-        <img src={Plus} />
+        <img src={Plus} alt="" />
       </Link>
     </div>
   );

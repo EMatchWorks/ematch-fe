@@ -26,7 +26,7 @@ const UserLayout = () => {
         return <NotFound />;
       }
     })();
-  }, []);
+  }, [params.user_id]);
 
   const activeLinkHandler = (isActive: boolean) => {
     return isActive ? styles.activeLink : styles.link;

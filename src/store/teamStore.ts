@@ -1,4 +1,4 @@
-import { makeAutoObservable, set } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 import { ITeam } from '../models/Team/ITeam';
 
 // The `team` module (and its endpoints, e.g. GET /team/:id, POST /match/join)

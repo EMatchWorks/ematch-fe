@@ -45,7 +45,7 @@ const MatchHistory = () => {
       {matchHistory.map((match, index) => (
         <div key={index} className={styles.history}>
           <div className={styles.mapImg}>
-            <img src={mapBGHandler(match.map)} />
+            <img src={mapBGHandler(match.map)} alt={match.map} />
           </div>
           <div className={styles.data}>
             <div className={styles.count}>{match.count}</div>

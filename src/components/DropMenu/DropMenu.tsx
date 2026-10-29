@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styles from './DropMenu.module.scss';
-import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 type DropMenuProps = {
   name: string;
@@ -18,7 +17,7 @@ const DropMenu = (props: DropMenuProps) => {
   });
 
   const setInputParamsStylesHandler = () => {
-    if (inputParamsStyles.height == '0px') {
+    if (inputParamsStyles.height === '0px') {
       setInputParamsStyles({
         height: `${
           props.paramsList.length < 3 ? props.paramsList.length * 50 : 150

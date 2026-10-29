@@ -2,9 +2,7 @@ import { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './CreateMatch.module.scss';
 import DropMenu from '../DropMenu/DropMenu';
-import MatchService from '../../services/MatchService';
 import { Context } from '../..';
-import MatchStore from '../../store/matchStore';
 import { useNavigate } from 'react-router-dom';
 
 // Labels only - the actual match is created with a numeric teamSize

@@ -1,4 +1,4 @@
-import { makeAutoObservable, observable } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 
 import NewsService from '../services/NewsService';
 import { INews } from '../models/News/INews';

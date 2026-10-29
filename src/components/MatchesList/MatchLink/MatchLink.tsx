@@ -12,7 +12,6 @@ import anchientBG from '../../../assets/background/Maps/de_ancient.jpg';
 import trainBG from '../../../assets/background/Maps/de_train.jpg';
 import vertigoBG from '../../../assets/background/Maps/de_vertigo.jpg';
 import anubisBG from '../../../assets/background/Maps/de_anubis.jpg';
-import users from '../../../data/user';
 import maps from '../../../data/map';
 
 const MatchLink = ({ match }: any) => {
@@ -41,9 +40,6 @@ const MatchLink = ({ match }: any) => {
       default:
         break;
     }
-  };
-  const findUserName = (id: number): string => {
-    return users.find((user) => user.id === id)?.userName || '';
   };
   return (
     <div>

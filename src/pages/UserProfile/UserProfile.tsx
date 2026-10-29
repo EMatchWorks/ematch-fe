@@ -33,8 +33,8 @@ const User = () => {
           (isOpenStatistic ? styles.statisticButtonOpen : '')
         }
       >
-        <img className={styles.statisticIcon} src={StatisticIcon} />
-        <img className={styles.plusIcon} src={Plus} />
+        <img className={styles.statisticIcon} src={StatisticIcon} alt="" />
+        <img className={styles.plusIcon} src={Plus} alt="" />
       </div>
       <div
         onClick={() => setIsOpenStatistic(false)}

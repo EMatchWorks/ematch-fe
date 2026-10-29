@@ -31,7 +31,7 @@ const Play = () => {
           (isOpenCreate ? styles.createMatchButtonOpen : '')
         }
       >
-        <img src={Plus} />
+        <img src={Plus} alt="" />
       </div>
       <div
         onClick={() => setIsOpenCreate(false)}

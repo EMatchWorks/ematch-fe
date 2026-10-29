@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './TournamentsList.module.scss';
 import tournamentList from '../../data/tournamentList';
 import TournamentBanner from '../../components/TournamentBanner/TournamentBanner';
-import { Link } from 'react-router-dom';
 
 const TournamentsList = () => {
   return (

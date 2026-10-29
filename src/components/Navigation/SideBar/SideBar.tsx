@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import Play from '../../../assets/icons/Sidebar/Play/Play';
 import News from '../../../assets/icons/Sidebar/News/News';
 import Tournaments from '../../../assets/icons/Sidebar/Cup/Cup';
-import Anticheat from '../../../assets/icons/Sidebar/Anticheat/Anticheat';
 import styles from './SideBar.module.scss';
 
 interface Props {
