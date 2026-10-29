@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Socket } from 'socket.io-client';
 
@@ -78,6 +78,7 @@ const Match = () => {
   const [isError, setIsError] = useState(false);
 
   const params = useParams();
+  const navigate = useNavigate();
   const matchID = params.match_id as string;
   const socketRef = useRef<Socket | null>(null);
   const [disconnectedUserIds, setDisconnectedUserIds] = useState<Set<string>>(
@@ -85,6 +86,8 @@ const Match = () => {
   );
   const [isStartConfirmOpen, setIsStartConfirmOpen] = useState(false);
   const [startError, setStartError] = useState<string | null>(null);
+  const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -126,6 +129,7 @@ const Match = () => {
         });
       },
       (message) => setStartError(message),
+      () => navigate('/play'),
     );
     socketRef.current = socket;
 
@@ -133,7 +137,7 @@ const Match = () => {
       socketRef.current = null;
       unsubscribe();
     };
-  }, [matchID, userStore.user.id]);
+  }, [matchID, userStore.user.id, navigate]);
 
   const addUserAtTeam = (teamID: number) => {
     if (!socketRef.current) return;
@@ -158,6 +162,7 @@ const Match = () => {
   const isParticipant = matchData?.memberships?.some(
     (membership) => membership.userId === userStore.user.id,
   );
+  const isOwner = matchData?.creatorId === userStore.user.id;
   const isCaptain = matchData?.memberships?.some(
     (membership) =>
       membership.userId === userStore.user.id && membership.isCaptain,
@@ -184,6 +189,16 @@ const Match = () => {
       userId: userStore.user.id,
       matchId: matchID,
     });
+  };
+
+  const deleteMatch = async () => {
+    setIsDeleteConfirmOpen(false);
+    try {
+      await MatchService.remove(matchID);
+      navigate('/play');
+    } catch (e: any) {
+      setDeleteError(e.response?.data?.message ?? 'Failed to delete match');
+    }
   };
 
   const teamHandler = (teamNumber: number) => {
@@ -285,6 +300,19 @@ const Match = () => {
                   {t('match.leaveMatch')}
                 </button>
               )}
+              {isOwner &&
+                matchData.status !== EMatchStatus.Starting &&
+                matchData.status !== EMatchStatus.InProgress && (
+                  <button
+                    className={styles.matchLink + ' ' + styles.leaveButton}
+                    onClick={() => setIsDeleteConfirmOpen(true)}
+                  >
+                    {t('match.deleteMatch')}
+                  </button>
+                )}
+              {deleteError && (
+                <div className={styles.startError}>{deleteError}</div>
+              )}
             </div>
             <div className={styles.team}>
               <MatchTeam
@@ -311,6 +339,15 @@ const Match = () => {
           confirmLabel={t('match.startConfirmConfirm')}
           onConfirm={startMatch}
           onCancel={() => setIsStartConfirmOpen(false)}
+        />
+      )}
+      {isDeleteConfirmOpen && (
+        <ConfirmDialog
+          title={t('match.deleteConfirmTitle')}
+          message={t('match.deleteConfirmMessage')}
+          confirmLabel={t('match.deleteConfirmConfirm')}
+          onConfirm={deleteMatch}
+          onCancel={() => setIsDeleteConfirmOpen(false)}
         />
       )}
     </div>

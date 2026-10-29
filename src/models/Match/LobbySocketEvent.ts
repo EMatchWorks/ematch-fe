@@ -32,4 +32,7 @@ export enum LobbySocketEvent {
   // Dathost reported the match ended (via its match_end_url webhook) -
   // status flips to Finished.
   Finished = 'lobby:finished',
+  // The match owner (or an admin) deleted the match - the row is gone, so
+  // anyone still viewing its lobby needs to be redirected away.
+  Deleted = 'lobby:deleted',
 }

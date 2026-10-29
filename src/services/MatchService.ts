@@ -44,6 +44,10 @@ export default class MatchService {
     return $api.get('matches', { params: { status: statuses } });
   }
 
+  static async remove(id: string): Promise<AxiosResponse<void>> {
+    return $api.delete(`matches/${id}`);
+  }
+
   static subscribeToMatch(
     matchId: string,
     userId: string,
@@ -53,6 +57,7 @@ export default class MatchService {
     // reach this socket, so no matchId filtering is needed here either.
     onPresenceChange?: (userId: string, isConnected: boolean) => void,
     onStartFailed?: (message: string) => void,
+    onDeleted?: () => void,
   ): { socket: Socket; unsubscribe: () => void } {
     // MatchGateway.handleConnection reads handshake.auth.userId to know who
     // to remove from pending matches on disconnect, and handshake.auth.matchId
@@ -79,6 +84,11 @@ export default class MatchService {
     });
     socket.on(LobbySocketEvent.StartFailed, ({ message }) => {
       onStartFailed?.(message);
+    });
+    socket.on(LobbySocketEvent.Deleted, ({ matchId: deletedMatchId }) => {
+      if (deletedMatchId === matchId) {
+        onDeleted?.();
+      }
     });
 
     return {

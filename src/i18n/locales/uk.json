@@ -54,7 +54,11 @@
     "joinSlot": "Приєднатися",
     "startConfirmTitle": "Неповний склад",
     "startConfirmMessage": "У лобі {{count}} з {{max}} гравців. Почати матч без повного складу?",
-    "startConfirmConfirm": "Почати"
+    "startConfirmConfirm": "Почати",
+    "deleteMatch": "Видалити матч",
+    "deleteConfirmTitle": "Видалення матчу",
+    "deleteConfirmMessage": "Ви впевнені, що хочете видалити цей матч? Цю дію неможливо скасувати.",
+    "deleteConfirmConfirm": "Видалити"
   },
   "matchUser": {
     "captain": "Капітан",

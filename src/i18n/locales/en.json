@@ -54,7 +54,11 @@
     "joinSlot": "Join",
     "startConfirmTitle": "Incomplete lineup",
     "startConfirmMessage": "The lobby has {{count}} of {{max}} players. Start the match without a full lineup?",
-    "startConfirmConfirm": "Start"
+    "startConfirmConfirm": "Start",
+    "deleteMatch": "Delete match",
+    "deleteConfirmTitle": "Delete match",
+    "deleteConfirmMessage": "Are you sure you want to delete this match? This cannot be undone.",
+    "deleteConfirmConfirm": "Delete"
   },
   "matchUser": {
     "captain": "Captain",
