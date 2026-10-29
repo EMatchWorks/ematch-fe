@@ -1,7 +1,12 @@
 import { IWrappedAuthResponse } from './../models/response/AuthResponse';
 import axios from 'axios';
 
-export const API_URL = 'http://localhost:3000/api';
+// In production the frontend is served from the same origin as the API
+// (edge-nginx routes /api and /socket.io to the backend container), so a
+// relative path works there. Local dev runs the frontend and backend on
+// different ports with no reverse proxy in front, so REACT_APP_API_URL
+// (see .env.development) overrides it to point straight at the backend.
+export const API_URL = process.env.REACT_APP_API_URL || '/api';
 
 const $api = axios.create({
   withCredentials: true,
