@@ -8,9 +8,6 @@ import ru from './locales/ru.json';
 export const SUPPORTED_LANGUAGES = ['uk', 'en', 'ru'] as const;
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 
-// Ukrainian is the language the app was originally written in, so it's the
-// fallback for any key not yet translated into en/ru rather than a raw key
-// name showing up in the UI.
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -20,13 +17,13 @@ i18n
       en: { translation: en },
       ru: { translation: ru },
     },
-    fallbackLng: 'uk',
+    fallbackLng: 'en',
     supportedLngs: SUPPORTED_LANGUAGES,
     interpolation: {
       escapeValue: false,
     },
     detection: {
-      order: ['localStorage', 'navigator'],
+      order: ['localStorage'],
       lookupLocalStorage: 'language',
       caches: ['localStorage'],
     },
