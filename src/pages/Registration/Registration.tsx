@@ -1,8 +1,9 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Context } from '../..';
 import Input from '../../components/Input/Input';
 import styles from './Registration.module.scss';
+import { useAppDispatch } from '../../store/hooks';
+import { registration } from '../../store/userSlice';
 
 const loginRegex: RegExp = /^[a-zA-Z0-9_-]{4,16}$/;
 const emailRegex: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -18,7 +19,7 @@ const Registration = () => {
     email: false,
     password: false,
   });
-  const { userStore } = useContext(Context);
+  const dispatch = useAppDispatch();
   async function handlerFormSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
     const validateErrors = {
@@ -33,7 +34,7 @@ const Registration = () => {
     ) {
       setErrors({ ...validateErrors });
     } else {
-      await userStore.registration(username, email, password);
+      await dispatch(registration({ username, email, password }));
       setErrors({ ...validateErrors });
     }
   }

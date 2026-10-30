@@ -1,6 +1,4 @@
-import { observer } from 'mobx-react-lite';
 import { useContext, useEffect, useState } from 'react';
-import { Context } from '../..';
 import styles from './Errors.module.scss';
 import Close from '../../assets/icons/CloseIcon/Close.svg';
 import { IError } from '../../models/Error/IError';

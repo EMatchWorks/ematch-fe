@@ -1,28 +1,29 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import NewsPost from '../../components/NewsPost/NewsPost';
 import styles from './News.module.scss';
-import { Context } from '../..';
 import Preloader from '../../assets/preloader/Preloader';
-import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
 import Plus from '../../assets/icons/Plus/Plus.svg';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { loadNews } from '../../store/newsSlice';
 
 const News = () => {
-  const { newsStore } = useContext(Context);
+  const dispatch = useAppDispatch();
+  const { news, isLoading } = useAppSelector((state) => state.news);
 
   useEffect(() => {
-    newsStore.loadNews();
-  }, [newsStore]);
+    dispatch(loadNews());
+  }, [dispatch]);
 
   return (
     <div className={styles.container}>
-      {newsStore.isLoading ? (
+      {isLoading ? (
         <div className={styles.preloader}>
           <Preloader />
         </div>
       ) : (
         <div>
-          {newsStore.news.map((post, index) => (
+          {news.map((post, index) => (
             <NewsPost title={post.title} text={post.content} key={index} />
           ))}
         </div>
@@ -34,4 +35,4 @@ const News = () => {
   );
 };
 
-export default observer(News);
+export default News;

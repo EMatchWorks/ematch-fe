@@ -1,21 +1,20 @@
 import styles from './CreateNews.module.scss';
 
-import { useState, useContext } from 'react';
-import { Context } from '../..';
+import { useState } from 'react';
 import Input from '../../components/Input/Input';
 import Textarea from '../../components/Textarea/Textarea';
 import { useNavigate } from 'react-router-dom';
+import NewsService from '../../services/NewsService';
 
 const CreateNews = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
-  const { newsStore } = useContext(Context);
 
   async function handlerFormSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
     try {
-      await newsStore.createNews(title, content);
+      await NewsService.createNews(title, content);
       navigate('../');
     } catch (e) {}
   }

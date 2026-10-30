@@ -1,8 +1,8 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './CreateMatch.module.scss';
 import DropMenu from '../DropMenu/DropMenu';
-import { Context } from '../..';
+import MatchService from '../../services/MatchService';
 import { useNavigate } from 'react-router-dom';
 
 // Labels only - the actual match is created with a numeric teamSize
@@ -22,7 +22,6 @@ const maps = [
 
 const CreateMatch = () => {
   const { t } = useTranslation();
-  const { matchStore } = useContext(Context);
   const navigate = useNavigate();
 
   const [modeVarc, setModeVarc] = useState(mode[0]);
@@ -31,12 +30,16 @@ const CreateMatch = () => {
 
   const createMatchHandler = async () => {
     const teamSize = Number(modeVarc.charAt(0));
-    const newMatchID = await matchStore.createMatch(
-      teamSize,
-      selectType[0],
-      mapVarc,
-    );
-    navigate(`./${newMatchID}`);
+    try {
+      const response = await MatchService.create(
+        teamSize,
+        selectType[0],
+        mapVarc,
+      );
+      navigate(`./${response.data.id}`);
+    } catch (e: any) {
+      console.error(e);
+    }
   };
 
   return (

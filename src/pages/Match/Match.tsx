@@ -1,11 +1,10 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Socket } from 'socket.io-client';
 
 import NotFound from '../NotFound/NotFound';
-import { Context } from '../..';
-import { observer } from 'mobx-react-lite';
+import { useAppSelector } from '../../store/hooks';
 import Preloader from '../../assets/preloader/Preloader';
 import styles from './Match.module.scss';
 import MatchTeam from '../../components/MatchTeam/MatchTeam';
@@ -73,7 +72,7 @@ const mapBGHandler = (name: string) => {
 
 const Match = () => {
   const { t } = useTranslation();
-  const { userStore } = useContext(Context);
+  const user = useAppSelector((state) => state.user.user);
   const [matchData, setMatchData] = useState<IMatch>();
   const [isError, setIsError] = useState(false);
 
@@ -102,7 +101,7 @@ const Match = () => {
 
     const { socket, unsubscribe } = MatchService.subscribeToMatch(
       matchID,
-      userStore.user.id,
+      user.id,
       (match) => {
         setMatchData({ ...match });
         // Once a membership is gone (left/kicked) there's nothing left to
@@ -137,13 +136,13 @@ const Match = () => {
       socketRef.current = null;
       unsubscribe();
     };
-  }, [matchID, userStore.user.id, navigate]);
+  }, [matchID, user.id, navigate]);
 
   const addUserAtTeam = (teamID: number) => {
     if (!socketRef.current) return;
 
     MatchService.joinLobby(socketRef.current, {
-      userId: userStore.user.id,
+      userId: user.id,
       matchId: matchID,
       team: teamID as 1 | 2,
       isCaptain: false,
@@ -154,18 +153,18 @@ const Match = () => {
     if (!socketRef.current) return;
 
     MatchService.leaveLobby(socketRef.current, {
-      userId: userStore.user.id,
+      userId: user.id,
       matchId: matchID,
     });
   };
 
   const isParticipant = matchData?.memberships?.some(
-    (membership) => membership.userId === userStore.user.id,
+    (membership) => membership.userId === user.id,
   );
-  const isOwner = matchData?.creatorId === userStore.user.id;
+  const isOwner = matchData?.creatorId === user.id;
   const isCaptain = matchData?.memberships?.some(
     (membership) =>
-      membership.userId === userStore.user.id && membership.isCaptain,
+      membership.userId === user.id && membership.isCaptain,
   );
 
   const playerCount = matchData?.memberships?.length ?? 0;
@@ -186,7 +185,7 @@ const Match = () => {
     setStartError(null);
     setIsStartConfirmOpen(false);
     MatchService.startMatch(socketRef.current, {
-      userId: userStore.user.id,
+      userId: user.id,
       matchId: matchID,
     });
   };
@@ -354,4 +353,4 @@ const Match = () => {
   );
 };
 
-export default observer(Match);
+export default Match;

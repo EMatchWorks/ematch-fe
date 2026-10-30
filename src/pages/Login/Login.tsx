@@ -1,8 +1,9 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Context } from '../..';
 import Input from '../../components/Input/Input';
 import styles from './Login.module.scss';
+import { useAppDispatch } from '../../store/hooks';
+import { login } from '../../store/userSlice';
 
 const loginRegex: RegExp = /^[a-zA-Z0-9_-]{4,16}$/;
 const emailRegex: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -16,7 +17,7 @@ const Login = () => {
   });
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const { userStore } = useContext(Context);
+  const dispatch = useAppDispatch();
   function handlerFornSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
     const validateErrors = {
@@ -26,7 +27,7 @@ const Login = () => {
     if (validateErrors.login || validateErrors.password) {
       setErrors({ ...validateErrors });
     } else {
-      userStore.login(username, password);
+      dispatch(login({ usernameOrEmail: username, password }));
       setErrors({ ...validateErrors });
     }
   }

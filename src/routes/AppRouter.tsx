@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import PublicMainLayout from '../layouts/PublicMainLayout/PublicMainLayout';
@@ -19,18 +19,17 @@ import UserFriends from '../pages/UserFriends/UserFriends';
 import Tournament from '../pages/Tournament/Tournament';
 import CreateTournament from '../pages/CreateTournament/CreateTournament';
 import CreateNews from '../pages/CreateNews/CreateNews';
-import { Context } from '..';
 import PrivateMainLayout from '../layouts/PrivateMainLayout/PrivateMainLayout';
-import { observer } from 'mobx-react-lite';
 import Preloader from '../assets/preloader/Preloader';
 import styles from './AppRouter.module.scss';
 import SteamRelocate from '../pages/SteamRealocate/SteamRealocate';
+import { useAppSelector } from '../store/hooks';
 
 const AppRouter = () => {
-  const { userStore } = useContext(Context);
+  const { isLoading, isAuth, user } = useAppSelector((state) => state.user);
   return (
     <Routes>
-      {userStore.isLoading ? (
+      {isLoading ? (
         <>
           <Route path="*" element={<PublicMainLayout />}>
             <Route
@@ -43,8 +42,8 @@ const AppRouter = () => {
             />
           </Route>
         </>
-      ) : userStore.isAuth ? (
-        userStore.user?.steamId === null ? (
+      ) : isAuth ? (
+        user?.steamId === null ? (
           <Route path="*" element={<SteamRelocate />} />
         ) : (
           <>
@@ -97,4 +96,4 @@ const AppRouter = () => {
   );
 };
 
-export default observer(AppRouter);
+export default AppRouter;

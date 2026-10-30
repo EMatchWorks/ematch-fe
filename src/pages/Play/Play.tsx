@@ -1,4 +1,3 @@
-import { observer } from 'mobx-react-lite';
 import CreateMatch from '../../components/CreateMatch/CreateMatch';
 import MatchesList from '../../components/MatchesList/MatchesList';
 import styles from './Play.module.scss';
@@ -45,4 +44,4 @@ const Play = () => {
   );
 };
 
-export default observer(Play);
+export default Play;

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './MatchesList.module.scss';
 import users from '../../data/user';
 
@@ -6,19 +6,22 @@ import MatchLink from './MatchLink/MatchLink';
 import MatchSearch from './MatchSearch/MatchSearch';
 import MatchMapFilter from './MatchMapFilter/MatchMapFilter';
 import maps from '../../data/map';
-import { observer } from 'mobx-react-lite';
-import { Context } from '../..';
 import Preloader from '../../assets/preloader/Preloader';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { loadMatchList } from '../../store/matchSlice';
 
 const MatchesList = () => {
-  const { matchStore } = useContext(Context);
+  const dispatch = useAppDispatch();
+  const { matchList, isLoadingMatchList } = useAppSelector(
+    (state) => state.match,
+  );
 
   const [inputValue, setInputValue] = useState('');
   const [mapFilter, setMapFilter] = useState<string[]>([]);
 
   useEffect(() => {
-    matchStore.loadMatchList().catch();
-  }, [matchStore]);
+    dispatch(loadMatchList());
+  }, [dispatch]);
 
   const findUserName = (id: string): string => {
     // `users` is local mock data with numeric ids, while match.creatorId is
@@ -32,7 +35,7 @@ const MatchesList = () => {
 
   return (
     <div className={styles.container}>
-      {matchStore.isLoadingMatchList ? (
+      {isLoadingMatchList ? (
         <div className={styles.preloader}>
           <Preloader />
         </div>
@@ -42,7 +45,7 @@ const MatchesList = () => {
           <MatchMapFilter mapFilter={mapFilter} setMapFilter={setMapFilter} />
           <div className={styles.gridContainer}>
             {' '}
-            {matchStore.matchList.map((match) =>
+            {matchList.map((match) =>
               (findUserName(match.creatorId)
                 .toLocaleLowerCase()
                 .includes(inputValue.toLocaleLowerCase()) ||
@@ -61,4 +64,4 @@ const MatchesList = () => {
   );
 };
 
-export default observer(MatchesList);
+export default MatchesList;
